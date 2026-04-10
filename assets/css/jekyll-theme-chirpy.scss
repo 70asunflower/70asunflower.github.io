@@ -26,3 +26,20 @@
 .sidebar-bottom a[aria-label="csdn"]:hover i.fab.fa-csdn {
   opacity: 0.8;
 }
+
+/* Xiaohongshu custom icon - replace Font Awesome placeholder with SVG background */
+.sidebar-bottom a[aria-label="xiaohongshu"] i.fab.fa-xiaohongshu {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: url('/assets/img/xiaohongshu.svg') no-repeat center center;
+  background-size: contain;
+  font-size: inherit;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Xiaohongshu icon hover effect */
+.sidebar-bottom a[aria-label="xiaohongshu"]:hover i.fab.fa-xiaohongshu {
+  opacity: 0.8;
+}

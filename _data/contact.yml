@@ -7,6 +7,10 @@
   icon: "fab fa-csdn"
   url: "https://blog.csdn.net/Qnesp?spm=1011.2415.3001.5343"
 
+- type: xiaohongshu
+  icon: "fab fa-xiaohongshu"
+  url: "https://www.xiaohongshu.com/user/profile/6156e8f5000000000202354c"
+
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
