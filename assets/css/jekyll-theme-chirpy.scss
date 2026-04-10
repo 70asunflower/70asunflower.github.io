@@ -43,3 +43,38 @@
 .sidebar-bottom a[aria-label="xiaohongshu"]:hover i.fab.fa-xiaohongshu {
   opacity: 0.8;
 }
+
+/* ===== Home page profile style ===== */
+.home-profile h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.home-profile h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--sidebar-border-color, #e9ecef);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.home-profile .card {
+  border: 1px solid var(--card-border-color, rgba(0, 0, 0, 0.125));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-profile .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.home-profile hr {
+  border: 0;
+  border-top: 1px solid var(--sidebar-border-color, #e9ecef);
+}
+
+.home-profile .badge.bg-secondary {
+  font-weight: 400;
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
