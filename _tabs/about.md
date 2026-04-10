@@ -85,10 +85,10 @@ title: About Me
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--sidebar-border-color, #e9ecef);
+  border: 3px solid var(--avatar-border-color, rgb(206 206 206 / 90%));
 }
 
-/* Section styling - matching Luka template style */
+/* Section styling */
 .section {
   margin-bottom: 1.5rem;
 }
@@ -96,7 +96,7 @@ title: About Me
 .section-title {
   font-size: 1.25rem;
   font-weight: 700;
-  border-bottom: 2px solid var(--sidebar-border-color, #e9ecef);
+  border-bottom: 2px solid var(--main-border-color, #e9ecef);
   padding-bottom: 0.4rem;
   margin-bottom: 1rem;
   color: var(--heading-color);
@@ -108,35 +108,36 @@ title: About Me
   color: var(--text-color);
 }
 
-/* Card styling - dark mode compatible */
+/* Card styling — using Chirpy's --card-bg for dark mode */
 .card {
-  border: 1px solid var(--card-border-color, rgba(128, 128, 128, 0.15));
+  border: 1px solid var(--main-border-color, rgba(128, 128, 128, 0.15));
   border-radius: 8px;
   padding: 1rem 1.2rem;
   margin-bottom: 0.8rem;
-  background: var(--card-bg, var(--main-bg, #fff));
+  background: var(--card-bg, #fff);
 }
 
 /* Experience items */
 .exp-title {
   margin-bottom: 0.2rem;
+  color: var(--text-color);
 }
 
 .exp-detail {
   margin-bottom: 0.15rem;
-  color: var(--text-muted, #999);
+  color: var(--text-muted-color, #999);
 }
 
 .exp-period {
   font-size: 0.85rem;
-  color: var(--text-muted, #999);
+  color: var(--text-muted-color, #999);
   margin-bottom: 0;
 }
 
 /* Timeline items */
 .timeline-item {
   position: relative;
-  border-left: 3px solid var(--sidebar-border-color, #e9ecef);
+  border-left: 3px solid var(--main-border-color, #e9ecef);
   margin-left: 0.5rem;
   padding-left: 1rem;
 }
@@ -145,6 +146,7 @@ title: About Me
 .project-card {
   font-size: 0.95rem;
   line-height: 1.6;
+  color: var(--text-color);
 }
 
 /* Awards */
@@ -166,5 +168,6 @@ title: About Me
 
 .award-text {
   margin: 0;
+  color: var(--text-color);
 }
 </style>

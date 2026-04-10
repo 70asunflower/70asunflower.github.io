@@ -6,7 +6,7 @@ layout: default
 
 <!-- About Me Section -->
 <section id="about-section" class="px-xl-1 mb-4">
-  <div class="card-wrapper card">
+  <div class="card-wrapper card about-card">
     <div class="card-body">
       <h1 class="card-title my-2 mt-md-0">About Me</h1>
       <div class="card-text content">
@@ -97,3 +97,27 @@ layout: default
     </div>
   {% endif %}
 </section>
+
+<style>
+/* About Me card — dark mode fix */
+.about-card {
+  background: var(--card-bg, #fff);
+  border-color: var(--main-border-color, rgba(0, 0, 0, 0.125));
+}
+
+.about-card .card-title {
+  color: var(--heading-color);
+}
+
+.about-card .card-text {
+  color: var(--text-color);
+}
+
+.about-card .card-text li {
+  color: var(--text-color);
+}
+
+.about-card .card-text strong {
+  color: var(--heading-color);
+}
+</style>
