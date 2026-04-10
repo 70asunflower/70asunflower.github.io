@@ -5,6 +5,11 @@ order: 4
 title: About Me
 ---
 
+<!-- Photo -->
+<div class="about-photo-wrapper mb-4">
+  <img src="/assets/img/about-photo.png" alt="Fu Qilin" class="about-photo">
+</div>
+
 <!-- About Me -->
 <div class="section" id="about-me">
   <h3 class="section-title">About Me</h3>
@@ -70,6 +75,19 @@ title: About Me
 </div>
 
 <style>
+/* Photo */
+.about-photo-wrapper {
+  text-align: center;
+}
+
+.about-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--sidebar-border-color, #e9ecef);
+}
+
 /* Section styling - matching Luka template style */
 .section {
   margin-bottom: 1.5rem;
@@ -81,20 +99,22 @@ title: About Me
   border-bottom: 2px solid var(--sidebar-border-color, #e9ecef);
   padding-bottom: 0.4rem;
   margin-bottom: 1rem;
+  color: var(--heading-color);
 }
 
 .section-body p {
   margin-bottom: 0.6rem;
   line-height: 1.7;
+  color: var(--text-color);
 }
 
-/* Card styling */
+/* Card styling - dark mode compatible */
 .card {
-  border: 1px solid var(--card-border-color, rgba(0, 0, 0, 0.08));
+  border: 1px solid var(--card-border-color, rgba(128, 128, 128, 0.15));
   border-radius: 8px;
   padding: 1rem 1.2rem;
   margin-bottom: 0.8rem;
-  background: var(--card-bg, #fff);
+  background: var(--card-bg, var(--main-bg, #fff));
 }
 
 /* Experience items */
@@ -104,12 +124,12 @@ title: About Me
 
 .exp-detail {
   margin-bottom: 0.15rem;
-  color: var(--text-muted, #6c757d);
+  color: var(--text-muted, #999);
 }
 
 .exp-period {
   font-size: 0.85rem;
-  color: var(--text-muted, #6c757d);
+  color: var(--text-muted, #999);
   margin-bottom: 0;
 }
 
