@@ -1,0 +1,28 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == "production" -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* CSDN custom icon - replace Font Awesome placeholder with SVG background */
+.sidebar-bottom a[aria-label="csdn"] i.fab.fa-csdn {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: url('/assets/img/csdn.svg') no-repeat center center;
+  background-size: contain;
+  font-size: inherit;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* CSDN icon hover effect */
+.sidebar-bottom a[aria-label="csdn"]:hover i.fab.fa-csdn {
+  opacity: 0.8;
+}
