@@ -24,11 +24,27 @@ title: About Me
 <div class="section" id="education">
   <h3 class="section-title">Education</h3>
   <div class="section-body">
-    <div class="card">
-      <div class="experience-content">
-        <p class="exp-title"><strong>Shenzhen University</strong></p>
-        <p class="exp-detail">Bachelor of Computer Science</p>
-        <p class="exp-period">2022 - 2026</p>
+    <div class="education-logos">
+      <div class="edu-logo-item">
+        <img src="/assets/img/suat.svg" alt="SUAT" class="edu-logo">
+        <div class="edu-info">
+          <p class="exp-title"><strong>Shenzhen University of Advanced Technology</strong></p>
+          <p class="exp-period">2025 - 2028</p>
+        </div>
+      </div>
+      <div class="edu-logo-item">
+        <img src="/assets/img/南方科技大学-logo.svg" alt="SUSTech" class="edu-logo">
+        <div class="edu-info">
+          <p class="exp-title"><strong>Southern University of Science and Technology</strong></p>
+          <p class="exp-period">2025 - 2028</p>
+        </div>
+      </div>
+      <div class="edu-logo-item">
+        <img src="/assets/img/安徽大学-logo.svg" alt="Anhui University" class="edu-logo">
+        <div class="edu-info">
+          <p class="exp-title"><strong>Anhui University</strong></p>
+          <p class="exp-period">2020 - 2024</p>
+        </div>
       </div>
     </div>
   </div>
@@ -169,5 +185,43 @@ title: About Me
 .award-text {
   margin: 0;
   color: var(--text-color);
+}
+
+/* Education logos */
+.education-logos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.edu-logo-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--main-border-color, rgba(128, 128, 128, 0.15));
+  border-radius: 8px;
+  background: var(--card-bg, #fff);
+}
+
+.edu-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.edu-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.edu-info .exp-title {
+  margin: 0;
+}
+
+.edu-info .exp-period {
+  margin: 0;
 }
 </style>
