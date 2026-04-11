@@ -3,6 +3,8 @@
 icon: fas fa-info-circle
 order: 4
 title: About Me
+seo:
+  title: About Me - Fu Qilin
 ---
 
 <!-- Photo -->
