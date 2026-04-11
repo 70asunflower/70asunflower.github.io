@@ -7,7 +7,7 @@ title: about
 
 <!-- Photo -->
 <div class="about-photo-wrapper mb-4">
-  <img src="/assets/img/about-photo.png" alt="Fu Qilin" class="about-photo">
+  <div class="about-photo" role="img" aria-label="Fu Qilin"></div>
 </div>
 
 <!-- About Me -->
@@ -81,8 +81,8 @@ title: about
 <div class="section" id="projects">
   <h3 class="section-title">Projects</h3>
   <div class="section-body">
-    <div class="project-card"><a href="https://70asunflower.github.io" style="font-weight: 500">Personal Homepage</a> <a href="https://github.com/70asunflower/70asunflower.github.io" target="_blank" style="text-decoration: none; margin-left: 8px;"><img src="https://img.shields.io/github/stars/70asunflower/70asunflower.github.io?style=social&amp;logo=github" alt="GitHub stars" style="vertical-align: middle;"></a>: A personal homepage built with Jekyll &amp; Chirpy theme, featuring a custom About Me page and dark mode support, hosted on GitHub Pages.</div>
-    <div class="project-card"><a href="#" style="font-weight: 500">Notion IM Helper</a> <a href="https://github.com/70asunflower/my-skills" target="_blank" style="text-decoration: none; margin-left: 8px;"><img src="https://img.shields.io/github/stars/70asunflower/my-skills?style=social&amp;logo=github" alt="GitHub stars" style="vertical-align: middle;"></a>: A WorkBuddy skill that syncs IM messages to Notion via Notion API, supporting 7 content types, 4 formats, and 2 metadata types.</div>
+    <div class="project-card"><a href="https://70asunflower.github.io" class="project-name">Personal Homepage</a> <a href="https://github.com/70asunflower/70asunflower.github.io" target="_blank" class="project-badge"><img src="https://img.shields.io/github/stars/70asunflower/70asunflower.github.io?style=social&amp;logo=github" alt="GitHub stars"></a>: A personal homepage built with Jekyll &amp; Chirpy theme, featuring a custom About Me page and dark mode support, hosted on GitHub Pages.</div>
+    <div class="project-card"><a href="#" class="project-name">Notion IM Helper</a> <a href="https://github.com/70asunflower/my-skills" target="_blank" class="project-badge"><img src="https://img.shields.io/github/stars/70asunflower/my-skills?style=social&amp;logo=github" alt="GitHub stars"></a>: A WorkBuddy skill that syncs IM messages to Notion via Notion API, supporting 7 content types, 4 formats, and 2 metadata types.</div>
   </div>
 </div>
 
@@ -121,12 +121,16 @@ title: about
 }
 
 .about-photo {
+  display: inline-block;
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  object-fit: cover;
+  background-image: url("/assets/img/about-photo.png");
+  background-size: cover;
+  background-position: center;
   border: 3px solid rgba(var(--about-accent-rgb), 0.3);
   transition: border-color 0.3s;
+  cursor: default;
 }
 
 .about-photo:hover {
@@ -162,6 +166,7 @@ title: about
   border: none;
   border-radius: 0;
   margin-bottom: 0;
+  cursor: default;
 }
 
 /* Experience items */
@@ -185,10 +190,6 @@ title: about
 .logo-suat { background-image: url("/assets/img/suat.svg"); }
 .logo-sustech { background-image: url("/assets/img/南方科技大学-logo.svg"); }
 .logo-ahu { background-image: url("/assets/img/安徽大学-logo.svg"); }
-
-.card {
-  cursor: default;
-}
 
 .experience-content {
   flex: 1;
@@ -257,9 +258,18 @@ title: about
   color: var(--text-color);
 }
 
-.project-card a:first-child {
+.project-name {
   font-weight: 600;
   font-size: 16px;
+}
+
+.project-badge {
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.project-badge img {
+  vertical-align: middle;
 }
 
 .project-card + .project-card {
@@ -318,5 +328,7 @@ title: about
   }
 }
 </style>
+
+
 
 
