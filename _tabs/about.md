@@ -2,7 +2,7 @@
 # the default layout is 'page'
 icon: fas fa-info-circle
 order: 4
-title: About Me
+title: about
 ---
 
 <!-- Photo -->
@@ -251,13 +251,15 @@ title: About Me
   color: var(--text-color);
 }
 
-.project-card a {
+.project-card p,
+.project-card a,
+.project-card img,
+.project-card span {
   display: inline !important;
 }
 
-.project-card img {
-  display: inline !important;
-  vertical-align: middle !important;
+.project-card br {
+  display: none !important;
 }
 
 .project-card + .project-card {
