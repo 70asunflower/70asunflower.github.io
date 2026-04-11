@@ -314,3 +314,26 @@ title: about
   }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.institution-logo').forEach(function(img) {
+    img.removeAttribute('data-src');
+    img.removeAttribute('data-srcset');
+    img.classList.remove('img-click');
+    img.style.cursor = 'default';
+    img.style.pointerEvents = 'none';
+    var parent = img.parentElement;
+    if (parent && parent.tagName === 'A') {
+      parent.removeAttribute('href');
+      parent.style.cursor = 'default';
+    }
+    img.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      return false;
+    }, true);
+  });
+});
+</script>
