@@ -3,8 +3,6 @@
 icon: fas fa-info-circle
 order: 4
 title: About Me
-seo:
-  title: About Me - Fu Qilin
 ---
 
 <!-- Photo -->
@@ -33,7 +31,7 @@ seo:
         <div class="experience-content">
           <p class="exp-title"><strong>Shenzhen University of Advanced Technology</strong></p>
           <p class="exp-detail">Master of Engineering in Electronic Information</p>
-          <p class="exp-period">2024 - Present</p>
+          <p class="exp-period">2025 - Present</p>
         </div>
       </div>
     </div>
@@ -44,7 +42,7 @@ seo:
         <div class="experience-content">
           <p class="exp-title"><strong>Southern University of Science and Technology</strong></p>
           <p class="exp-detail">Master of Engineering in Electronic Information</p>
-          <p class="exp-period">2024 - Present</p>
+          <p class="exp-period">2025 - Present</p>
         </div>
       </div>
     </div>
@@ -183,6 +181,7 @@ seo:
   flex-shrink: 0;
   object-fit: contain;
   border-radius: 6px;
+  pointer-events: none;
 }
 
 .experience-content {
@@ -250,6 +249,15 @@ seo:
   line-height: 1.7;
   padding: 0 0 14px !important;
   color: var(--text-color);
+}
+
+.project-card a {
+  display: inline !important;
+}
+
+.project-card img {
+  display: inline !important;
+  vertical-align: middle !important;
 }
 
 .project-card + .project-card {
