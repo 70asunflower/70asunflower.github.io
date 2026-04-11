@@ -27,7 +27,7 @@ title: about
 
     <div class="card">
       <div class="experience-item">
-        <img src="/assets/img/suat.svg" alt="SUAT" class="institution-logo">
+        <div class="institution-logo logo-suat" title="Shenzhen University of Advanced Technology"></div>
         <div class="experience-content">
           <p class="exp-title"><strong>Shenzhen University of Advanced Technology</strong></p>
           <p class="exp-detail">Master of Engineering in Electronic Information</p>
@@ -38,7 +38,7 @@ title: about
 
     <div class="card">
       <div class="experience-item">
-        <img src="/assets/img/南方科技大学-logo.svg" alt="SUSTech" class="institution-logo">
+        <div class="institution-logo logo-sustech" title="Southern University of Science and Technology"></div>
         <div class="experience-content">
           <p class="exp-title"><strong>Southern University of Science and Technology</strong></p>
           <p class="exp-detail">Master of Engineering in Electronic Information</p>
@@ -49,7 +49,7 @@ title: about
 
     <div class="card">
       <div class="experience-item">
-        <img src="/assets/img/安徽大学-logo.svg" alt="Anhui University" class="institution-logo">
+        <div class="institution-logo logo-ahu" title="Anhui University"></div>
         <div class="experience-content">
           <p class="exp-title"><strong>Anhui University</strong></p>
           <p class="exp-detail">Bachelor of Engineering in Electronic Science and Technology</p>
@@ -175,9 +175,16 @@ title: about
   width: 52px;
   height: 52px;
   flex-shrink: 0;
-  object-fit: contain;
   border-radius: 6px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: default;
 }
+
+.logo-suat { background-image: url("/assets/img/suat.svg"); }
+.logo-sustech { background-image: url("/assets/img/南方科技大学-logo.svg"); }
+.logo-ahu { background-image: url("/assets/img/安徽大学-logo.svg"); }
 
 .card {
   cursor: default;
@@ -312,18 +319,4 @@ title: about
 }
 </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.institution-logo').forEach(function(img) {
-    var parent = img.parentElement;
-    if (parent && parent.tagName === 'A') {
-      // Remove the <a> wrapper entirely, keep the <img>
-      parent.parentNode.replaceChild(img, parent);
-    }
-    img.style.cursor = 'default';
-    img.removeAttribute('data-src');
-    img.removeAttribute('data-srcset');
-    img.classList.remove('img-click');
-  });
-});
-</script>
+
