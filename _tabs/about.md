@@ -178,6 +178,12 @@ title: about
   object-fit: contain;
   border-radius: 6px;
   pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.card {
+  cursor: default;
 }
 
 .experience-content {
@@ -241,14 +247,15 @@ title: about
 
 /* Project cards */
 .project-card {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   padding: 0 0 14px;
   color: var(--text-color);
 }
 
 .project-card a:first-child {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .project-card + .project-card {
