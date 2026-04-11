@@ -177,9 +177,6 @@ title: about
   flex-shrink: 0;
   object-fit: contain;
   border-radius: 6px;
-  pointer-events: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 .card {
@@ -318,22 +315,15 @@ title: about
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.institution-logo').forEach(function(img) {
+    var parent = img.parentElement;
+    if (parent && parent.tagName === 'A') {
+      // Remove the <a> wrapper entirely, keep the <img>
+      parent.parentNode.replaceChild(img, parent);
+    }
+    img.style.cursor = 'default';
     img.removeAttribute('data-src');
     img.removeAttribute('data-srcset');
     img.classList.remove('img-click');
-    img.style.cursor = 'default';
-    img.style.pointerEvents = 'none';
-    var parent = img.parentElement;
-    if (parent && parent.tagName === 'A') {
-      parent.removeAttribute('href');
-      parent.style.cursor = 'default';
-    }
-    img.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-      return false;
-    }, true);
   });
 });
 </script>
