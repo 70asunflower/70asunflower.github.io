@@ -26,36 +26,40 @@ seo:
 <div class="section" id="education">
   <h3 class="section-title">Education</h3>
   <div class="section-body">
+
     <div class="card">
       <div class="experience-item">
         <img src="/assets/img/suat.svg" alt="SUAT" class="institution-logo">
         <div class="experience-content">
           <p class="exp-title"><strong>Shenzhen University of Advanced Technology</strong></p>
-          <p class="exp-detail">Bachelor of Computer Science</p>
-          <p class="exp-period">2025 - 2028</p>
+          <p class="exp-detail">Master of Engineering in Electronic Information</p>
+          <p class="exp-period">2024 - Present</p>
         </div>
       </div>
     </div>
+
     <div class="card">
       <div class="experience-item">
         <img src="/assets/img/南方科技大学-logo.svg" alt="SUSTech" class="institution-logo">
         <div class="experience-content">
           <p class="exp-title"><strong>Southern University of Science and Technology</strong></p>
-          <p class="exp-detail">Bachelor of Computer Science</p>
-          <p class="exp-period">2025 - 2028</p>
+          <p class="exp-detail">Master of Engineering in Electronic Information</p>
+          <p class="exp-period">2024 - Present</p>
         </div>
       </div>
     </div>
+
     <div class="card">
       <div class="experience-item">
         <img src="/assets/img/安徽大学-logo.svg" alt="Anhui University" class="institution-logo">
         <div class="experience-content">
           <p class="exp-title"><strong>Anhui University</strong></p>
-          <p class="exp-detail">Bachelor of Engineering</p>
+          <p class="exp-detail">Bachelor of Engineering in Electronic Science and Technology</p>
           <p class="exp-period">2020 - 2024</p>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -80,10 +84,10 @@ seo:
   <h3 class="section-title">Projects</h3>
   <div class="section-body">
     <div class="card project-card">
-      <a href="https://70asunflower.github.io" style="font-weight: 600">Personal Homepage</a> <a href="https://github.com/70asunflower/70asunflower.github.io" target="_blank" style="text-decoration: none; margin-left: 8px;"><i class="fab fa-github"></i></a>: A personal homepage built with Jekyll & Chirpy theme, hosted on GitHub Pages.
+      <a href="https://70asunflower.github.io" style="font-weight: 500">Personal Homepage</a> <a href="https://github.com/70asunflower/70asunflower.github.io" target="_blank" style="text-decoration: none; margin-left: 8px;"><img src="https://img.shields.io/github/stars/70asunflower/70asunflower.github.io?style=social&amp;logo=github" alt="GitHub stars" style="vertical-align: middle;"></a>: A personal homepage built with Jekyll & Chirpy theme, featuring a custom About Me page and dark mode support, hosted on GitHub Pages.
     </div>
     <div class="card project-card">
-      <a href="#" style="font-weight: 600">Notion IM Helper</a> <a href="https://github.com/70asunflower/my-skills" target="_blank" style="text-decoration: none; margin-left: 8px;"><i class="fab fa-github"></i></a>: Sync IM messages to Notion via Notion API.
+      <a href="#" style="font-weight: 500">Notion IM Helper</a> <a href="https://github.com/70asunflower/my-skills" target="_blank" style="text-decoration: none; margin-left: 8px;"><img src="https://img.shields.io/github/stars/70asunflower/my-skills?style=social&amp;logo=github" alt="GitHub stars" style="vertical-align: middle;"></a>: A WorkBuddy skill that syncs IM messages to Notion via Notion API, supporting 7 content types, 4 formats, and 2 metadata types.
     </div>
   </div>
 </div>
