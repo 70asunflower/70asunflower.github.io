@@ -4,6 +4,7 @@ author: Fu Qilin
 categories: [Tutorial]
 tags: [git, version-control, best-practices]
 date: 2026-04-08
+excerpt: "A concise comparison of Git Flow, GitHub Flow, and Trunk-Based Development — plus practical commands to keep your branch history clean."
 ---
 
 ## Common Branching Models

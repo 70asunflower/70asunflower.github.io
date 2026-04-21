@@ -2,7 +2,7 @@
 # the default layout is 'page'
 icon: fas fa-info-circle
 order: 4
-title: about
+title: About
 ---
 
 <!-- Photo -->
@@ -16,7 +16,7 @@ title: about
   <div class="section-body">
     <p>Hi, my name is <strong>Fu Qilin</strong>. I am a tech enthusiast and creator based in Shenzhen, China. My interests focus on programming, tools, and continuous growth.</p>
     <p>I enjoy building projects, automating workflows, and sharing what I learn. I believe in learning by doing — every project is a chance to level up.</p>
-    <p><strong><a href="#">Download my CV</a></strong> (Updated: April 2026)</p>
+    <p><strong><a href="https://github.com/70asunflower" target="_blank" rel="noopener">View my GitHub →</a></strong></p>
   </div>
 </div>
 

@@ -4,6 +4,7 @@ author: Fu Qilin
 categories: [Tutorial]
 tags: [jekyll, chirpy, github-pages]
 date: 2026-04-10
+excerpt: "A beginner-friendly guide to setting up your first Jekyll blog with the Chirpy theme — from install to deploy on GitHub Pages."
 ---
 
 ## Why Jekyll?

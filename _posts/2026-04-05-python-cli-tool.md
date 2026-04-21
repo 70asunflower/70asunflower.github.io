@@ -4,6 +4,7 @@ author: Fu Qilin
 categories: [Coding]
 tags: [python, cli, automation]
 date: 2026-04-05
+excerpt: "A step-by-step guide to building a batch file rename CLI tool with argparse and pathlib in under 30 minutes."
 ---
 
 ## The Goal

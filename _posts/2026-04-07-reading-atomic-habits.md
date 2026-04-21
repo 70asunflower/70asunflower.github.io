@@ -4,6 +4,7 @@ author: Fu Qilin
 categories: [Life]
 tags: [reading, habits, productivity]
 date: 2026-04-07
+excerpt: "Key takeaways from James Clear's Atomic Habits — why systems beat goals, and how to apply the four laws of behavior change to coding and daily life."
 ---
 
 ## Core Idea

@@ -4,6 +4,7 @@ author: Fu Qilin
 categories: [Tools]
 tags: [vscode, productivity, web-dev]
 date: 2026-04-09
+excerpt: "The extensions, settings, and keyboard shortcuts I use every day for productive web development in VS Code:."
 ---
 
 ## Must-Have Extensions

@@ -1,0 +1,7 @@
+# robots.txt for 70asunflower.github.io
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+Sitemap: https://70asunflower.github.io/sitemap.xml
