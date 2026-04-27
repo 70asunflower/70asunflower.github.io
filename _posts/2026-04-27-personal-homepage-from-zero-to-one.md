@@ -8,6 +8,8 @@ excerpt: "从静态网页概念到 Jekyll 核心结构，从选主题到 AI Agen
 mermaid: true
 ---
 
+{% raw %}
+
 > **本文同步发布于 [CSDN](https://blog.csdn.net/Qnesp/article/details/160060289)。**
 >
 > 文中的 [Demo](https://70asunflower.github.io/) 即为本站。
@@ -846,3 +848,5 @@ GitHub Pages 或 Actions 自动运行 jekyll build
 ---
 
 *全文完*
+
+{% endraw %}
