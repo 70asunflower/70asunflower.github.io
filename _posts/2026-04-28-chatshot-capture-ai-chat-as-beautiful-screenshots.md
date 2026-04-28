@@ -1,7 +1,7 @@
 ---
 title: "ChatShot：把 AI 对话变成精美截图"
 author: Fu Qilin
-categories: [Tools]
+categories: [My_products]
 tags: [chrome-extension, ai, open-source, chatshot]
 date: 2026-04-28
 excerpt: "一个浏览器插件，解决 AI 对话截图分享的所有痛点——块级选择、智能拼图、主题适配，9 大平台全覆盖。"
