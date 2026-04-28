@@ -1,0 +1,6 @@
+- name: Books
+  description: Reading notes and book reviews
+- name: My_products
+  description: Projects I built and shipped
+- name: Tutorial
+  description: Step-by-step guides and how-tos
