@@ -1,5 +1,5 @@
 ---
-title: "大厂不会告诉你的秘密：你的AI对话背后，一半的GPU算力都在"空转""
+title: '大厂不会告诉你的秘密：你的AI对话背后，一半的GPU算力都在"空转"'
 author: Fu Qilin
 categories: [Notebook]
 tags: [llm-inference, gpu, kv-cache, goodput, prefill-decode]
