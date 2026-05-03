@@ -2,7 +2,7 @@
   description: Reading notes and book reviews
 - name: My_products
   description: Projects I built and shipped
-- name: Notebook
+- name: Memo
   description: Technical notes and learning archives
 - name: Tutorial
   description: Step-by-step guides and how-tos

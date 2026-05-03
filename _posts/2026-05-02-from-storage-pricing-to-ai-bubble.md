@@ -1,7 +1,7 @@
 ---
 title: '从存储涨价到AI泡沫：2026-2027，算总账的时刻'
 author: Fu Qilin
-categories: [Notebook]
+categories: [Memo]
 tags: [ai-bubble, storage, hbm, cloud-pricing, roi, industry-analysis]
 date: 2026-05-02
 excerpt: "从HBM涨价到云服务首次提价，从ROI账本到NeoCloud现象，拆解2026-2027年AI产业清算的逻辑链条。"

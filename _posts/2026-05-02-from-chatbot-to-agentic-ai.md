@@ -1,7 +1,7 @@
 ---
 title: '从Chatbot到Agentic AI：系统架构、商业模式与产业认知的深度拆解'
 author: Fu Qilin
-categories: [Notebook]
+categories: [Memo]
 tags: [agentic-ai, agent, cuda, nvidia, business-model, industry-analysis]
 date: 2026-05-02
 excerpt: "Agentic AI的系统架构、CPU/GPU新分工、从Token到Transaction Fee的商业模式演进、CUDA护城河的变迁与产业认知训练方法。"

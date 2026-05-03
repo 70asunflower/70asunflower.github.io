@@ -1,7 +1,7 @@
 ---
 title: '从Token到芯片：AI推理时代的效率竞争与市场逻辑'
 author: Fu Qilin
-categories: [Notebook]
+categories: [Memo]
 tags: [token, inference, ai-chip, nvidia, pricing-model, industry-analysis]
 date: 2026-05-02
 excerpt: "Token作为AI通用货币、从包月到按任务付费的演进、中国芯片公司的生存账本、推理场景下NVIDIA护城河的变迁。"

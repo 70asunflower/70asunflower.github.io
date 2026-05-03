@@ -1,7 +1,7 @@
 ---
 title: "半导体产业的经济逻辑、技术瓶颈与AI芯片格局：一份学习笔记"
 author: Fu Qilin
-categories: [Notebook]
+categories: [Memo]
 tags: [ai-chip, semiconductor, inference, memory-bandwidth, learning-notes]
 date: 2026-05-01
 excerpt: "半导体赢家通吃的底层逻辑、训练与推理市场分化、Memory Bandwidth per Core 为何关键、推理框架与推理引擎的本质区别。"
