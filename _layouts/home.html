@@ -7,9 +7,9 @@ layout: default
 <!-- About Me Section -->
 <section id="about-section" class="px-xl-1 mb-4">
   <div class="card-wrapper card about-card">
-    <div class="card-body">
-      <h1 class="card-title my-2 mt-md-0">About Me</h1>
-      <div class="card-text content">
+    <div class="card-body about-card-body">
+      <h1 class="card-title my-2 mt-md-0 about-card-title">About Me</h1>
+      <div class="card-text content about-card-text">
         <p>Hi, I'm <strong>Fu Qilin</strong> — a tech enthusiast and creator based in Shenzhen. 🛫</p>
         <p>I write about programming, tools, and continuous growth.</p>
         <ul>
@@ -94,25 +94,47 @@ layout: default
 </section>
 
 <style>
-/* About Me card — dark mode fix */
+/* About Me card — gradient overlay background */
 .about-card {
-  background: var(--card-bg, #fff);
-  border-color: var(--main-border-color, rgba(0, 0, 0, 0.125));
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background: url('{{ "/assets/img/xiaoxin-gaze.jpg" | relative_url }}') center/cover no-repeat;
 }
 
-.about-card .card-title {
-  color: var(--heading-color);
+.about-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0.85) 85%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
 }
 
-.about-card .card-text {
-  color: var(--text-color);
+.about-card-body {
+  position: relative;
+  z-index: 2;
 }
 
-.about-card .card-text li {
-  color: var(--text-color);
+.about-card-title {
+  color: #fff;
 }
 
-.about-card .card-text strong {
-  color: var(--heading-color);
+.about-card-text {
+  color: #fff;
+}
+
+.about-card-text li {
+  color: #fff;
+}
+
+.about-card-text strong {
+  color: #fff;
 }
 </style>
