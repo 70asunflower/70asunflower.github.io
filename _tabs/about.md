@@ -126,7 +126,7 @@ title: About
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  background-image: url("/assets/img/about-photo-xiaoxin.jpg");
+  background-image: url("/assets/img/about-photo.png");
   background-size: cover;
   background-position: center;
   border: 3px solid rgba(var(--about-accent-rgb), 0.3);
