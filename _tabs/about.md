@@ -189,8 +189,8 @@ title: About
 }
 
 .logo-suat { background-image: url("/assets/img/suat.svg"); }
-.logo-sustech { background-image: url("/assets/img/南方科技大学-logo.svg"); }
-.logo-ahu { background-image: url("/assets/img/安徽大学-logo.svg"); }
+.logo-sustech { background-image: url("/assets/img/sustech-logo.svg"); }
+.logo-ahu { background-image: url("/assets/img/ahu-logo.svg"); }
 
 .experience-content {
   flex: 1;
