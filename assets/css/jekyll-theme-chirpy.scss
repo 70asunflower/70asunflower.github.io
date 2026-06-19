@@ -43,3 +43,20 @@
 .sidebar-bottom a[aria-label="xiaohongshu"]:hover i.fab.fa-xiaohongshu {
   opacity: 0.8;
 }
+
+/* --- Copy Protection --- */
+.no-copy-protect {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection on code blocks (for reference lookup) */
+.no-copy-protect pre,
+.no-copy-protect code {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
