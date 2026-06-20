@@ -47,7 +47,7 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google:   # TODO: 待作者填写 Google Search Console 验证码
+  google: 20e94a10652c5fa0   # Google Search Console verification
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
