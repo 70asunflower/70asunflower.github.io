@@ -6,3 +6,5 @@
   description: Technical notes and learning archives
 - name: Tutorial
   description: Step-by-step guides and how-tos
+- name: 分布式计算
+  description: "《The Data Center as a Computer》读书笔记与分布式计算学习专栏"
