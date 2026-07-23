@@ -21,7 +21,15 @@ excerpt: "记录用 AI 辅助阅读《The Data Center as a Computer》的方式�
 
 提醒：如果有人看到，请自行仔细甄别内容真实性，此栏目正文内容均为ai 生成。（这段介绍100%手搓）
 
-
 ## 本栏目正文
 
-- [4.3.2.3 Tracing tools](/posts/4-3-2-3-tracing-tools/) —— 数据中心 tracing 工具：问题背景、技术路线、工程权衡与现代实践
+- [4.3.2.3 Tracing tools](/posts/4-3-2-3-tracing-tools/)
+- [4.3.2.4 Performance tools](/posts/4-3-2-4-performance-tools/)
+- [4.4 Server-level software](/posts/4-4-server-level-software/)
+- [5.1 Data center infrastructure basics](/posts/5-1-data-center-infrastructure-basics/)
+- [5.1.3 Data center taxonomy: Tiers](/posts/5-1-3-data-center-taxonomy-tiers/)
+- [5.1.4 Cloud and AI implications for data center design](/posts/5-1-4-cloud-and-ai-implications-for-data-center-design/)
+- [6.1 WSC building blocks and design considerations](/posts/6-1-wsc-building-blocks-and-design-considerations/)
+- [6.1.2.1 A model to reason about scale-up versus scale-out](/posts/6-1-2-1-a-model-to-reason-about-scale-up-versus-scale-out/)
+- [6.1.2.2 Granularity of scale-out: Brawny versus wimpy cores](/posts/6-1-2-2-granularity-of-scale-out-brawny-versus-wimpy-cores/)
+- [6.1.2.3 Scale-up vs scale-out for accelerators](/posts/6-1-2-3-scale-up-vs-scale-out-for-accelerators/)
