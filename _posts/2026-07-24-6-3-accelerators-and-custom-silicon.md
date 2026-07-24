@@ -27,7 +27,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.3 Acceler
 
 ---
 
-# 1. 这一节在书中的位置
+### 1. 这一节在书中的位置
 
 前面几节讲：
 
@@ -52,7 +52,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.3 Acceler
 
 ---
 
-# 2. 6.3 开头：加速器采用已经指数级扩展
+### 2. 6.3 开头：加速器采用已经指数级扩展
 
 原文开头说：
 
@@ -81,7 +81,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.3 Acceler
 
 ---
 
-# 3. 6.3.1 的核心：为什么 WSC 从“避免专用”转向“拥抱专用”？
+### 3. 6.3.1 的核心：为什么 WSC 从“避免专用”转向“拥抱专用”？
 
 6.3.1 的标题是：
 
@@ -95,7 +95,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.3 Acceler
 
 ---
 
-# 4. 早期 WSC 为什么回避专用计算？
+### 4. 早期 WSC 为什么回避专用计算？
 
 原文说：
 
@@ -105,7 +105,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.3 Acceler
 
 ---
 
-## 4.1 专用硬件只适合有限 workload
+#### 4.1 专用硬件只适合有限 workload
 
 原文说：
 
@@ -135,7 +135,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.3 Acceler
 
 ---
 
-## 4.2 专用化与 WSC 的 scale/volume 原则冲突
+#### 4.2 专用化与 WSC 的 scale/volume 原则冲突
 
 原文说：
 
@@ -166,7 +166,7 @@ WSC 的早期成功依赖：
 
 ---
 
-## 4.3 专用硬件开发周期长，容易被通用 CPU 进步淘汰
+#### 4.3 专用硬件开发周期长，容易被通用 CPU 进步淘汰
 
 原文给了一个非常直观的论证：
 
@@ -205,7 +205,7 @@ WSC 的早期成功依赖：
 
 ---
 
-# 5. Dennard scaling 和 Moore’s Law 的放缓
+### 5. Dennard scaling 和 Moore’s Law 的放缓
 
 原文说：
 
@@ -215,7 +215,7 @@ WSC 的早期成功依赖：
 
 ---
 
-## 5.1 Moore’s Law：晶体管密度增长
+#### 5.1 Moore’s Law：晶体管密度增长
 
 摩尔定律通常指：
 
@@ -247,7 +247,7 @@ WSC 的早期成功依赖：
 
 ---
 
-## 5.2 Dennard scaling：功率密度缩放
+#### 5.2 Dennard scaling：功率密度缩放
 
 Dennard scaling 指：
 
@@ -284,7 +284,7 @@ Dennard scaling 指：
 
 ---
 
-## 5.3 通用 CPU 的黄金时代结束
+#### 5.3 通用 CPU 的黄金时代结束
 
 过去：
 
@@ -308,13 +308,13 @@ Dennard scaling 指：
 
 ---
 
-# 6. 为什么专用化重新变得有吸引力？
+### 6. 为什么专用化重新变得有吸引力？
 
 当通用 CPU 性能/成本增长放缓时，专用硬件的相对优势上升。
 
 ---
 
-## 6.1 专用硬件可以针对固定计算模式优化
+#### 6.1 专用硬件可以针对固定计算模式优化
 
 很多 workload 有稳定且重复的计算模式。
 
@@ -359,7 +359,7 @@ Dennard scaling 指：
 
 ---
 
-## 6.2 专用硬件可以提高 performance per watt
+#### 6.2 专用硬件可以提高 performance per watt
 
 在 WSC 中，限制往往不是“能不能算”，而是：
 
@@ -381,7 +381,7 @@ performance / rack
 
 ---
 
-## 6.3 专用硬件可以突破 dark silicon 限制
+#### 6.3 专用硬件可以突破 dark silicon 限制
 
 dark silicon 指：
 
@@ -399,7 +399,7 @@ dark silicon 指：
 
 ---
 
-# 7. TPU 的动机：AI 需求可能压垮通用数据中心
+### 7. TPU 的动机：AI 需求可能压垮通用数据中心
 
 原文举了一个非常经典的例子：
 
@@ -428,7 +428,7 @@ dark silicon 指：
 
 ---
 
-## 7.1 supply-demand gap
+#### 7.1 supply-demand gap
 
 原文说：
 
@@ -462,7 +462,7 @@ Moore/Dennard 放缓
 
 ---
 
-# 8. 6.3.2：ML accelerators 和 TPU systems
+### 8. 6.3.2：ML accelerators 和 TPU systems
 
 6.3.2 进入 AI workload 和加速器系统。
 
@@ -478,11 +478,11 @@ Moore/Dennard 放缓
 
 ---
 
-# 9. AI workload 的计算特征
+### 9. AI workload 的计算特征
 
 ---
 
-## 9.1 快速线性代数操作
+#### 9.1 快速线性代数操作
 
 DNN 的核心计算大量依赖线性代数。
 
@@ -521,7 +521,7 @@ FFN = GeLU(XW1)W2
 
 ---
 
-## 9.2 大规模分布式计算
+#### 9.2 大规模分布式计算
 
 现代大模型不能只靠一颗芯片训练或推理。
 
@@ -561,7 +561,7 @@ FFN = GeLU(XW1)W2
 
 ---
 
-## 9.3 高带宽内存
+#### 9.3 高带宽内存
 
 AI workload 对内存带宽极其敏感。
 
@@ -596,7 +596,7 @@ memory-bandwidth bound
 
 ---
 
-# 10. AI workload 的不同阶段
+### 10. AI workload 的不同阶段
 
 原文说：
 
@@ -608,7 +608,7 @@ AI 不只是“训练”或“推理”，而是多个阶段，每个阶段对�
 
 ---
 
-## 10.1 Training：训练
+#### 10.1 Training：训练
 
 原文：
 
@@ -645,7 +645,7 @@ goodput
 
 ---
 
-## 10.2 Inference / ML serving：推理服务
+#### 10.2 Inference / ML serving：推理服务
 
 原文：
 
@@ -673,7 +673,7 @@ latency / throughput / cost per request
 
 对于 LLM 推理，还要区分：
 
-### prefill 阶段
+##### prefill 阶段
 
 处理输入 prompt，通常：
 
@@ -681,7 +681,7 @@ latency / throughput / cost per request
 compute-bound
 ```
 
-### decode 阶段
+##### decode 阶段
 
 逐 token 生成，通常：
 
@@ -703,7 +703,7 @@ memory-bandwidth-bound
 
 ---
 
-## 10.3 Fine-tuning：微调
+#### 10.3 Fine-tuning：微调
 
 原文：
 
@@ -731,7 +731,7 @@ memory-bandwidth-bound
 
 ---
 
-## 10.4 Distillation：蒸馏
+#### 10.4 Distillation：蒸馏
 
 蒸馏通常用一个大 teacher 模型指导小 student 模型。
 
@@ -753,7 +753,7 @@ memory-bandwidth-bound
 
 ---
 
-# 11. LLM 放大了 AI 系统需求
+### 11. LLM 放大了 AI 系统需求
 
 原文：
 
@@ -792,7 +792,7 @@ LLM 不只是模型问题，而是系统问题：
 
 ---
 
-# 12. GPU：从图形渲染到 ML 加速基石
+### 12. GPU：从图形渲染到 ML 加速基石
 
 原文：
 
@@ -825,7 +825,7 @@ GPU 的优势是：
 
 ---
 
-# 13. TPU：Google 的专用 AI 加速器
+### 13. TPU：Google 的专用 AI 加速器
 
 原文：
 
@@ -863,13 +863,13 @@ TPU 与 GPU 的关键区别在于：
 
 ---
 
-# 14. FPGA、ASIC 和其他加速器
+### 14. FPGA、ASIC 和其他加速器
 
 原文列举了多家公司的路线。
 
 ---
 
-## 14.1 Microsoft：FPGA 到 ASIC
+#### 14.1 Microsoft：FPGA 到 ASIC
 
 原文：
 
@@ -877,7 +877,7 @@ TPU 与 GPU 的关键区别在于：
 
 Microsoft 的路径很有代表性。
 
-### FPGA 的优点
+##### FPGA 的优点
 
 FPGA 可重新编程。
 
@@ -892,7 +892,7 @@ FPGA 可重新编程。
 
 FPGA 比 CPU 更高效，但通常不如 ASIC 极致。
 
-### ASIC 的优点
+##### ASIC 的优点
 
 ASIC 固定功能更强，适合：
 
@@ -905,7 +905,7 @@ Maia 代表 Microsoft 进入自研 AI ASIC。
 
 ---
 
-## 14.2 Meta：MTIA
+#### 14.2 Meta：MTIA
 
 原文：
 
@@ -923,7 +923,7 @@ Meta 有巨大推荐系统和 AI workload。
 
 ---
 
-## 14.3 Amazon：Inferentia 和 Trainium
+#### 14.3 Amazon：Inferentia 和 Trainium
 
 原文：
 
@@ -945,13 +945,13 @@ AWS 的路线很清晰：
 
 ---
 
-# 15. 为什么超大规模云厂商能做 custom silicon？
+### 15. 为什么超大规模云厂商能做 custom silicon？
 
 定制芯片非常贵，但超大规模厂商有特殊优势。
 
 ---
 
-## 15.1 有足够 workload 量摊销 NRE
+#### 15.1 有足够 workload 量摊销 NRE
 
 ASIC 的 NRE 成本很高，包括：
 
@@ -982,7 +982,7 @@ ASIC 的 NRE 成本很高，包括：
 
 ---
 
-## 15.2 可以软硬协同设计
+#### 15.2 可以软硬协同设计
 
 云厂商可以一起设计：
 
@@ -1002,7 +1002,7 @@ ASIC 的 NRE 成本很高，包括：
 
 ---
 
-## 15.3 可以降低供应链风险
+#### 15.3 可以降低供应链风险
 
 依赖单一 GPU 供应商存在风险：
 
@@ -1021,7 +1021,7 @@ ASIC 的 NRE 成本很高，包括：
 
 ---
 
-# 16. 专用加速器不是“芯片问题”，而是“系统问题”
+### 16. 专用加速器不是“芯片问题”，而是“系统问题”
 
 这一节虽然讲 accelerators and custom silicon，但必须放在 WSC 视角理解。
 
@@ -1058,13 +1058,13 @@ ASIC 的 NRE 成本很高，包括：
 
 ---
 
-# 17. 专用化的核心权衡
+### 17. 专用化的核心权衡
 
 这一节背后有一个经典体系结构权衡。
 
 ---
 
-## 17.1 通用性 vs 专用性
+#### 17.1 通用性 vs 专用性
 
 通用 CPU：
 
@@ -1082,7 +1082,7 @@ ASIC 的 NRE 成本很高，包括：
 
 ---
 
-## 17.2 灵活性 vs 效率
+#### 17.2 灵活性 vs 效率
 
 GPU 比 ASIC 灵活。
 
@@ -1099,7 +1099,7 @@ FPGA 处于中间：
 
 ---
 
-## 17.3 短期成本 vs 长期 TCO
+#### 17.3 短期成本 vs 长期 TCO
 
 ASIC 短期成本高：
 
@@ -1111,7 +1111,7 @@ ASIC 短期成本高：
 
 ---
 
-## 17.4 硬件寿命 vs 算法演进
+#### 17.4 硬件寿命 vs 算法演进
 
 AI 算法变化很快。
 
@@ -1126,7 +1126,7 @@ AI 算法变化很快。
 
 ---
 
-# 18. 关键术语表
+### 18. 关键术语表
 
 |术语|含义|
 | ------------------------------| -------------------------------------------------------|
@@ -1158,11 +1158,11 @@ AI 算法变化很快。
 
 ---
 
-# 19. 可以用来检验理解的问题
+### 19. 可以用来检验理解的问题
 
 ---
 
-## 问题 1：为什么早期 WSC 不喜欢专用硬件？
+#### 问题 1：为什么早期 WSC 不喜欢专用硬件？
 
 因为早期 WSC 强调：
 
@@ -1177,7 +1177,7 @@ AI 算法变化很快。
 
 ---
 
-## 问题 2：为什么 ASIC 需要远大于 4x 加速？
+#### 问题 2：为什么 ASIC 需要远大于 4x 加速？
 
 如果 CPU 每年性能翻倍，ASIC 两年后上线时，CPU 已经快约 4 倍。
 
@@ -1191,7 +1191,7 @@ ASIC 必须比两年后的 CPU 还快很多，才能摊销：
 
 ---
 
-## 问题 3：Dennard scaling 放缓意味着什么？
+#### 问题 3：Dennard scaling 放缓意味着什么？
 
 意味着工艺缩小不再自动带来等比例功耗效率提升。
 
@@ -1205,7 +1205,7 @@ ASIC 必须比两年后的 CPU 还快很多，才能摊销：
 
 ---
 
-## 问题 4：为什么 AI workload 适合专用加速器？
+#### 问题 4：为什么 AI workload 适合专用加速器？
 
 因为 AI workload 有大量规则计算，例如：
 
@@ -1219,7 +1219,7 @@ ASIC 必须比两年后的 CPU 还快很多，才能摊销：
 
 ---
 
-## 问题 5：training 和 inference 的硬件需求有什么不同？
+#### 问题 5：training 和 inference 的硬件需求有什么不同？
 
 training：
 
@@ -1240,7 +1240,7 @@ inference：
 
 ---
 
-## 问题 6：为什么超大规模云厂商纷纷自研 AI 芯片？
+#### 问题 6：为什么超大规模云厂商纷纷自研 AI 芯片？
 
 因为他们有：
 
@@ -1253,7 +1253,7 @@ inference：
 
 ---
 
-# 20. 这一节可以整理成的精简笔记
+### 20. 这一节可以整理成的精简笔记
 
 ```text
 6.3 Accelerators and custom silicon
@@ -1385,7 +1385,7 @@ inference：
 
 ---
 
-# 21. 如果考试或讨论中要回答这一节，可以这样说
+### 21. 如果考试或讨论中要回答这一节，可以这样说
 
 > 6.3.1 和 6.3.2 讨论的是 WSC 为什么从早期回避专用硬件，转向大规模部署加速器和定制硅。早期 WSC 设计强调通用性、规模经济和同构部署。专用加速器虽然对某些 workload 更高效，但只能服务有限任务，会增加硬件种类、软件栈和运维复杂度，这与 WSC 的 scale 和 volume 原则相冲突。此外，专用硬件开发周期长、NRE 成本高。如果通用 CPU 性能每年翻倍，而 ASIC 需要两年才能部署，那么 ASIC 上线时面对的 CPU 已经快了约 4 倍，因此 ASIC 必须提供远大于 4 倍的实际收益，才能摊销开发成本。
 >

@@ -27,7 +27,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.2.1 Serve
 
 ---
 
-# 1. 这一节在整本书中的位置
+### 1. 这一节在整本书中的位置
 
 标题是：
 
@@ -65,7 +65,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.2.1 Serve
 
 ---
 
-# 2. 服务器的基本形态：tray / 主板 / 插件组件
+### 2. 服务器的基本形态：tray / 主板 / 插件组件
 
 原文说：
 
@@ -115,7 +115,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.2.1 Serve
 
 ---
 
-# 3. CPU、PCH、内存、I/O 的分工
+### 3. CPU、PCH、内存、I/O 的分工
 
 原文有一句：
 
@@ -123,7 +123,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.2.1 Serve
 
 这句话背后是现代服务器平台的一个基本分工：
 
-## 3.1 CPU 负责高速路径
+#### 3.1 CPU 负责高速路径
 
 CPU 通常直接连接：
 
@@ -147,7 +147,7 @@ CPU 通常直接连接：
 
 ---
 
-## 3.2 PCH 负责低速或平台管理 I/O
+#### 3.2 PCH 负责低速或平台管理 I/O
 
 PCH，Platform Controller Hub，可以理解为传统“南桥”角色的延续。
 
@@ -166,7 +166,7 @@ PCH，Platform Controller Hub，可以理解为传统“南桥”角色的延续
 
 ---
 
-## 3.3 为什么要这样分？
+#### 3.3 为什么要这样分？
 
 因为 CPU 的引脚、封装、die 面积都很宝贵。
 
@@ -189,7 +189,7 @@ PCH，Platform Controller Hub，可以理解为传统“南桥”角色的延续
 
 ---
 
-# 4. 服务器设计的几个关键维度
+### 4. 服务器设计的几个关键维度
 
 原文列出了几类设计考虑：
 
@@ -206,7 +206,7 @@ PCH，Platform Controller Hub，可以理解为传统“南桥”角色的延续
 
 ---
 
-# 5. CPU 设计考虑
+### 5. CPU 设计考虑
 
 原文提到：
 
@@ -216,7 +216,7 @@ PCH，Platform Controller Hub，可以理解为传统“南桥”角色的延续
 
 ---
 
-## 5.1 TDP：Thermal Design Power
+#### 5.1 TDP：Thermal Design Power
 
 TDP 是 **热设计功耗**。
 
@@ -245,7 +245,7 @@ TDP 是 **热设计功耗**。
 
 ---
 
-## 5.2 CPU socket 数量
+#### 5.2 CPU socket 数量
 
 常见服务器有：
 
@@ -253,7 +253,7 @@ TDP 是 **热设计功耗**。
 - 2-socket；
 - 4-socket 或更多，但在云数据中心中 2S 和 1S 更常见。
 
-### 双路服务器，two-socket
+##### 双路服务器，two-socket
 
 优点：
 
@@ -273,7 +273,7 @@ TDP 是 **热设计功耗**。
 
 ---
 
-## 5.3 NUMA：Non-Uniform Memory Access
+#### 5.3 NUMA：Non-Uniform Memory Access
 
 NUMA 是多 socket 服务器中非常重要的概念。
 
@@ -318,7 +318,7 @@ NUMA 是多 socket 服务器中非常重要的概念。
 
 ---
 
-## 5.4 CPU 选择：core count、frequency、cache、coherency links
+#### 5.4 CPU 选择：core count、frequency、cache、coherency links
 
 原文提到 CPU selection 要考虑：
 
@@ -327,7 +327,7 @@ NUMA 是多 socket 服务器中非常重要的概念。
 - cache sizes；
 - number of inter-socket coherency links。
 
-### 1. core count
+##### 1. core count
 
 核心数多，有利于并行 workload，例如：
 
@@ -349,7 +349,7 @@ NUMA 是多 socket 服务器中非常重要的概念。
 
 ---
 
-### 2. core frequency
+##### 2. core frequency
 
 频率高，有利于单线程性能。
 
@@ -368,7 +368,7 @@ NUMA 是多 socket 服务器中非常重要的概念。
 
 ---
 
-### 3. cache size
+##### 3. cache size
 
 更大的 cache 可以：
 
@@ -386,7 +386,7 @@ NUMA 是多 socket 服务器中非常重要的概念。
 
 ---
 
-### 4. inter-socket coherency links
+##### 4. inter-socket coherency links
 
 双路服务器中，两个 CPU 之间需要保持一致性。
 
@@ -410,7 +410,7 @@ link 数量越多，通常意味着：
 
 ---
 
-# 6. 内存设计考虑
+### 6. 内存设计考虑
 
 原文提到：
 
@@ -420,7 +420,7 @@ link 数量越多，通常意味着：
 
 ---
 
-## 6.1 memory channel 数量
+#### 6.1 memory channel 数量
 
 内存带宽不是由“内存容量”直接决定，而是由：
 
@@ -460,11 +460,11 @@ link 数量越多，通常意味着：
 
 ---
 
-## 6.2 DIMMs per channel：1DPC vs 2DPC
+#### 6.2 DIMMs per channel：1DPC vs 2DPC
 
 DPC = DIMMs Per Channel。
 
-### 1DPC
+##### 1DPC
 
 每通道一个 DIMM。
 
@@ -481,7 +481,7 @@ DPC = DIMMs Per Channel。
 
 ---
 
-### 2DPC
+##### 2DPC
 
 每通道两个 DIMM。
 
@@ -526,13 +526,13 @@ DPC = DIMMs Per Channel。
 
 ---
 
-## 6.3 RDIMM、LRDIMM 等 DIMM 类型
+#### 6.3 RDIMM、LRDIMM 等 DIMM 类型
 
 原文提到：
 
 > RDIMM, LRDIMM, and so on.
 
-### RDIMM：Registered DIMM
+##### RDIMM：Registered DIMM
 
 RDIMM 在命令和地址信号上使用寄存器缓冲。
 
@@ -544,7 +544,7 @@ RDIMM 在命令和地址信号上使用寄存器缓冲。
 
 ---
 
-### LRDIMM：Load-Reduced DIMM
+##### LRDIMM：Load-Reduced DIMM
 
 LRDIMM 进一步减少内存总线负载。
 
@@ -561,13 +561,13 @@ LRDIMM 进一步减少内存总线负载。
 
 ---
 
-## 6.4 DDR4、DDR5、LPDDR
+#### 6.4 DDR4、DDR5、LPDDR
 
-### DDR4
+##### DDR4
 
 上一代服务器主流。
 
-### DDR5
+##### DDR5
 
 当前服务器主流，特点：
 
@@ -577,7 +577,7 @@ LRDIMM 进一步减少内存总线负载。
 - 更复杂电源管理；
 - 更高容量潜力。
 
-### LPDDR
+##### LPDDR
 
 低功耗 DDR，常见于：
 
@@ -596,7 +596,7 @@ LRDIMM 进一步减少内存总线负载。
 
 ---
 
-# 7. I/O 设计：PCIe、NIC、SSD、加速器、CXL
+### 7. I/O 设计：PCIe、NIC、SSD、加速器、CXL
 
 原文提到：
 
@@ -606,7 +606,7 @@ LRDIMM 进一步减少内存总线负载。
 
 ---
 
-## 7.1 PCIe 是服务器内部高速 I/O 主干道
+#### 7.1 PCIe 是服务器内部高速 I/O 主干道
 
 PCIe 连接：
 
@@ -640,7 +640,7 @@ PCIe 代际带宽大致如下：
 
 ---
 
-## 7.2 NIC：网络接口卡
+#### 7.2 NIC：网络接口卡
 
 在 WSC 中，NIC 极其重要，因为 WSC 的性能不是单机性能，而是集群性能。
 
@@ -663,7 +663,7 @@ NIC 影响：
 
 ---
 
-## 7.3 加速器：GPU、TPU、VCU
+#### 7.3 加速器：GPU、TPU、VCU
 
 原文提到：
 
@@ -671,7 +671,7 @@ NIC 影响：
 
 这反映了现代 WSC 的异构化。
 
-### GPU
+##### GPU
 
 适合：
 
@@ -681,14 +681,14 @@ NIC 影响：
 - 科学计算；
 - 并行计算。
 
-### TPU
+##### TPU
 
 Google 的 tensor processor，适合：
 
 - tensor 计算；
 - ML 训练和推理。
 
-### VCU
+##### VCU
 
 Video Coding Unit，适合：
 
@@ -707,7 +707,7 @@ Video Coding Unit，适合：
 
 ---
 
-## 7.4 CXL：Compute Express Link
+#### 7.4 CXL：Compute Express Link
 
 原文特别提到：
 
@@ -754,7 +754,7 @@ CPU registers
 
 ---
 
-# 8. NIC quad-furcation：共享网卡提升 Perf/TCO
+### 8. NIC quad-furcation：共享网卡提升 Perf/TCO
 
 原文提到 Axion 服务器：
 
@@ -764,7 +764,7 @@ CPU registers
 
 ---
 
-## 8.1 什么是 quad-furcation？
+#### 8.1 什么是 quad-furcation？
 
 “furcation” 来自分叉。
 
@@ -790,7 +790,7 @@ PCIe x16
 
 ---
 
-## 8.2 为什么要共享 NIC？
+#### 8.2 为什么要共享 NIC？
 
 在 WSC 中，很多资源如果每台服务器都独立配置，会浪费。
 
@@ -820,7 +820,7 @@ PCIe x16
 
 ---
 
-## 8.3 共享 NIC 的代价
+#### 8.3 共享 NIC 的代价
 
 但共享不是免费的。
 
@@ -843,7 +843,7 @@ PCIe x16
 
 ---
 
-# 9. Tray-level power and cooling
+### 9. Tray-level power and cooling
 
 原文提到：
 
@@ -853,7 +853,7 @@ PCIe x16
 
 ---
 
-## 9.1 Voltage regulators：电压调节模块
+#### 9.1 Voltage regulators：电压调节模块
 
 CPU、内存、I/O 需要不同电压。
 
@@ -875,7 +875,7 @@ CPU、内存、I/O 需要不同电压。
 
 ---
 
-## 9.2 DVFS：Dynamic Voltage and Frequency Scaling
+#### 9.2 DVFS：Dynamic Voltage and Frequency Scaling
 
 DVFS 是动态电压频率调节。
 
@@ -896,7 +896,7 @@ DVFS 是动态电压频率调节。
 
 ---
 
-## 9.3 风冷 vs 液冷
+#### 9.3 风冷 vs 液冷
 
 原文提到：
 
@@ -904,7 +904,7 @@ DVFS 是动态电压频率调节。
 
 随着 CPU 和加速器 TDP 上升，传统风冷越来越受限。
 
-### 风冷
+##### 风冷
 
 优点：
 
@@ -921,7 +921,7 @@ DVFS 是动态电压频率调节。
 
 ---
 
-### 液冷
+##### 液冷
 
 常见形式：
 
@@ -947,7 +947,7 @@ DVFS 是动态电压频率调节。
 
 ---
 
-# 10. Device management and security：BMC、Root-of-Trust、DC-SCM
+### 10. Device management and security：BMC、Root-of-Trust、DC-SCM
 
 原文提到：
 
@@ -957,7 +957,7 @@ DVFS 是动态电压频率调节。
 
 ---
 
-## 10.1 BMC：Baseboard Management Controller
+#### 10.1 BMC：Baseboard Management Controller
 
 BMC 是服务器上的独立管理控制器。
 
@@ -980,7 +980,7 @@ BMC 是服务器上的独立管理控制器。
 
 ---
 
-## 10.2 Root-of-Trust：可信根
+#### 10.2 Root-of-Trust：可信根
 
 Root-of-Trust，RoT，是安全启动和平台信任的基础。
 
@@ -1010,7 +1010,7 @@ Root-of-Trust，RoT，是安全启动和平台信任的基础。
 
 ---
 
-## 10.3 DC-SCM：Data Center Secure Control Module
+#### 10.3 DC-SCM：Data Center Secure Control Module
 
 原文提到 Intel 服务器例子：
 
@@ -1034,35 +1034,35 @@ DC-SCM 可能包含：
 
 ---
 
-## 10.4 为什么 DC-SCM 很重要？
+#### 10.4 为什么 DC-SCM 很重要？
 
-### 1. 标准化
+##### 1. 标准化
 
 不同服务器主板可以共用类似的管理模块。
 
-### 2. 安全隔离
+##### 2. 安全隔离
 
 管理控制平面和主机计算平面分离。
 
-### 3. 固件恢复
+##### 3. 固件恢复
 
 如果主板固件损坏，DC-SCM 可以帮助恢复。
 
-### 4. 供应链安全
+##### 4. 供应链安全
 
 可以独立验证管理模块固件。
 
-### 5. 运维升级
+##### 5. 运维升级
 
 可以独立更新 BMC/RoT，不必完全依赖主板更换。
 
-### 6. 降低厂商锁定
+##### 6. 降低厂商锁定
 
 OCP DC-SCM 是开放规范，有助于多厂商生态。
 
 ---
 
-# 11. Mechanical design：机械设计
+### 11. Mechanical design：机械设计
 
 原文最后提到：
 
@@ -1072,7 +1072,7 @@ OCP DC-SCM 是开放规范，有助于多厂商生态。
 
 ---
 
-## 11.1 Form factor 影响功率密度
+#### 11.1 Form factor 影响功率密度
 
 服务器尺寸决定：
 
@@ -1093,7 +1093,7 @@ OCP DC-SCM 是开放规范，有助于多厂商生态。
 
 ---
 
-## 11.2 前后维护影响 serviceability
+#### 11.2 前后维护影响 serviceability
 
 数据中心通常有：
 
@@ -1116,7 +1116,7 @@ OCP DC-SCM 是开放规范，有助于多厂商生态。
 
 ---
 
-# 12. 三个服务器实例对比
+### 12. 三个服务器实例对比
 
 原文给了三个服务器 tray 的例子：
 
@@ -1128,7 +1128,7 @@ OCP DC-SCM 是开放规范，有助于多厂商生态。
 
 ---
 
-## 12.1 Intel Sapphire Rapids 服务器
+#### 12.1 Intel Sapphire Rapids 服务器
 
 原文要点：
 
@@ -1147,7 +1147,7 @@ OCP DC-SCM 是开放规范，有助于多厂商生态。
 
 ---
 
-### 理解重点
+##### 理解重点
 
 这个平台的特点是：
 
@@ -1166,7 +1166,7 @@ OCP DC-SCM 是开放规范，有助于多厂商生态。
 
 ---
 
-## 12.2 AMD Genoa 服务器
+#### 12.2 AMD Genoa 服务器
 
 原文要点：
 
@@ -1186,7 +1186,7 @@ OCP DC-SCM 是开放规范，有助于多厂商生态。
 
 ---
 
-### 理解重点
+##### 理解重点
 
 这个平台的特点是：
 
@@ -1211,7 +1211,7 @@ AMD 示例：12 channels × 38.4 GB/s = 460.8 GB/s per CPU
 
 ---
 
-## 12.3 Google Axion 服务器
+#### 12.3 Google Axion 服务器
 
 原文要点：
 
@@ -1228,7 +1228,7 @@ AMD 示例：12 channels × 38.4 GB/s = 460.8 GB/s per CPU
 
 ---
 
-### 理解重点
+##### 理解重点
 
 这个平台的特点是：
 
@@ -1255,7 +1255,7 @@ AMD 示例：12 channels × 38.4 GB/s = 460.8 GB/s per CPU
 
 ---
 
-# 13. 三个平台的对比表
+### 13. 三个平台的对比表
 
 |维度|Intel Sapphire Rapids 示例|AMD Genoa 示例|Google Axion 示例|
 | ---------------| ----------------------------| ----------------------------| ----------------------------|
@@ -1272,7 +1272,7 @@ AMD 示例：12 channels × 38.4 GB/s = 460.8 GB/s per CPU
 
 ---
 
-# 14. 重点难点：内存带宽为什么难以扩展？
+### 14. 重点难点：内存带宽为什么难以扩展？
 
 原文中非常关键的一段是：
 
@@ -1282,7 +1282,7 @@ AMD 示例：12 channels × 38.4 GB/s = 460.8 GB/s per CPU
 
 ---
 
-## 14.1 核心数容易增加
+#### 14.1 核心数容易增加
 
 随着工艺进步，例如：
 
@@ -1308,7 +1308,7 @@ CPU core 主要由逻辑晶体管组成，所以工艺进步可以让：
 
 ---
 
-## 14.2 内存带宽不容易按比例增加
+#### 14.2 内存带宽不容易按比例增加
 
 但内存带宽依赖：
 
@@ -1325,7 +1325,7 @@ CPU core 主要由逻辑晶体管组成，所以工艺进步可以让：
 
 ---
 
-## 14.3 shoreline 是什么？
+#### 14.3 shoreline 是什么？
 
 shoreline 直译是“海岸线”，在芯片设计中比喻：
 
@@ -1351,7 +1351,7 @@ shoreline 直译是“海岸线”，在芯片设计中比喻：
 
 ---
 
-## 14.4 每个内存通道带宽也不随制程线性提升
+#### 14.4 每个内存通道带宽也不随制程线性提升
 
 内存通道带宽主要取决于：
 
@@ -1378,7 +1378,7 @@ memory bandwidth per core ↓
 
 ---
 
-## 14.5 举例理解
+#### 14.5 举例理解
 
 假设：
 
@@ -1407,7 +1407,7 @@ memory bandwidth per core ↓
 
 ---
 
-# 15. 为什么 CXL 在这个背景下很重要？
+### 15. 为什么 CXL 在这个背景下很重要？
 
 因为本地 DDR 通道扩展困难，所以产业界引入 CXL。
 
@@ -1439,7 +1439,7 @@ cold data → storage / object store
 
 ---
 
-# 16. two-socket server vs bifurcated 2x1-socket system
+### 16. two-socket server vs bifurcated 2x1-socket system
 
 原文最后提到：
 
@@ -1449,7 +1449,7 @@ cold data → storage / object store
 
 ---
 
-## 16.1 two-socket server
+#### 16.1 two-socket server
 
 双路服务器是一个逻辑系统中有两个 CPU。
 
@@ -1490,7 +1490,7 @@ cold data → storage / object store
 
 ---
 
-## 16.2 bifurcated 2x1-socket system
+#### 16.2 bifurcated 2x1-socket system
 
 bifurcated 可以理解为“一个 tray 分成两个独立节点”。
 
@@ -1538,7 +1538,7 @@ bifurcated 可以理解为“一个 tray 分成两个独立节点”。
 
 ---
 
-## 16.3 WSC 为什么喜欢小故障域和 scale-out？
+#### 16.3 WSC 为什么喜欢小故障域和 scale-out？
 
 在超大规模数据中心中，故障是常态。
 
@@ -1558,7 +1558,7 @@ bifurcated 可以理解为“一个 tray 分成两个独立节点”。
 
 ---
 
-# 17. 从 TCO 角度理解服务器设计
+### 17. 从 TCO 角度理解服务器设计
 
 原文多次隐含一个关键词：
 
@@ -1568,7 +1568,7 @@ bifurcated 可以理解为“一个 tray 分成两个独立节点”。
 
 TCO 包括：
 
-## 17.1 CapEx，资本支出
+#### 17.1 CapEx，资本支出
 
 - 服务器硬件；
 - CPU；
@@ -1583,7 +1583,7 @@ TCO 包括：
 - 电源设备；
 - 冷却设备。
 
-## 17.2 OpEx，运营支出
+#### 17.2 OpEx，运营支出
 
 - 电费；
 - 冷却费；
@@ -1612,13 +1612,13 @@ TCO 包括：
 
 ---
 
-# 18. 从 workload 角度理解不同服务器选择
+### 18. 从 workload 角度理解不同服务器选择
 
 不同 workload 对服务器资源的需求不同。
 
 ---
 
-## 18.1 Web serving / 微服务
+#### 18.1 Web serving / 微服务
 
 特点：
 
@@ -1644,7 +1644,7 @@ TCO 包括：
 
 ---
 
-## 18.2 内存数据库
+#### 18.2 内存数据库
 
 特点：
 
@@ -1669,7 +1669,7 @@ TCO 包括：
 
 ---
 
-## 18.3 大数据分析
+#### 18.3 大数据分析
 
 特点：
 
@@ -1688,7 +1688,7 @@ TCO 包括：
 
 ---
 
-## 18.4 ML 训练 / 推理
+#### 18.4 ML 训练 / 推理
 
 特点：
 
@@ -1710,7 +1710,7 @@ TCO 包括：
 
 ---
 
-# 19. 这段原文中的深层逻辑
+### 19. 这段原文中的深层逻辑
 
 可以把这一节总结成一条设计链：
 
@@ -1734,13 +1734,13 @@ TCO and fleet-scale operation
 
 ---
 
-# 20. 读图建议：Figure 6.3 到 Figure 6.6
+### 20. 读图建议：Figure 6.3 到 Figure 6.6
 
 虽然我这里看不到图，但根据原文可以推测阅读重点。
 
 ---
 
-## 20.1 Figure 6.3：典型服务器组件
+#### 20.1 Figure 6.3：典型服务器组件
 
 看这张图时，重点识别：
 
@@ -1759,7 +1759,7 @@ TCO and fleet-scale operation
 
 建议你用两条路径理解：
 
-### 数据平面
+##### 数据平面
 
 ```text
 CPU ↔ DRAM
@@ -1767,7 +1767,7 @@ CPU ↔ PCIe ↔ NIC/SSD/GPU
 CPU ↔ inter-socket link ↔ another CPU
 ```
 
-### 管理平面
+##### 管理平面
 
 ```text
 BMC / DC-SCM ↔ sensors
@@ -1778,7 +1778,7 @@ BMC / DC-SCM ↔ power control
 
 ---
 
-## 20.2 Figure 6.4：不同 server tray 照片
+#### 20.2 Figure 6.4：不同 server tray 照片
 
 看照片时，注意：
 
@@ -1794,7 +1794,7 @@ BMC / DC-SCM ↔ power control
 
 ---
 
-## 20.3 Figure 6.5：two-socket server functional architecture
+#### 20.3 Figure 6.5：two-socket server functional architecture
 
 重点看：
 
@@ -1807,7 +1807,7 @@ BMC / DC-SCM ↔ power control
 
 ---
 
-## 20.4 Figure 6.6：bifurcated 2x1-socket system
+#### 20.4 Figure 6.6：bifurcated 2x1-socket system
 
 重点看：
 
@@ -1820,7 +1820,7 @@ BMC / DC-SCM ↔ power control
 
 ---
 
-# 21. 关键术语速查表
+### 21. 关键术语速查表
 
 |术语|含义|
 | -----------------------| -------------------------------------------|
@@ -1855,9 +1855,9 @@ BMC / DC-SCM ↔ power control
 
 ---
 
-# 22. 容易误解的几个点
+### 22. 容易误解的几个点
 
-## 误解 1：TDP 就是 CPU 实际功耗
+#### 误解 1：TDP 就是 CPU 实际功耗
 
 不完全对。
 
@@ -1873,7 +1873,7 @@ TDP 主要是热设计参考。实际功耗取决于：
 
 ---
 
-## 误解 2：核心越多性能一定越强
+#### 误解 2：核心越多性能一定越强
 
 不一定。
 
@@ -1881,7 +1881,7 @@ TDP 主要是热设计参考。实际功耗取决于：
 
 ---
 
-## 误解 3：内存容量大就等于内存带宽大
+#### 误解 3：内存容量大就等于内存带宽大
 
 不是。
 
@@ -1899,7 +1899,7 @@ TDP 主要是热设计参考。实际功耗取决于：
 
 ---
 
-## 误解 4：CXL 可以完全替代本地 DRAM
+#### 误解 4：CXL 可以完全替代本地 DRAM
 
 目前不能。
 
@@ -1907,7 +1907,7 @@ CXL memory 更适合扩展容量和构建分层内存，但延迟通常高于本
 
 ---
 
-## 误解 5：共享 NIC 一定更好
+#### 误解 5：共享 NIC 一定更好
 
 不一定。
 
@@ -1920,7 +1920,7 @@ CXL memory 更适合扩展容量和构建分层内存，但延迟通常高于本
 
 ---
 
-## 误解 6：服务器设计只是硬件问题
+#### 误解 6：服务器设计只是硬件问题
 
 不是。
 
@@ -1939,13 +1939,13 @@ CXL memory 更适合扩展容量和构建分层内存，但延迟通常高于本
 
 ---
 
-# 23. 可以带着思考的问题
+### 23. 可以带着思考的问题
 
 阅读这一节后，可以用这些问题检验理解。
 
 ---
 
-## 问题 1：为什么 WSC 服务器必须重视 BMC 和 DC-SCM？
+#### 问题 1：为什么 WSC 服务器必须重视 BMC 和 DC-SCM？
 
 因为超大规模数据中心必须远程、自动化、可恢复地管理硬件。
 
@@ -1955,7 +1955,7 @@ DC-SCM 提供标准化、安全、可分离的管理和可信根。
 
 ---
 
-## 问题 2：为什么内存通道数对服务器性能很重要？
+#### 问题 2：为什么内存通道数对服务器性能很重要？
 
 因为很多 workload 的瓶颈不是 CPU 计算，而是内存带宽。
 
@@ -1963,7 +1963,7 @@ DC-SCM 提供标准化、安全、可分离的管理和可信根。
 
 ---
 
-## 问题 3：为什么增加核心比增加内存带宽更容易？
+#### 问题 3：为什么增加核心比增加内存带宽更容易？
 
 因为核心主要由逻辑晶体管构成，受益于制程微缩。
 
@@ -1980,7 +1980,7 @@ DC-SCM 提供标准化、安全、可分离的管理和可信根。
 
 ---
 
-## 问题 4：2DPC 和 1DPC 的权衡是什么？
+#### 问题 4：2DPC 和 1DPC 的权衡是什么？
 
 2DPC：
 
@@ -1996,7 +1996,7 @@ DC-SCM 提供标准化、安全、可分离的管理和可信根。
 
 ---
 
-## 问题 5：two-socket 和 2x1-socket bifurcated 的核心区别是什么？
+#### 问题 5：two-socket 和 2x1-socket bifurcated 的核心区别是什么？
 
 two-socket：
 
@@ -2013,7 +2013,7 @@ two-socket：
 
 ---
 
-## 问题 6：NIC quad-furcation 为什么能提升 Perf/TCO？
+#### 问题 6：NIC quad-furcation 为什么能提升 Perf/TCO？
 
 因为多个节点共享一个高速 NIC，可以减少：
 
@@ -2028,7 +2028,7 @@ two-socket：
 
 ---
 
-# 24. 用一句话概括这一节
+### 24. 用一句话概括这一节
 
 这一节真正想表达的是：
 
@@ -2036,7 +2036,7 @@ two-socket：
 
 ---
 
-# 25. 进一步深入学习的方向
+### 25. 进一步深入学习的方向
 
 如果你想继续深挖，可以围绕以下几个主题展开：
 

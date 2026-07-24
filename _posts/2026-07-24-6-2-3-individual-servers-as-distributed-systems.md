@@ -25,7 +25,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.2.3 Indiv
 
 ---
 
-# 1. 这一节的核心观点
+### 1. 这一节的核心观点
 
 原文开头说：
 
@@ -81,7 +81,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.2.3 Indiv
 
 ---
 
-# 2. 从 monolith 到 multi-node / multi-brained server
+### 2. 从 monolith 到 multi-node / multi-brained server
 
 这一节最重要的思想转变是：
 
@@ -101,7 +101,7 @@ multi-brained server
 
 ---
 
-## 2.1 传统 monolith 服务器
+#### 2.1 传统 monolith 服务器
 
 传统服务器中，主机操作系统几乎管理一切：
 
@@ -128,7 +128,7 @@ multi-brained server
 
 ---
 
-## 2.2 现代 multi-node 服务器
+#### 2.2 现代 multi-node 服务器
 
 现代服务器把很多功能从 host CPU 移出去：
 
@@ -160,7 +160,7 @@ multi-brained server
 
 ---
 
-# 3. 为什么要把服务器拆成多个计算域？
+### 3. 为什么要把服务器拆成多个计算域？
 
 原文说：
 
@@ -176,7 +176,7 @@ multi-brained server
 
 ---
 
-## 3.1 提高安全性
+#### 3.1 提高安全性
 
 如果所有控制功能都在 host OS 中，那么 host OS 一旦被攻破，攻击者可能：
 
@@ -212,7 +212,7 @@ host OS 被攻破
 
 ---
 
-## 3.2 提高可管理性
+#### 3.2 提高可管理性
 
 超大规模数据中心中，运维不可能依赖人工登录每台机器。
 
@@ -248,7 +248,7 @@ BMC 仍然可以上报状态、重启机器、收集日志。
 
 ---
 
-## 3.3 支持 bare-metal 服务器
+#### 3.3 支持 bare-metal 服务器
 
 bare-metal server 指云客户直接获得物理 CPU，而不是虚拟机。
 
@@ -298,7 +298,7 @@ bare-metal server 指云客户直接获得物理 CPU，而不是虚拟机。
 
 ---
 
-# 4. Disaggregated designs：服务器变成“虚拟构造”
+### 4. Disaggregated designs：服务器变成“虚拟构造”
 
 原文进一步说：
 
@@ -332,7 +332,7 @@ server = CPU slice
 
 ---
 
-## 4.1 资源池化示例
+#### 4.1 资源池化示例
 
 原文举例：
 
@@ -340,7 +340,7 @@ server = CPU slice
 
 例如：
 
-### 本地 SSD 变成 pooled SSD
+##### 本地 SSD 变成 pooled SSD
 
 传统：
 
@@ -357,7 +357,7 @@ server tray
 rack-level SSD pool
 ```
 
-### 本地 GPU 变成 pooled accelerator
+##### 本地 GPU 变成 pooled accelerator
 
 传统：
 
@@ -374,7 +374,7 @@ server tray
 rack-level GPU/accelerator pool
 ```
 
-### 本地内存变成 pooled memory
+##### 本地内存变成 pooled memory
 
 传统：
 
@@ -393,9 +393,9 @@ CPU
 
 ---
 
-## 4.2 disaggregation 的好处
+#### 4.2 disaggregation 的好处
 
-### 1. 提高资源利用率
+##### 1. 提高资源利用率
 
 如果每台服务器都自带 GPU、SSD、内存，可能出现：
 
@@ -408,7 +408,7 @@ CPU
 
 ---
 
-### 2. 独立升级硬件
+##### 2. 独立升级硬件
 
 传统服务器中，CPU、内存、SSD、NIC 生命周期绑定。
 
@@ -423,7 +423,7 @@ disaggregation 后：
 
 ---
 
-### 3. 减少资源碎片
+##### 3. 减少资源碎片
 
 例如某些 workload 需要：
 
@@ -443,7 +443,7 @@ disaggregation 后：
 
 ---
 
-### 4. 更灵活的服务器规格
+##### 4. 更灵活的服务器规格
 
 服务器可以按需组合：
 
@@ -458,13 +458,13 @@ small CPU + large storage
 
 ---
 
-## 4.3 disaggregation 的挑战
+#### 4.3 disaggregation 的挑战
 
 但 disaggregation 不是免费的。
 
 它引入很多新问题。
 
-### 1. 延迟增加
+##### 1. 延迟增加
 
 本地 SSD / GPU / DRAM 通常延迟最低。
 
@@ -482,7 +482,7 @@ remote storage  更高延迟
 
 ---
 
-### 2. 带宽和 QoS
+##### 2. 带宽和 QoS
 
 多个服务器共享资源池时，会出现：
 
@@ -495,7 +495,7 @@ remote storage  更高延迟
 
 ---
 
-### 3. 故障域变化
+##### 3. 故障域变化
 
 本地 SSD 故障通常只影响一台机器。
 
@@ -511,7 +511,7 @@ remote storage  更高延迟
 
 ---
 
-### 4. 安全边界更复杂
+##### 4. 安全边界更复杂
 
 资源池中的设备可能被多个租户或 workload 使用。
 
@@ -526,7 +526,7 @@ remote storage  更高延迟
 
 ---
 
-# 5. arenas：互不信任的抽象组件
+### 5. arenas：互不信任的抽象组件
 
 原文中一个关键概念是：
 
@@ -542,7 +542,7 @@ remote storage  更高延迟
 
 ---
 
-## 5.1 什么是 arena？
+#### 5.1 什么是 arena？
 
 可以把 arena 理解为：
 
@@ -569,7 +569,7 @@ remote storage  更高延迟
 
 ---
 
-## 5.2 mutually-distrusting：互不信任
+#### 5.2 mutually-distrusting：互不信任
 
 “mutually-distrusting” 是零信任思想在硬件层面的体现。
 
@@ -594,7 +594,7 @@ remote storage  更高延迟
 
 ---
 
-## 5.3 machine 是 arena 的组合
+#### 5.3 machine 是 arena 的组合
 
 原文说：
 
@@ -624,7 +624,7 @@ machine = arena 1 + arena 2 + ... + arena N
 
 ---
 
-## 5.4 arena 和 VM / container 的区别
+#### 5.4 arena 和 VM / container 的区别
 
 这个概念容易和 VM、container 混淆。
 
@@ -641,7 +641,7 @@ arena 更接近硬件信任边界，而不是单纯的软件隔离。
 
 ---
 
-# 6. 如何处理硬件异构性：把管理功能移出去
+### 6. 如何处理硬件异构性：把管理功能移出去
 
 原文说：
 
@@ -655,7 +655,7 @@ arena 更接近硬件信任边界，而不是单纯的软件隔离。
 
 ---
 
-## 6.1 虚拟化卸载到独立卡
+#### 6.1 虚拟化卸载到独立卡
 
 原文举例：
 
@@ -686,7 +686,7 @@ arena 更接近硬件信任边界，而不是单纯的软件隔离。
 
 ---
 
-## 6.2 BMC 承担服务器管理和监控
+#### 6.2 BMC 承担服务器管理和监控
 
 原文说：
 
@@ -708,7 +708,7 @@ BMC 可以负责：
 
 ---
 
-## 6.3 每个 arena 有自己的 firmware stack 和 RoT
+#### 6.3 每个 arena 有自己的 firmware stack 和 RoT
 
 原文：
 
@@ -727,7 +727,7 @@ BMC 可以负责：
 
 ---
 
-# 7. control plane：用集中控制平面管理大量 arena
+### 7. control plane：用集中控制平面管理大量 arena
 
 原文 Figure 6.11 后面说：
 
@@ -747,7 +747,7 @@ BMC 可以负责：
 
 ---
 
-## 7.1 本地 boundary-enforcing functions
+#### 7.1 本地 boundary-enforcing functions
 
 每个 arena 本地需要执行一些强制边界功能，例如：
 
@@ -764,7 +764,7 @@ BMC 可以负责：
 
 ---
 
-## 7.2 中央 control plane
+#### 7.2 中央 control plane
 
 中央控制平面负责：
 
@@ -783,7 +783,7 @@ BMC 可以负责：
 
 ---
 
-## 7.3 为什么类似 SDN？
+#### 7.3 为什么类似 SDN？
 
 SDN 的核心思想是：
 
@@ -809,7 +809,7 @@ fleet control plane：集中管理整个数据中心硬件信任与资源
 
 ---
 
-# 8. machine / rack / network models：把机器知识从代码移到模型
+### 8. machine / rack / network models：把机器知识从代码移到模型
 
 原文说：
 
@@ -819,7 +819,7 @@ fleet control plane：集中管理整个数据中心硬件信任与资源
 
 ---
 
-## 8.1 为什么需要模型？
+#### 8.1 为什么需要模型？
 
 如果每种服务器配置都写专门代码，会出现：
 
@@ -853,7 +853,7 @@ fleet control plane：集中管理整个数据中心硬件信任与资源
 
 ---
 
-## 8.2 reachability：可达性
+#### 8.2 reachability：可达性
 
 原文：
 
@@ -876,7 +876,7 @@ reachability 是安全和网络隔离的一部分。
 
 ---
 
-## 8.3 failure domains：故障域
+#### 8.3 failure domains：故障域
 
 failure domain 描述：
 
@@ -902,7 +902,7 @@ failure domain 描述：
 
 ---
 
-## 8.4 attestation domains：证明域
+#### 8.4 attestation domains：证明域
 
 attestation domain 描述：
 
@@ -922,7 +922,7 @@ attestation domain 描述：
 
 ---
 
-## 8.5 把 per-machine knowledge 从代码移到模型
+#### 8.5 把 per-machine knowledge 从代码移到模型
 
 原文最后强调：
 
@@ -963,7 +963,7 @@ machine model 描述：
 
 ---
 
-# 9. attestation：机器加入集群前的安全证明
+### 9. attestation：机器加入集群前的安全证明
 
 原文后半部分重点讲 attestation。
 
@@ -971,7 +971,7 @@ machine model 描述：
 
 ---
 
-## 9.1 为什么需要 attestation？
+#### 9.1 为什么需要 attestation？
 
 因为控制平面不能盲目相信一台机器。
 
@@ -993,7 +993,7 @@ machine model 描述：
 
 ---
 
-## 9.2 为什么由 job scheduler 做 central attestation authority？
+#### 9.2 为什么由 job scheduler 做 central attestation authority？
 
 原文说：
 
@@ -1015,7 +1015,7 @@ machine model 描述：
 
 ---
 
-# 10. attestation 的具体流程
+### 10. attestation 的具体流程
 
 原文描述了一个完整流程。
 
@@ -1023,7 +1023,7 @@ machine model 描述：
 
 ---
 
-## 步骤 1：请求加入资源池
+#### 步骤 1：请求加入资源池
 
 当 scheduler 被要求把一台新机器加入资源池时：
 
@@ -1034,7 +1034,7 @@ scheduler receives request:
 
 ---
 
-## 步骤 2：向机器索取 signed attestation policy
+#### 步骤 2：向机器索取 signed attestation policy
 
 原文：
 
@@ -1066,7 +1066,7 @@ attestation policy =
 
 ---
 
-## 步骤 3：验证 policy 签名
+#### 步骤 3：验证 policy 签名
 
 scheduler 首先验证：
 
@@ -1080,7 +1080,7 @@ policy signature valid?
 
 ---
 
-## 步骤 4：检查 revocation list
+#### 步骤 4：检查 revocation list
 
 原文：
 
@@ -1097,7 +1097,7 @@ policy signature valid?
 
 ---
 
-## 步骤 5：向各 arena controller 收集 attestation
+#### 步骤 5：向各 arena controller 收集 attestation
 
 如果 policy 有效，scheduler 向机器中的各个 arena controller 发 RPC：
 
@@ -1126,7 +1126,7 @@ Host RoT:
 
 ---
 
-## 步骤 6：比较 attestation 是否符合 policy
+#### 步骤 6：比较 attestation 是否符合 policy
 
 scheduler 检查：
 
@@ -1150,7 +1150,7 @@ machine is rejected
 
 ---
 
-## 步骤 7：加入集群或拒绝
+#### 步骤 7：加入集群或拒绝
 
 原文：
 
@@ -1180,7 +1180,7 @@ all match?
 
 ---
 
-# 11. 为什么 policy 存在机器本身？
+### 11. 为什么 policy 存在机器本身？
 
 原文说：
 
@@ -1190,7 +1190,7 @@ all match?
 
 ---
 
-## 11.1 如果把 policy 存在中央服务中
+#### 11.1 如果把 policy 存在中央服务中
 
 可能的问题：
 
@@ -1201,7 +1201,7 @@ all match?
 
 ---
 
-## 11.2 把 policy 存在机器本身
+#### 11.2 把 policy 存在机器本身
 
 优点：
 
@@ -1221,7 +1221,7 @@ all match?
 
 ---
 
-# 12. firmware upgrade / downgrade 与 policy 生成
+### 12. firmware upgrade / downgrade 与 policy 生成
 
 原文：
 
@@ -1251,7 +1251,7 @@ old policy revoked
 
 ---
 
-## 12.1 为什么要撤销旧 policy？
+#### 12.1 为什么要撤销旧 policy？
 
 因为旧 policy 可能对应：
 
@@ -1264,7 +1264,7 @@ old policy revoked
 
 ---
 
-## 12.2 为什么 downgrade 也要生成新 policy？
+#### 12.2 为什么 downgrade 也要生成新 policy？
 
 有时候固件降级是合法运维操作，例如：
 
@@ -1284,7 +1284,7 @@ old policy revoked
 
 ---
 
-# 13. 这一节体现的工程收益
+### 13. 这一节体现的工程收益
 
 原文最后总结：
 
@@ -1294,7 +1294,7 @@ old policy revoked
 
 ---
 
-## 13.1 简化硬件信任推理
+#### 13.1 简化硬件信任推理
 
 如果每台机器都是特殊硬件组合，安全团队很难回答：
 
@@ -1316,7 +1316,7 @@ arena 化之后，问题变成：
 
 ---
 
-## 13.2 在 WSC 规模管理复杂服务器
+#### 13.2 在 WSC 规模管理复杂服务器
 
 随着服务器越来越复杂：
 
@@ -1341,7 +1341,7 @@ arena 化之后，问题变成：
 
 ---
 
-## 13.3 降低新服务器配置上线成本
+#### 13.3 降低新服务器配置上线成本
 
 新硬件上线通常需要：
 
@@ -1372,13 +1372,13 @@ arena 化之后，问题变成：
 
 ---
 
-# 14. 与 6.2.1、6.2.2 的联系
+### 14. 与 6.2.1、6.2.2 的联系
 
 这一节不是孤立的安全讨论，而是前两节的自然延伸。
 
 ---
 
-## 14.1 与 6.2.1 的联系
+#### 14.1 与 6.2.1 的联系
 
 6.2.1 提到：
 
@@ -1408,7 +1408,7 @@ arena 化之后，问题变成：
 
 ---
 
-## 14.2 与 6.2.2 的联系
+#### 14.2 与 6.2.2 的联系
 
 6.2.2 提到：
 
@@ -1437,15 +1437,15 @@ arena 化之后，问题变成：
 
 ---
 
-# 15. 读 Figure 6.9、6.10、6.11 的建议
+### 15. 读 Figure 6.9、6.10、6.11 的建议
 
 ---
 
-## 15.1 Figure 6.9：服务器演化为 multi-node machines
+#### 15.1 Figure 6.9：服务器演化为 multi-node machines
 
 这张图应该对比：
 
-### Figure 6.9(a) monolith
+##### Figure 6.9(a) monolith
 
 ```text
 single CPU complex
@@ -1453,7 +1453,7 @@ single OS
 all devices under host control
 ```
 
-### Figure 6.9(b) multi-node
+##### Figure 6.9(b) multi-node
 
 ```text
 host CPU
@@ -1473,7 +1473,7 @@ host CPU
 
 ---
 
-## 15.2 Figure 6.10：single-node vs multi-node multi-brained system
+#### 15.2 Figure 6.10：single-node vs multi-node multi-brained system
 
 这张图强调：
 
@@ -1491,7 +1491,7 @@ host CPU
 
 ---
 
-## 15.3 Figure 6.11：multi-arena architecture 和 control plane
+#### 15.3 Figure 6.11：multi-arena architecture 和 control plane
 
 这张图最复杂，重点看：
 
@@ -1521,7 +1521,7 @@ host CPU
 
 ---
 
-# 16. 关键术语表
+### 16. 关键术语表
 
 |术语|含义|
 | -----------------------------| ------------------------------------|
@@ -1558,11 +1558,11 @@ host CPU
 
 ---
 
-# 17. 容易误解的几个点
+### 17. 容易误解的几个点
 
 ---
 
-## 误解 1：服务器变成分布式系统只是硬件变复杂了
+#### 误解 1：服务器变成分布式系统只是硬件变复杂了
 
 不只是硬件复杂。
 
@@ -1576,7 +1576,7 @@ host CPU
 
 ---
 
-## 误解 2：bare-metal 就是云厂商完全不管机器
+#### 误解 2：bare-metal 就是云厂商完全不管机器
 
 不是。
 
@@ -1596,7 +1596,7 @@ bare-metal 只是客户直接控制 host CPU。
 
 ---
 
-## 误解 3：disaggregation 一定更好
+#### 误解 3：disaggregation 一定更好
 
 不一定。
 
@@ -1612,7 +1612,7 @@ bare-metal 只是客户直接控制 host CPU。
 
 ---
 
-## 误解 4：attestation 只是安全团队的事
+#### 误解 4：attestation 只是安全团队的事
 
 不是。
 
@@ -1626,7 +1626,7 @@ bare-metal 只是客户直接控制 host CPU。
 
 ---
 
-## 误解 5：model 只是文档
+#### 误解 5：model 只是文档
 
 不是。
 
@@ -1643,11 +1643,11 @@ bare-metal 只是客户直接控制 host CPU。
 
 ---
 
-# 18. 可以用来深入思考的问题
+### 18. 可以用来深入思考的问题
 
 ---
 
-## 问题 1：为什么说现代服务器本身是分布式系统？
+#### 问题 1：为什么说现代服务器本身是分布式系统？
 
 因为它内部包含多个独立计算域：
 
@@ -1662,7 +1662,7 @@ bare-metal 只是客户直接控制 host CPU。
 
 ---
 
-## 问题 2：arena 的核心作用是什么？
+#### 问题 2：arena 的核心作用是什么？
 
 arena 把服务器拆成多个互不信任的硬件信任域。
 
@@ -1677,7 +1677,7 @@ arena 把服务器拆成多个互不信任的硬件信任域。
 
 ---
 
-## 问题 3：为什么 bare-metal 云需要 SmartNIC / DPU？
+#### 问题 3：为什么 bare-metal 云需要 SmartNIC / DPU？
 
 因为客户要直接控制 host CPU，但云厂商仍需要管理网络、存储、安全和监控。
 
@@ -1685,7 +1685,7 @@ SmartNIC / DPU 可以承担这些功能，而不占用 host CPU，也不让客�
 
 ---
 
-## 问题 4：disaggregated server 和传统 server 的区别是什么？
+#### 问题 4：disaggregated server 和传统 server 的区别是什么？
 
 传统 server：
 
@@ -1701,7 +1701,7 @@ disaggregated server：
 
 ---
 
-## 问题 5：为什么 scheduler 要负责 attestation？
+#### 问题 5：为什么 scheduler 要负责 attestation？
 
 因为 scheduler 决定 workload 是否能运行在某台机器上。
 
@@ -1709,7 +1709,7 @@ disaggregated server：
 
 ---
 
-## 问题 6：为什么 attestation policy 存在机器本身？
+#### 问题 6：为什么 attestation policy 存在机器本身？
 
 为了避免 scheduler 依赖额外服务，提高可用性。
 
@@ -1717,7 +1717,7 @@ disaggregated server：
 
 ---
 
-## 问题 7：为什么要把 per-machine knowledge 从代码移到 model？
+#### 问题 7：为什么要把 per-machine knowledge 从代码移到 model？
 
 因为 WSC 中硬件配置太多。
 
@@ -1732,13 +1732,13 @@ disaggregated server：
 
 ---
 
-# 19. 这一节的深层设计哲学
+### 19. 这一节的深层设计哲学
 
 这一节背后有几条非常重要的系统设计哲学。
 
 ---
 
-## 19.1 零信任硬件化
+#### 19.1 零信任硬件化
 
 不是默认相信 host OS，而是：
 
@@ -1750,7 +1750,7 @@ disaggregated server：
 
 ---
 
-## 19.2 管理平面与数据平面分离
+#### 19.2 管理平面与数据平面分离
 
 workload 运行在数据平面。
 
@@ -1760,7 +1760,7 @@ workload 运行在数据平面。
 
 ---
 
-## 19.3 用抽象对抗硬件复杂性
+#### 19.3 用抽象对抗硬件复杂性
 
 硬件越来越复杂：
 
@@ -1782,7 +1782,7 @@ arena 抽象
 
 ---
 
-## 19.4 用模型驱动规模化
+#### 19.4 用模型驱动规模化
 
 WSC 规模下，靠人工和专用脚本不可行。
 
@@ -1799,7 +1799,7 @@ WSC 规模下，靠人工和专用脚本不可行。
 
 ---
 
-# 20. 这一节可以整理成的精简笔记
+### 20. 这一节可以整理成的精简笔记
 
 ```text
 6.2.3 Individual servers as distributed systems
@@ -1905,7 +1905,7 @@ WSC 规模下，靠人工和专用脚本不可行。
 
 ---
 
-# 21. 如果考试或讨论中要回答这一节，可以这样说
+### 21. 如果考试或讨论中要回答这一节，可以这样说
 
 > 6.2.3 节讨论的是现代服务器如何从传统的单体机器演变成“作为分布式系统的服务器”。过去服务器通常是一个 monolith，由一个主 CPU 和单一操作系统管理大部分硬件。但今天的服务器内部包含多个独立计算元素，例如 host CPU、BMC、SmartNIC、DPU、加速器、存储控制器和电源管理控制器。它们各自运行自己的操作系统或固件栈，因此服务器本身已经是一个多节点、多信任域的分布式系统。
 >

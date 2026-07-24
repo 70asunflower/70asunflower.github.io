@@ -24,13 +24,13 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：4.3.2.4 Per
 
 ---
 
-# 一、这一节的主线：从“看见性能问题”到“自动优化性能”
+### 一、这一节的主线：从“看见性能问题”到“自动优化性能”
 
 原文可以分为三层。
 
 ---
 
-## 第一层：Tracing 也可以用于性能优化
+#### 第一层：Tracing 也可以用于性能优化
 
 原文开头说：
 
@@ -53,7 +53,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：4.3.2.4 Per
 
 ---
 
-## 第二层：单机 CPU profiler 不够，需要数据中心级 profiling
+#### 第二层：单机 CPU profiler 不够，需要数据中心级 profiling
 
 原文接着讲：
 
@@ -75,7 +75,7 @@ Google-Wide Profiling，简称 GWP，就是这种思想的代表。
 
 ---
 
-## 第三层：性能工具不仅观察，还可以主动优化
+#### 第三层：性能工具不仅观察，还可以主动优化
 
 原文最后说：
 
@@ -107,7 +107,7 @@ Google-Wide Profiling，简称 GWP，就是这种思想的代表。
 
 ---
 
-# 二、Tracing 为什么能帮助性能优化？
+### 二、Tracing 为什么能帮助性能优化？
 
 原文说：
 
@@ -122,7 +122,7 @@ annotated with timing information
 
 ---
 
-## 1. Trace 不只是调用关系，还带耗时
+#### 1. Trace 不只是调用关系，还带耗时
 
 一个 trace 不只要记录：
 
@@ -148,7 +148,7 @@ Frontend          300ms
 
 ---
 
-## 2. Trace 可以识别关键路径
+#### 2. Trace 可以识别关键路径
 
 在一个复杂请求里，并不是所有子调用都同样重要。
 
@@ -175,7 +175,7 @@ Tracing 能帮助你找到真正的 critical path。
 
 ---
 
-## 3. Trace 可以帮助理解不同负载下的性能
+#### 3. Trace 可以帮助理解不同负载下的性能
 
 原文说：
 
@@ -207,7 +207,7 @@ Tracing 能帮助你找到真正的 critical path。
 
 ---
 
-## 4. Trace 可以解释区域差异
+#### 4. Trace 可以解释区域差异
 
 原文说：
 
@@ -271,13 +271,13 @@ region A 的 PaymentService CPU profile 中 TLS handshake 占比更高
 
 ---
 
-# 三、Tracing 和 Profiling 的区别与互补
+### 三、Tracing 和 Profiling 的区别与互补
 
 这一节从 tracing 过渡到 CPU profiler，所以最好把两者放在一起理解。
 
 ---
 
-## 1. Tracing：请求维度
+#### 1. Tracing：请求维度
 
 Tracing 关注：
 
@@ -302,7 +302,7 @@ because PaymentService -> FraudService -> Redis is slow
 
 ---
 
-## 2. Profiling：执行维度
+#### 2. Profiling：执行维度
 
 Profiling 关注：
 
@@ -329,7 +329,7 @@ and 20% in memory allocation
 
 ---
 
-## 3. 两者结合才完整
+#### 3. 两者结合才完整
 
 一个完整排障过程可能是：
 
@@ -350,7 +350,7 @@ Metrics 验证优化是否真的有效。
 
 ---
 
-# 四、什么是“基于硬件性能计数器采样的 CPU profiler”？
+### 四、什么是“基于硬件性能计数器采样的 CPU profiler”？
 
 原文说：
 
@@ -360,7 +360,7 @@ Metrics 验证优化是否真的有效。
 
 ---
 
-## 1. Hardware performance counters 是什么？
+#### 1. Hardware performance counters 是什么？
 
 现代 CPU 内部有硬件性能计数器，也叫 PMU，Performance Monitoring Unit。
 
@@ -382,7 +382,7 @@ backend stalls
 
 ---
 
-## 2. 为什么这些事件重要？
+#### 2. 为什么这些事件重要？
 
 程序慢不一定是算法复杂度高。
 
@@ -417,7 +417,7 @@ for (int i = 0; i < n; i++) sum += a[random_index[i]];
 
 ---
 
-## 3. Sampling 是什么？
+#### 3. Sampling 是什么？
 
 Sampling profiler 不是记录每一个函数调用，而是定期采样。
 
@@ -445,7 +445,7 @@ Sampling profiler 不是记录每一个函数调用，而是定期采样。
 
 ---
 
-## 4. Sampling 的优点
+#### 4. Sampling 的优点
 
 Sampling 的好处是开销相对较低。
 
@@ -461,7 +461,7 @@ always-on profiling
 
 ---
 
-## 5. Sampling 的局限
+#### 5. Sampling 的局限
 
 Sampling 也有局限：
 
@@ -487,7 +487,7 @@ hardware counters
 
 ---
 
-# 五、为什么 WSC 需要多机器 profiling？
+### 五、为什么 WSC 需要多机器 profiling？
 
 原文说：
 
@@ -497,7 +497,7 @@ hardware counters
 
 ---
 
-## 1. 一个服务有很多实例
+#### 1. 一个服务有很多实例
 
 一个大型服务可能同时运行在：
 
@@ -524,7 +524,7 @@ hardware counters
 
 ---
 
-## 2. 性能问题可能是分布式的
+#### 2. 性能问题可能是分布式的
 
 例如某个全局函数很热：
 
@@ -546,7 +546,7 @@ ParseRequest() 占整个集群 CPU 的 12%
 
 ---
 
-## 3. 全局视角能发现“总量巨大”的问题
+#### 3. 全局视角能发现“总量巨大”的问题
 
 有些问题单机看不出来，但在整个数据中心规模下非常惊人。
 
@@ -578,7 +578,7 @@ ParseRequest() 占整个集群 CPU 的 12%
 
 ---
 
-# 六、Google-Wide Profiling，GWP：数据中心级持续 profiling
+### 六、Google-Wide Profiling，GWP：数据中心级持续 profiling
 
 原文说：
 
@@ -588,7 +588,7 @@ ParseRequest() 占整个集群 CPU 的 12%
 
 ---
 
-## 1. 随机选择一部分机器
+#### 1. 随机选择一部分机器
 
 原文：
 
@@ -617,7 +617,7 @@ GWP 不是同时对所有机器做完整 profiling。
 
 ---
 
-## 2. 收集短时间的整机和进程级 profile
+#### 2. 收集短时间的整机和进程级 profile
 
 原文：
 
@@ -625,7 +625,7 @@ GWP 不是同时对所有机器做完整 profiling。
 
 这里有两类数据。
 
-### whole machine profile
+##### whole machine profile
 
 整机视角看：
 
@@ -647,7 +647,7 @@ Interrupt: 5%
 Idle: 15%
 ```
 
-### per-process profile
+##### per-process profile
 
 进程视角看：
 
@@ -670,7 +670,7 @@ webserver:
 
 ---
 
-## 3. 符号信息仓库
+#### 3. 符号信息仓库
 
 原文：
 
@@ -711,7 +711,7 @@ profiler 采样到的原始数据通常只是地址：
 
 ---
 
-## 4. 生成集群级 profile 视图
+#### 4. 生成集群级 profile 视图
 
 原文：
 
@@ -744,7 +744,7 @@ GWP 的目标不是某台机器的局部视图，而是整个集群的聚合视�
 
 ---
 
-# 七、GWP 的价值：从单机性能到平台性能经济学
+### 七、GWP 的价值：从单机性能到平台性能经济学
 
 GWP 的意义不只是技术上的，它还有资源经济学意义。
 
@@ -777,7 +777,7 @@ GWP 的意义不只是技术上的，它还有资源经济学意义。
 
 ---
 
-# 八、Google Cloud Operations tools：GWP 思想的产品化
+### 八、Google Cloud Operations tools：GWP 思想的产品化
 
 原文说：
 
@@ -814,7 +814,7 @@ Cloud Logging
 
 ---
 
-# 九、Performance tools 不只是观察，还可以主动优化
+### 九、Performance tools 不只是观察，还可以主动优化
 
 原文这一段非常关键：
 
@@ -838,7 +838,7 @@ Cloud Logging
 
 ---
 
-# 十、Profile-Guided Optimization，PGO
+### 十、Profile-Guided Optimization，PGO
 
 原文说：
 
@@ -848,7 +848,7 @@ PGO 是编译器优化中的重要技术。
 
 ---
 
-## 1. 普通编译优化的问题
+#### 1. 普通编译优化的问题
 
 编译器在优化代码时，通常不知道真实运行时的行为。
 
@@ -875,11 +875,11 @@ fast_path 是不是真的最常走？
 
 ---
 
-## 2. PGO 的基本流程
+#### 2. PGO 的基本流程
 
 PGO 通常分三步。
 
-### 第一步：生成带插桩的二进制
+##### 第一步：生成带插桩的二进制
 
 编译器生成一个会收集 profile 的版本：
 
@@ -899,7 +899,7 @@ instrumented binary
 
 ---
 
-### 第二步：在真实环境中运行
+##### 第二步：在真实环境中运行
 
 把这个二进制部署到生产环境或代表性负载中运行。
 
@@ -916,7 +916,7 @@ instrumented binary
 
 ---
 
-### 第三步：用 profile 重新编译
+##### 第三步：用 profile 重新编译
 
 编译器根据收集到的 profile 重新优化二进制。
 
@@ -934,7 +934,7 @@ instrumented binary
 
 ---
 
-## 3. PGO 可以优化什么？
+#### 3. PGO 可以优化什么？
 
 PGO 常见优化包括：
 
@@ -966,7 +966,7 @@ cold_function()
 
 ---
 
-## 4. 为什么生产环境 profile 很重要？
+#### 4. 为什么生产环境 profile 很重要？
 
 因为 benchmark 可能不真实。
 
@@ -1002,7 +1002,7 @@ cold_function()
 
 ---
 
-# 十一、内存分配器优化：减少 cache 和 TLB miss
+### 十一、内存分配器优化：减少 cache 和 TLB miss
 
 原文说：
 
@@ -1012,7 +1012,7 @@ cold_function()
 
 ---
 
-## 1. 为什么 memory allocator 很重要？
+#### 1. 为什么 memory allocator 很重要？
 
 很多服务频繁分配和释放内存：
 
@@ -1039,7 +1039,7 @@ GC 压力增加。
 
 ---
 
-## 2. 好的分配器如何减少 cache miss？
+#### 2. 好的分配器如何减少 cache miss？
 
 好的分配器会尽量让相关对象在内存中靠近。
 
@@ -1056,7 +1056,7 @@ GC 压力增加。
 
 ---
 
-## 3. 好的分配器如何减少 TLB miss？
+#### 3. 好的分配器如何减少 TLB miss？
 
 TLB 是地址翻译缓存。
 
@@ -1076,7 +1076,7 @@ TLB miss 对大型内存密集型服务影响很大。
 
 ---
 
-## 4. 典型分配器
+#### 4. 典型分配器
 
 现代常见高性能分配器包括：
 
@@ -1100,7 +1100,7 @@ fragmentation control
 
 ---
 
-# 十二、为什么大规模性能优化特别难？
+### 十二、为什么大规模性能优化特别难？
 
 原文说：
 
@@ -1114,7 +1114,7 @@ fragmentation control
 
 ---
 
-## 1. 小规模 benchmark 可能骗人
+#### 1. 小规模 benchmark 可能骗人
 
 小 benchmark 通常：
 
@@ -1148,7 +1148,7 @@ fragmentation control
 
 ---
 
-## 2. 一个优化可能改善局部，却恶化全局
+#### 2. 一个优化可能改善局部，却恶化全局
 
 例如你优化了一个函数：
 
@@ -1174,7 +1174,7 @@ TLB miss 增加；
 
 ---
 
-# 十三、原文给的经典例子：内联分配器可能适得其反
+### 十三、原文给的经典例子：内联分配器可能适得其反
 
 原文举例：
 
@@ -1184,7 +1184,7 @@ TLB miss 增加；
 
 ---
 
-## 1. 内联分配器为什么可能快？
+#### 1. 内联分配器为什么可能快？
 
 假设代码里有很多：
 
@@ -1221,7 +1221,7 @@ malloc 的逻辑直接插入调用点
 
 ---
 
-## 2. 为什么在生产环境可能变慢？
+#### 2. 为什么在生产环境可能变慢？
 
 问题是，如果程序里有几百万个分配点：
 
@@ -1251,7 +1251,7 @@ malloc 函数只有一份代码
 
 ---
 
-## 3. 代码膨胀导致 instruction cache miss
+#### 3. 代码膨胀导致 instruction cache miss
 
 CPU 有指令缓存：
 
@@ -1276,7 +1276,7 @@ ITLB miss 增加
 
 ---
 
-## 4. 小 benchmark 为什么看不到这个问题？
+#### 4. 小 benchmark 为什么看不到这个问题？
 
 因为小 benchmark 的代码量小。
 
@@ -1308,7 +1308,7 @@ I-cache miss 增加 -> 变慢
 
 ---
 
-# 十四、这一节背后的核心思想：性能是一个系统级、规模级问题
+### 十四、这一节背后的核心思想：性能是一个系统级、规模级问题
 
 你可以把这一节总结成一句话：
 
@@ -1316,7 +1316,7 @@ I-cache miss 增加 -> 变慢
 
 ---
 
-## 1. 局部最优不等于全局最优
+#### 1. 局部最优不等于全局最优
 
 例如：
 
@@ -1338,7 +1338,7 @@ I-cache miss 增加 -> 变慢
 
 ---
 
-## 2. 平均数优化不等于尾延迟优化
+#### 2. 平均数优化不等于尾延迟优化
 
 有些优化可能改善平均延迟，但恶化 P99。
 
@@ -1353,7 +1353,7 @@ P99 latency 从 300ms 升到 800ms
 
 ---
 
-## 3. 单机优化不等于集群优化
+#### 3. 单机优化不等于集群优化
 
 单机上某个优化有效，可能因为那台机器：
 
@@ -1368,7 +1368,7 @@ NUMA 更友好；
 
 ---
 
-## 4. Benchmark 优化不等于生产优化
+#### 4. Benchmark 优化不等于生产优化
 
 benchmark 是受控实验，生产是复杂现实。
 
@@ -1382,13 +1382,13 @@ true performance impacts
 
 ---
 
-# 十五、可以用一个完整例子串起这一节
+### 十五、可以用一个完整例子串起这一节
 
 假设你负责一个电商 `Buy` 服务。
 
 ---
 
-## 第一步：Tracing 发现关键路径
+#### 第一步：Tracing 发现关键路径
 
 Trace 显示：
 
@@ -1412,7 +1412,7 @@ JSON deserialize 是关键热点之一。
 
 ---
 
-## 第二步：Profiling 找内部热点
+#### 第二步：Profiling 找内部热点
 
 对 FraudService 做 CPU profiling：
 
@@ -1431,7 +1431,7 @@ JSON 反序列化和内存分配占了很多 CPU。
 
 ---
 
-## 第三步：使用 PGO
+#### 第三步：使用 PGO
 
 你收集生产 profile，重新编译 FraudService。
 
@@ -1452,7 +1452,7 @@ JSON deserialize CPU 占比从 35% 降到 25%。
 
 ---
 
-## 第四步：优化内存分配器
+#### 第四步：优化内存分配器
 
 你发现分配器导致 cache miss 多，于是改用更合适的分配器：
 
@@ -1478,7 +1478,7 @@ P99 latency 下降。
 
 ---
 
-## 第五步：回到 trace 和 metrics 验证
+#### 第五步：回到 trace 和 metrics 验证
 
 最终 trace：
 
@@ -1509,13 +1509,13 @@ tracing -> profiling -> optimization -> verification
 
 ---
 
-# 十六、这一节涉及的重要术语
+### 十六、这一节涉及的重要术语
 
 你可以把这些术语一起记住。
 
 ---
 
-## 1. Trace
+#### 1. Trace
 
 一次请求的跨服务执行记录。
 
@@ -1525,7 +1525,7 @@ request path + timing
 
 ---
 
-## 2. Span
+#### 2. Span
 
 trace 中的一段工作。
 
@@ -1535,7 +1535,7 @@ service name, operation, start time, duration
 
 ---
 
-## 3. CPU profiler
+#### 3. CPU profiler
 
 分析 CPU 时间分布的工具。
 
@@ -1545,7 +1545,7 @@ which functions consume CPU?
 
 ---
 
-## 4. Hardware performance counters
+#### 4. Hardware performance counters
 
 CPU 硬件事件计数器。
 
@@ -1555,7 +1555,7 @@ cycles, instructions, cache misses, TLB misses, branch mispredictions
 
 ---
 
-## 5. Sampling
+#### 5. Sampling
 
 定期采样当前执行状态，而不是全量插桩。
 
@@ -1565,7 +1565,7 @@ low overhead, statistical profiling
 
 ---
 
-## 6. Google-Wide Profiling, GWP
+#### 6. Google-Wide Profiling, GWP
 
 数据中心级持续 profiling 系统。
 
@@ -1578,7 +1578,7 @@ cluster-wide view
 
 ---
 
-## 7. Profile-Guided Optimization, PGO
+#### 7. Profile-Guided Optimization, PGO
 
 用真实运行 profile 指导编译优化。
 
@@ -1588,7 +1588,7 @@ production profile -> better binary layout -> better performance
 
 ---
 
-## 8. Instruction cache miss
+#### 8. Instruction cache miss
 
 指令缓存未命中。
 
@@ -1600,7 +1600,7 @@ CPU frontend stall
 
 ---
 
-## 9. TLB miss
+#### 9. TLB miss
 
 地址翻译缓存未命中。
 
@@ -1612,7 +1612,7 @@ address translation overhead
 
 ---
 
-# 十七、这一节与上一节的关系
+### 十七、这一节与上一节的关系
 
 上一节讲 tracing，重点是：
 
@@ -1645,7 +1645,7 @@ PGO/allocator optimization：让系统未来更快。
 
 ---
 
-# 十八、这一节的深层思想：性能优化必须基于真实生产反馈
+### 十八、这一节的深层思想：性能优化必须基于真实生产反馈
 
 这一节最值得记住的不是某个工具名，而是这个工程哲学：
 
@@ -1678,7 +1678,7 @@ CPU 时间更少，延迟反而更高；
 
 ---
 
-# 十九、可以这样给这一节做精简笔记
+### 十九、可以这样给这一节做精简笔记
 
 ```text
 4.3.2.4 Performance tools
@@ -1723,7 +1723,7 @@ CPU 时间更少，延迟反而更高；
 
 ---
 
-# 二十、如果考试或讨论中要回答这一节，可以这样说
+### 二十、如果考试或讨论中要回答这一节，可以这样说
 
 你可以这样表达：
 
@@ -1731,7 +1731,7 @@ CPU 时间更少，延迟反而更高；
 
 ---
 
-# 二十一、最后给你一个形象类比
+### 二十一、最后给你一个形象类比
 
 可以把这一节理解成“给数据中心做体检和健康管理”。
 
