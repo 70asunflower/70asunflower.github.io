@@ -1,4 +1,4 @@
-﻿---
+---
 title: '计算机体系结构「森林导览」'
 author: Fu Qilin
 categories: [Memo]
