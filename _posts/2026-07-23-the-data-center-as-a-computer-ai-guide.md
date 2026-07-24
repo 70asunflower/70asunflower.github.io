@@ -8,7 +8,7 @@ description: "记录用 AI 辅助阅读《The Data Center as a Computer》的方
 excerpt: "记录用 AI 辅助阅读《The Data Center as a Computer》的方式与提示词，并汇总本栏目的正文篇章。"
 ---
 <!-- markdownlint-disable MD013 MD025 MD033 -->
-# 《The Data Center as a Computer》AI 导读
+## 《The Data Center as a Computer》AI 导读
 
 因为项目涉及到分布式计算的东西，最近学习一下相关的内容。最开始看这本书，还是直接英文开始哼哧哼哧的看，看了好几章有点心虚了，觉得怎么脑子里什么都没有装进去。（一方面也可能是因为前面都是背景知识，与我想要的内容相关性较少的原因）后面直接复制原文给ai 了让他辅助我学习，发现效果还是不错的，我暂时入门也分不出来哪些是幻觉，至小，现在的内容输出的内容对我是有用的。所以我觉得值得保存一下ai 的输出，方便后面回顾学习，于是就有了这个栏目。我用的提示词是：
 

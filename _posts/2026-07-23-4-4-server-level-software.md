@@ -13,7 +13,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：4.4 Server-
 >
 > 说明：本栏目正文内容由 AI 根据原书原文生成，请自行甄别内容真实性。
 
-# 4.4 Server-level software
+## 4.4 Server-level software
 
 下面我继续结合你提供的原文，把 **4.4 Server-level software** 这一节读深。
 

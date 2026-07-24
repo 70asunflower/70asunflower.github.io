@@ -13,7 +13,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.1.2.2 Gra
 >
 > 说明：本栏目正文内容由 AI 根据原书原文生成，请自行甄别内容真实性。
 
-# 6.1.2.2 Granularity of scale-out: Brawny versus wimpy cores
+## 6.1.2.2 Granularity of scale-out: Brawny versus wimpy cores
 
 下面我结合你提供的原文，把 **6.1.2.2 Granularity of scale-out: Brawny versus wimpy cores** 这一节读深。
 

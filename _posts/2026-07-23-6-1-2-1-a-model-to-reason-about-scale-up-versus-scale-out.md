@@ -13,7 +13,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.1.2.1 A m
 >
 > 说明：本栏目正文内容由 AI 根据原书原文生成，请自行甄别内容真实性。
 
-# 6.1.2.1 A model to reason about scale-up versus scale-out
+## 6.1.2.1 A model to reason about scale-up versus scale-out
 
 下面我结合你提供的原文，把 **6.1.2.1 A model to reason about scale-up versus scale-out** 这一小节读深。
 

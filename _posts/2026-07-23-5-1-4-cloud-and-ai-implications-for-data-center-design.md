@@ -13,7 +13,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：5.1.4 Cloud
 >
 > 说明：本栏目正文内容由 AI 根据原书原文生成，请自行甄别内容真实性。
 
-# 5.1.4 Cloud and AI implications for data center design
+## 5.1.4 Cloud and AI implications for data center design
 
 下面我结合你提供的原文，把 **5.1.4 Cloud and AI implications for data center design** 这一节读深。
 

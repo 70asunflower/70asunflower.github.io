@@ -13,7 +13,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：5.1 Data ce
 >
 > 说明：本栏目正文内容由 AI 根据原书原文生成，请自行甄别内容真实性。
 
-# 5.1 Data center infrastructure basics
+## 5.1 Data center infrastructure basics
 
 下面我结合你提供的原文，把 **5.1 Data center infrastructure basics** 这一节读厚。
 

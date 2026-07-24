@@ -13,7 +13,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：6.1 WSC bui
 >
 > 说明：本栏目正文内容由 AI 根据原书原文生成，请自行甄别内容真实性。
 
-# 6.1 WSC building blocks and design considerations
+## 6.1 WSC building blocks and design considerations
 
 下面我结合你提供的原文，把 **6.1 WSC building blocks and design considerations** 以及其中的 **6.1.1 Overall architecture** 和 **6.1.2 Building scale-out systems** 读深。
 
