@@ -1461,10 +1461,9 @@ GPU superpod = NVLink 高速地铁
 > 真正的设计原则是：  
 > **根据工作负载的通信模式，在局部使用高速 scale-up，在全局使用低成本 scale-out。**
 
----
 
 **专栏导航**
 
 - ← 上一篇：[6.1.2.2 Granularity of scale-out: Brawny versus wimpy cores](/posts/6-1-2-2-granularity-of-scale-out-brawny-versus-wimpy-cores/)
 - 返回：[栏目总览](/posts/the-data-center-as-a-computer-ai-guide/)
-- 下一篇：（本栏目持续更新中）
+- 下一篇：[6.2.1 Server hardware →](/posts/6-2-1-server-hardware/)
