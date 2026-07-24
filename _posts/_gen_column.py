@@ -35,6 +35,24 @@ def chapter_key(title):
         return (999,)
     return tuple(int(x) for x in m.group(1).split("."))
 
+def relevel_headings(b):
+    """Shift all body headings down by 2 (skip code fences).
+    Page is H1, chapter title is H2, so body sections must start at H3."""
+    out = []; in_fence = False
+    for line in b.split("\n"):
+        s = line.strip()
+        if s.startswith("```"):
+            in_fence = not in_fence; out.append(line); continue
+        if in_fence:
+            out.append(line); continue
+        m = re.match(r"^(#{1,6})\s+(.*)$", line)
+        if m:
+            new_lvl = min(len(m.group(1)) + 2, 6)
+            out.append("#" * new_lvl + " " + m.group(2))
+        else:
+            out.append(line)
+    return "\n".join(out)
+
 # 1) fetch all docs under the column folder path
 rows = call("/api/query/sql", {"stmt":
     f"SELECT id, content, path, parent_id, created FROM blocks WHERE box='20260704134822-ehljzrc' AND type='d' AND path LIKE '%{COL}/%'"})
@@ -57,6 +75,7 @@ for idx, r in enumerate(children):
     body = re.sub(r"^---\n.*?\n---\n", "", raw, flags=re.S)
     body = body.lstrip("\n")
     body = re.sub(r"^# .*\n", "", body, count=1)
+    body = relevel_headings(body)  # page=H1, chapter=H2 => body sections start at H3
     body = body.lstrip("\n").rstrip() + "\n"
 
     prev_t, prev_s = (None, None)

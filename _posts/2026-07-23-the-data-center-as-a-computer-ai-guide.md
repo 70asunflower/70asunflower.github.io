@@ -39,3 +39,4 @@ excerpt: "记录用 AI 辅助阅读《The Data Center as a Computer》的方式�
 - [6.3 Accelerators and custom silicon](/posts/6-3-accelerators-and-custom-silicon/)
 - [6.3.2.1 TPUs](/posts/6-3-2-1-tpus/)
 - [6.3.2.2 GPUs](/posts/6-3-2-2-gpus/)
+- [6.4 Networking](/posts/6-4-networking/)
