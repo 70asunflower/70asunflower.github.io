@@ -1,0 +1,19 @@
+name: Heading Lint
+# Guardrail for the auto-deployed Jekyll site: fail the build if any post body
+# contains a stray H1 (# ) heading. The page title <h1> comes from front matter,
+# so a body-level # always breaks the document outline. CI is the cross-machine
+# signal; the pre-commit hook (.githooks/pre-commit) is the local guard.
+on:
+  push:
+  pull_request:
+
+jobs:
+  check-headings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check no stray H1 in post bodies
+        run: python scripts/check-headings.py
