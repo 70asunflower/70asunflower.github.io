@@ -1,7 +1,7 @@
 ---
 title: "学术发表是什么：写给研究生的机制说明"
 author: Fu Qilin
-categories: [Memo]
+categories: [科研及方法论]
 tags: [academic-publishing, publishing-mechanisms, graduate-research, journal, conference, impact-factor]
 date: 2026-07-27
 description: "研究生阶段会碰到一堆词：SCI、一区、影响因子、letter、CCF-A、大修、开源获取。单独查每个词都能查到意思，但查完一圈你依旧不知道它们之间是什么关系，也不知道谁定的。"
