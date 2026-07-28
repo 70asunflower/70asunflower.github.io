@@ -2,7 +2,7 @@ import json, urllib.request, re, os
 
 URL = "http://127.0.0.1:61513"
 TOKEN = "i9am30nj67ei0zgh"
-POSTS = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+POSTS = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "_posts"))
 COL = "20260723212036-m7ty290"
 PARENT_SLUG = "the-data-center-as-a-computer-ai-guide"
 PARENT_TITLE = "《The Data Center as a Computer》AI 导读"
