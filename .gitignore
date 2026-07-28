@@ -26,3 +26,7 @@ package-lock.json
 _sass/vendors
 assets/js/dist
 .gstack/
+
+# Python caches
+__pycache__/
+*.pyc
