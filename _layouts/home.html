@@ -103,6 +103,25 @@ layout: default
   {% endif %}
 </section>
 
+<!-- Category Guides Section -->
+<section id="category-guides" class="px-xl-1 mt-5">
+  <h2 class="mb-3"><i class="fas fa-layer-group fa-fw me-1"></i>分类导览</h2>
+  <div class="cat-guide-grid">
+    {% assign guides = "分布式计算,the-data-center-as-a-computer-ai-guide,#E74C3C|科研及方法论,research-and-methodology,#F4D03F|Memo,memo,#2ECC71|Books,books,#9B59B6|My_products,my-products,#1ABC9C|Tutorial,tutorial,#3498DB" | split: "|" %}
+    {% for g in guides %}
+      {% assign parts = g | split: "," %}
+      {% assign gname = parts[0] %}
+      {% assign gslug = parts[1] %}
+      {% assign gcolor = parts[2] %}
+      <a href="{{ '/posts/' | append: gslug | append: '/' | relative_url }}" class="cat-guide-card" style="--g-accent: {{ gcolor }};">
+        <span class="cat-guide-dot"></span>
+        <span class="cat-guide-name">{{ gname }}</span>
+        <i class="fas fa-chevron-right cat-guide-arrow"></i>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
 <style>
 /* ===== Hero: 小新 on the left, About text on the right ===== */
 .hero-card { border: none; overflow: hidden; background: var(--card-bg, #1a1a1a); }
@@ -140,5 +159,41 @@ layout: default
 @media (prefers-reduced-motion: reduce) {
   .post-card { transition: none; }
   .post-card:hover { transform: none; }
+}
+
+/* ===== Category guides: accent dot + hover lift, matches post-card language ===== */
+.cat-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.9rem;
+}
+.cat-guide-card {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 12px;
+  background: var(--card-bg, #1a1a1a);
+  border: 1px solid var(--border-color, #2a2a2a);
+  border-left: 4px solid var(--g-accent, #F4D03F);
+  text-decoration: none; color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cat-guide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+.cat-guide-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--g-accent); flex: 0 0 auto;
+}
+.cat-guide-name { font-weight: 600; font-size: 0.98rem; }
+.cat-guide-arrow {
+  margin-left: auto; color: var(--g-accent);
+  opacity: 0.65; transition: transform .2s ease, opacity .2s ease;
+}
+.cat-guide-card:hover .cat-guide-arrow { transform: translateX(3px); opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-guide-card { transition: none; }
+  .cat-guide-card:hover { transform: none; }
 }
 </style>
