@@ -30,3 +30,7 @@ assets/js/dist
 # Python caches
 __pycache__/
 *.pyc
+
+# Python caches
+__pycache__/
+*.pyc
