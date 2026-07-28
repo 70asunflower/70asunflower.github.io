@@ -4,19 +4,25 @@ layout: default
 
 {% include lang.html %}
 
-<!-- About Me Section -->
+<!-- About Me / Hero Section -->
 <section id="about-section" class="px-xl-1 mb-4">
-  <div class="card-wrapper card about-card">
-    <div class="card-body about-card-body">
-      <h1 class="card-title my-2 mt-md-0 about-card-title">About Me</h1>
-      <div class="card-text content about-card-text">
-        <p>Hi, I'm <strong>Fu Qilin</strong> — a tech enthusiast and creator based in Shenzhen. 🛫</p>
-        <p>I write about programming, tools, and continuous growth.</p>
-        <ul>
-          <li>💻 Programming &amp; Technology</li>
-          <li>📖 Reading &amp; Learning</li>
-          <li>🌱 Continuous Growth</li>
-        </ul>
+  <div class="card-wrapper card hero-card">
+    <div class="hero-inner">
+      <div class="hero-mascot">
+        <img src="{{ '/assets/img/xiaoxin-gaze.jpg' | relative_url }}" alt="蜡笔小新" />
+        <div class="hero-caption">动感光波 → 嗯？不对，是我在写博客 🖍️</div>
+      </div>
+      <div class="hero-text">
+        <h1 class="card-title my-2 mt-md-0 hero-title">About Me</h1>
+        <div class="card-text content hero-body">
+          <p>Hi, I'm <strong>Fu Qilin</strong> — a tech enthusiast and creator based in Shenzhen. 🛫</p>
+          <p>I write about programming, tools, and continuous growth.</p>
+          <ul>
+            <li>💻 Programming &amp; Technology</li>
+            <li>📖 Reading &amp; Learning</li>
+            <li>🌱 Continuous Growth</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -24,14 +30,19 @@ layout: default
 
 <!-- Recent Posts Section -->
 {% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
-{% assign recent_posts = all_normal | limit: 2 %}
+{% assign recent_posts = all_normal | limit: 6 %}
 
 <section id="recent-posts" class="px-xl-1">
   <h2 class="mb-3"><i class="fas fa-pen-fancy fa-fw me-1"></i>Recent Posts</h2>
 
   <div id="post-list" class="flex-grow-1">
     {% for post in recent_posts %}
-      <article class="card-wrapper card">
+      {% assign cat = post.categories | first %}
+      {% if cat == '科研及方法论' %}{% assign accent = '#F4D03F' %}
+      {% elsif cat == '分布式计算' %}{% assign accent = '#E74C3C' %}
+      {% elsif cat == 'Memo' %}{% assign accent = '#2ECC71' %}
+      {% else %}{% assign accent = '#3498DB' %}{% endif %}
+      <article class="card-wrapper card post-card" style="--accent: {{ accent }};">
         <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
           {% assign card_body_col = '12' %}
           {% if post.image %}
@@ -68,10 +79,9 @@ layout: default
                   <i class="far fa-calendar fa-fw me-1"></i>
                   {% include datetime.html date=post.date lang=lang %}
                   {% if post.categories.size > 0 %}
-                    <i class="far fa-folder-open fa-fw me-1"></i>
-                    <span class="categories">
+                    <span class="post-cats">
                       {% for category in post.categories %}
-                        {{ category }}{%- unless forloop.last -%},{%- endunless -%}
+                        <span class="cat-pill">{{ category }}</span>
                       {% endfor %}
                     </span>
                   {% endif %}
@@ -84,7 +94,7 @@ layout: default
     {% endfor %}
   </div>
 
-  {% if site.posts.size > 2 %}
+  {% if site.posts.size > 6 %}
     <div class="text-center mt-4">
       <a href="{{ '/archives/' | relative_url }}" class="btn btn-outline-primary">
         <i class="fas fa-archive fa-fw me-1"></i>View All Posts
@@ -94,52 +104,41 @@ layout: default
 </section>
 
 <style>
-/* About Me card — gradient overlay background */
-.about-card {
-  position: relative;
-  overflow: hidden;
-  border: none;
-  min-height: 420px;
-  background: url('{{ "/assets/img/xiaoxin-gaze.jpg" | relative_url }}') center/cover no-repeat;
+/* ===== Hero: 小新 on the left, About text on the right ===== */
+.hero-card { border: none; overflow: hidden; background: var(--card-bg, #1a1a1a); }
+.hero-inner { display: grid; grid-template-columns: 1fr 1.5fr; min-height: 420px; }
+.hero-mascot { position: relative; margin: 0; overflow: hidden; border-right: 4px solid var(--c-xiaoxin-yellow, #F4D03F); }
+.hero-mascot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-caption {
+  position: absolute; left: 0.9rem; bottom: 0.9rem; z-index: 2;
+  font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.45);
+  padding: 0.3rem 0.6rem; border-radius: 999px; max-width: 90%;
+  backdrop-filter: blur(4px);
+}
+.hero-text {
+  padding: 2rem 1.6rem; display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+}
+.hero-title { display: inline-block; color: inherit; border-bottom: 3px solid var(--c-xiaoxin-yellow, #F4D03F); padding-bottom: 0.2rem; }
+.hero-body { color: inherit; }
+.hero-body ul { padding-left: 1.1rem; }
+
+/* ===== Recent post cards: accent bar + hover lift + category pills ===== */
+.post-card { border-left: 4px solid var(--accent, #F4D03F); transition: transform .25s ease, box-shadow .25s ease; }
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+.cat-pill {
+  display: inline-block; font-size: 0.72rem; line-height: 1; padding: 0.3rem 0.55rem;
+  margin: 0 0.35rem 0.2rem 0; border-radius: 999px;
+  color: #1a1a1a; background: var(--accent, #F4D03F); font-weight: 600;
 }
 
-.about-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(100, 100, 100, 0.1) 0%,
-    rgba(100, 100, 100, 0.2) 30%,
-    rgba(100, 100, 100, 0.5) 60%,
-    rgba(100, 100, 100, 0.8) 85%,
-    rgba(100, 100, 100, 0.92) 100%
-  );
+@media (max-width: 767.98px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-mascot { min-height: 240px; border-right: none; border-bottom: 4px solid var(--c-xiaoxin-yellow, #F4D03F); }
 }
 
-.about-card-body {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 420px;
-}
-
-.about-card-text {
-  color: #fff;
-}
-
-.about-card-title {
-  color: #fff;
-}
-
-.about-card-text li {
-  color: #fff;
-}
-
-.about-card-text strong {
-  color: #fff;
+@media (prefers-reduced-motion: reduce) {
+  .post-card { transition: none; }
+  .post-card:hover { transform: none; }
 }
 </style>

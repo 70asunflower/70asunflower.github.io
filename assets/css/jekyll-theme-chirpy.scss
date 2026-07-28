@@ -60,3 +60,26 @@
   -ms-user-select: text;
   user-select: text;
 }
+
+/* ===== 蜡笔小新 brand tokens ===== */
+:root {
+  --c-xiaoxin-yellow: #F4D03F;  /* 小新短裤 */
+  --c-xiaoxin-red:    #E74C3C;  /* 小新上衣 */
+  --c-xiaoxin-blue:   #3498DB;  /* 背景天空 */
+  --c-xiaoxin-green:  #2ECC71;  /* 辅助强调 */
+}
+
+/* Sidebar avatar — 小新主题黄圈 + 外发光 */
+#sidebar .avatar > img,
+.avatar > img {
+  border: 3px solid var(--c-xiaoxin-yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(244, 208, 63, 0.45);
+}
+
+/* Sidebar trending tags — pill hover accent */
+.sidebar #tags .tag:hover,
+#tags .tag:hover {
+  border-color: var(--c-xiaoxin-yellow);
+  color: var(--c-xiaoxin-yellow);
+}
