@@ -16,3 +16,4 @@ excerpt: "把学术发表的机制说明与选刊选会的实操指南收进同�
 - [学术发表是什么：写给研究生的机制说明](/posts/what-is-academic-publishing/) — 把 SCI、一区、影响因子、letter、CCF-A、开源获取这些词串成一张关系图，说清谁定的、怎么排。
 - [选刊与选会：从候选集到录用的完整实操指南](/posts/choosing-journals-and-conferences-guide/) — 手上有（或即将有）一份工作，它该去哪里、提交之后会发生什么，一步步讲实操。
 - [贡献是什么：写给研究生的科研创新判断指南](/posts/contribution-research-innovation-judgment-guide/) — 比投稿更靠前的问题：什么样的工作值得写成论文，怎么判断贡献与创新。
+- [把结果写成论证：一份面向研究生的论文写作指南](/posts/writing-results-as-argument-guide/) — 手上已有实验结果，怎么把它组织成可被同行检验的论证，而非工作记录。
