@@ -30,7 +30,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：4.3.2.4 Per
 
 ---
 
-#### 第一层：Tracing 也可以用于性能优化
+#### 第一层：<span data-type="text" style="color: var(--b3-font-color11);">Tracing 也可以用于性能优化</span>
 
 原文开头说：
 
@@ -53,7 +53,7 @@ excerpt: "《The Data Center as a Computer》AI 导读专栏正文：4.3.2.4 Per
 
 ---
 
-#### 第二层：单机 CPU profiler 不够，需要数据中心级 profiling
+#### 第二层：<span data-type="text" style="color: var(--b3-font-color11);">单机 CPU profiler 不够，需要数据中心级 profiling</span>
 
 原文接着讲：
 
@@ -331,7 +331,7 @@ and 20% in memory allocation
 
 #### 3. 两者结合才完整
 
-一个完整排障过程可能是：
+<span data-type="text" style="color: var(--b3-font-color11);">一个完整排障过程可能是：</span>
 
 ```text
 第一步：Tracing 发现 PaymentService 是关键路径。
@@ -362,7 +362,7 @@ Metrics 验证优化是否真的有效。
 
 #### 1. Hardware performance counters 是什么？
 
-现代 CPU 内部有硬件性能计数器，也叫 PMU，Performance Monitoring Unit。
+<span data-type="text" style="color: var(--b3-font-color11);">现代 CPU 内部有硬件性能计数器，也叫 PMU，Performance Monitoring Unit。</span>
 
 它可以统计很多底层事件，例如：
 
@@ -497,7 +497,7 @@ hardware counters
 
 ---
 
-#### 1. 一个服务有很多实例
+#### <span data-type="text" style="color: var(--b3-font-color11);">1. 一个服务有很多实例</span>
 
 一个大型服务可能同时运行在：
 
@@ -524,7 +524,7 @@ hardware counters
 
 ---
 
-#### 2. 性能问题可能是分布式的
+#### <span data-type="text" style="color: var(--b3-font-color11);">2. 性能问题可能是分布式的</span>
 
 例如某个全局函数很热：
 
@@ -546,7 +546,7 @@ ParseRequest() 占整个集群 CPU 的 12%
 
 ---
 
-#### 3. 全局视角能发现“总量巨大”的问题
+#### <span data-type="text" style="color: var(--b3-font-color11);">3. 全局视角能发现“总量巨大”的问题</span>
 
 有些问题单机看不出来，但在整个数据中心规模下非常惊人。
 
@@ -1002,13 +1002,13 @@ cold_function()
 
 ---
 
-### 十一、内存分配器优化：减少 cache 和 TLB miss
+### 十一、<span data-type="text" style="color: var(--b3-font-color11);">内存分配器优化：减少 cache 和 TLB miss</span>
 
 原文说：
 
 > Optimized memory allocators reduce cache and TLB misses.
 
-内存分配器是数据中心性能优化中极其重要的组件。
+<span data-type="text" style="color: var(--b3-font-color11);">内存分配器是数据中心性能优化中极其重要的组件。</span>
 
 ---
 
@@ -1308,7 +1308,7 @@ I-cache miss 增加 -> 变慢
 
 ---
 
-### 十四、这一节背后的核心思想：性能是一个系统级、规模级问题
+### 十四、<span data-type="text" style="color: var(--b3-font-color11);">这一节背后的核心思想：性能是一个系统级、规模级问题</span>
 
 你可以把这一节总结成一句话：
 
@@ -1645,7 +1645,7 @@ PGO/allocator optimization：让系统未来更快。
 
 ---
 
-### 十八、这一节的深层思想：性能优化必须基于真实生产反馈
+### 十八、这一节的深层思想：<span data-type="text" style="color: var(--b3-font-color11);">性能优化必须基于真实生产反馈</span>
 
 这一节最值得记住的不是某个工具名，而是这个工程哲学：
 

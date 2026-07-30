@@ -205,7 +205,7 @@ management agents
 
 ---
 
-#### 1. 数据中心内部网络更稳定
+#### <span data-type="text" style="color: var(--b3-font-color11);">1. 数据中心内部网络更稳定</span>
 
 一个 WSC 服务器的大多数通信对象可能是：
 
@@ -237,7 +237,7 @@ management agents
 
 ---
 
-#### 2. 因此可以调整传输参数
+#### <span data-type="text" style="color: var(--b3-font-color11);">2. 因此可以调整传输参数</span>
 
 例如 TCP 或 RPC 系统里有很多参数：
 
@@ -322,7 +322,7 @@ PFC 死锁
 攻击者可能试图攻击固件、引导链、hypervisor 或内核。
 ```
 
-如果底层软件被篡改，后果非常严重。
+<span data-type="text" style="color: var(--b3-font-color11);">如果底层软件被篡改，后果非常严重。</span>
 
 例如：
 
@@ -382,7 +382,7 @@ Root of Trust，信任根，是系统安全中最基础、最不可轻易篡改�
 
 #### 2. 为什么是 silicon root of trust？
 
-“silicon” 表示它是硬件芯片级别的安全模块。
+<span data-type="text" style="color: var(--b3-font-color11);">“silicon” 表示它是硬件芯片级别的安全模块。</span>
 
 它不是普通软件，而是一个独立的小型安全芯片。
 
@@ -451,7 +451,7 @@ RoT 控制服务器是否值得被操作系统信任。
 
 ---
 
-#### 1. 验证启动固件，防止低层恶意软件
+#### <span data-type="text" style="color: var(--b3-font-color11);">1. 验证启动固件，防止低层恶意软件</span>
 
 原文说：
 
@@ -526,7 +526,7 @@ remote attestation
 
 ---
 
-#### 2. 提供加密唯一的机器身份
+#### <span data-type="text" style="color: var(--b3-font-color11);">2. 提供加密唯一的机器身份</span>
 
 原文说：
 
@@ -564,7 +564,7 @@ device certificate
 
 ---
 
-#### 3. 保护加密密钥，即使有物理访问权限
+#### <span data-type="text" style="color: var(--b3-font-color11);">3. 保护加密密钥，即使有物理访问权限</span>
 
 原文说：
 
@@ -607,7 +607,7 @@ RoT 可以通过硬件安全设计保护密钥：
 
 ---
 
-#### 4. 提供防篡改审计记录和运行时安全服务
+#### <span data-type="text" style="color: var(--b3-font-color11);">4. 提供防篡改审计记录和运行时安全服务</span>
 
 原文说：
 

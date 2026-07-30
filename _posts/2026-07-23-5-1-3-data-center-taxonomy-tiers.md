@@ -52,7 +52,7 @@ UPS 系统
 
 这些系统任何一个环节出问题，都可能导致 IT 设备不可用。
 
-因此行业需要一种分类方法，用来描述数据中心基础设施的可靠性和冗余水平。
+<span data-type="text" style="color: var(--b3-font-color11);">因此行业需要一种分类方法，用来描述数据中心基础设施的可靠性和冗余水平。</span>
 
 原文说：
 
@@ -78,7 +78,7 @@ redundancy               冗余
 
 ---
 
-### 二、Tier I：单路径、无冗余
+### 二、Tier I：<span data-type="text" style="color: var(--b3-font-color11);">单路径、无冗余</span>
 
 原文定义：
 
@@ -119,7 +119,7 @@ IT 设备
 
 #### 1. Tier I 的问题
 
-因为没有冗余，所以任何关键设备故障都可能导致停机。
+<span data-type="text" style="color: var(--b3-font-color11);">因为没有冗余，所以任何关键设备故障都可能导致停机。</span>
 
 例如：
 
@@ -137,7 +137,7 @@ UPS 故障
 
 #### 2. Tier I 的维护特点
 
-Tier I 通常也不能在不停机的情况下维护关键设备。
+<span data-type="text" style="color: var(--b3-font-color11);">Tier I 通常也不能在不停机的情况下维护关键设备。</span>
 
 例如你要更换 UPS 或冷水机，可能必须关闭相关负载。
 
@@ -153,7 +153,7 @@ Tier I 通常也不能在不停机的情况下维护关键设备。
 
 ---
 
-### 三、Tier II：在 Tier I 基础上增加冗余组件
+### 三、Tier II：<span data-type="text" style="color: var(--b3-font-color11);">在 Tier I 基础上增加冗余组件</span>
 
 原文定义：
 
@@ -171,7 +171,7 @@ N + 1
 
 #### 1. 什么是 N + 1？
 
-假设系统正常运行需要 N 个组件，那么额外再准备 1 个备份。
+<span data-type="text" style="color: var(--b3-font-color11);">假设系统正常运行需要 N 个组件，那么额外再准备 1 个备份。</span>
 
 例如：
 
@@ -236,7 +236,7 @@ CRAC 5
 
 #### 3. Tier II 的局限
 
-Tier II 比 Tier I 更可靠，但它通常仍然只有一条分配路径。
+<span data-type="text" style="color: var(--b3-font-color11);">Tier II 比 Tier I 更可靠，但它通常仍然只有一条分配路径。</span>
 
 也就是说：
 
@@ -401,13 +401,13 @@ Path B: active
 
 两条路径同时承担负载。
 
-如果其中一条路径故障，另一条可以立即承担全部负载，不会中断。
+<span data-type="text" style="color: var(--b3-font-color11);">如果其中一条路径故障，另一条可以立即承担全部负载，不会中断。</span>
 
 ---
 
 #### 2. 每条路径都有冗余组件
 
-Tier IV 不仅路径冗余，路径内部的组件也冗余。
+<span data-type="text" style="color: var(--b3-font-color11);">Tier IV 不仅路径冗余，路径内部的组件也冗余。</span>
 
 例如：
 
@@ -956,7 +956,7 @@ Tier II
 
 ---
 
-### 十五、人为错误是主要故障来源
+### 十五、<span data-type="text" style="color: var(--b3-font-color11);">人为错误是主要故障来源</span>
 
 原文说：
 
@@ -968,7 +968,7 @@ Tier II
 超过 70% 的数据中心故障来自人为错误。
 ```
 
-这里的人为错误不只是“操作员按错按钮”，还包括管理层面的错误。
+<span data-type="text" style="color: var(--b3-font-color11);">这里的人为错误不只是“操作员按错按钮”，还包括管理层面的错误。</span>
 
 ---
 

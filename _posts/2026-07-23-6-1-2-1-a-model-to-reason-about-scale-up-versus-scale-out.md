@@ -181,7 +181,7 @@ DRAM 访问延迟
 Server A -> Ethernet switch -> Server B
 ```
 
-一次远程访问通常涉及：
+<span data-type="text" style="color: var(--b3-font-color11);">一次远程访问通常涉及：</span>
 
 ```text
 系统调用
@@ -196,7 +196,7 @@ Server A -> Ethernet switch -> Server B
 内存拷贝
 ```
 
-因此延迟通常是：
+<span data-type="text" style="color: var(--b3-font-color11);">因此延迟通常是：</span>
 
 ```text
 几十微秒到几百微秒
@@ -218,7 +218,7 @@ Server A -> Ethernet switch -> Server B
 
 > For parallel applications that fit within a single large SMP, the efficient communication can translate into dramatic performance gains.
 
-如果一个并行应用可以完整放进一台大型 SMP，那么它可以充分利用 SMP 内部快速通信。
+<span data-type="text" style="color: var(--b3-font-color11);">如果一个并行应用可以完整放进一台大型 SMP，那么它可以充分利用 SMP 内部快速通信。</span>
 
 原文举例：
 
@@ -235,7 +235,7 @@ SAP HANA
 需要低延迟通信
 ```
 
-如果它们能放进一台大机器，那么 SMP 的优势很明显。
+<span data-type="text" style="color: var(--b3-font-color11);">如果它们能放进一台大机器，那么 SMP 的优势很明显。</span>
 
 ---
 
@@ -247,7 +247,7 @@ SAP HANA
 fit
 ```
 
-也就是说，应用的数据集和工作集必须能放进单台大机器的内存和 CPU 规模里。
+也就是说，<span data-type="text" style="color: var(--b3-font-color11);">应用的数据集和工作集必须能放进单台大机器的内存和 CPU 规模里。</span>
 
 如果可以：
 
@@ -256,7 +256,7 @@ fit
 所有全局数据访问都是本地内存访问
 ```
 
-那么通信延迟大约是：
+<span data-type="text" style="color: var(--b3-font-color11);">那么通信延迟大约是：</span>
 
 ```text
 100 ns
@@ -326,7 +326,7 @@ AI 训练
 
 ---
 
-### 六、模型的目标：比较大 SMP 集群和低端服务器集群
+### 六、<span data-type="text" style="color: var(--b3-font-color11);">模型的目标：比较大 SMP 集群和低端服务器集群</span>
 
 原文说：
 
@@ -826,7 +826,7 @@ time ≈ 1ms + 100 × 100µs
 
 > the performance advantage of a single 128-processor SMP over a cluster of thirty-two 4-processor SMPs could be more than a factor of 10×.
 
-也就是说，在高通信负载下，如果应用能放进单台大 SMP，性能可能比集群快 10 倍以上。
+<span data-type="text" style="color: var(--b3-font-color11);">也就是说，在高通信负载下，如果应用能放进单台大 SMP，性能可能比集群快 10 倍以上。</span>
 
 ---
 
@@ -954,7 +954,7 @@ vs
 
 ---
 
-### 十五、Figure 6.2：高端 SMP 集群优势随规模增加而消失
+### 十五、Figure 6.2：<span data-type="text" style="color: var(--b3-font-color11);">高端 SMP 集群优势随规模增加而消失</span>
 
 原文说：
 
@@ -1121,7 +1121,7 @@ vs
 
 ---
 
-#### 结论一：当应用能放进单台 SMP 时，scale-up 优势很大
+#### 结论一：<span data-type="text" style="color: var(--b3-font-color11);">当应用能放进单台 SMP 时，scale-up 优势很大</span>
 
 如果应用可以完全放进一台大型 SMP：
 
@@ -1138,7 +1138,7 @@ vs
 
 ---
 
-#### 结论二：当应用必须跨很多节点时，scale-up 优势被稀释
+#### 结论二：<span data-type="text" style="color: var(--b3-font-color11);">当应用必须跨很多节点时，scale-up 优势被稀释</span>
 
 如果应用需要几千核，任何单台服务器都装不下。
 
@@ -1158,7 +1158,7 @@ vs
 
 ---
 
-#### 结论三：在 WSC 规模下，成本效率比单机性能更重要
+#### 结论三：<span data-type="text" style="color: var(--b3-font-color11);">在 WSC 规模下，成本效率比单机性能更重要</span>
 
 原文说：
 
@@ -1322,7 +1322,7 @@ time = 1ms + f × 100ns
 
 ---
 
-#### 1. 没有考虑争用
+#### 1. <span data-type="text" style="color: var(--b3-font-color11);">没有考虑争用</span>
 
 实际系统中可能出现：
 
@@ -1339,7 +1339,7 @@ CPU 争用
 
 ---
 
-#### 2. 假设访问均匀分布
+#### 2. <span data-type="text" style="color: var(--b3-font-color11);">假设访问均匀分布</span>
 
 原文假设：
 
@@ -1368,7 +1368,7 @@ rack-aware placement
 
 ---
 
-#### 3. 没有考虑网络拓扑
+#### 3. <span data-type="text" style="color: var(--b3-font-color11);">没有考虑网络拓扑</span>
 
 实际网络可能有：
 
@@ -1385,7 +1385,7 @@ incast
 
 ---
 
-#### 4. 没有考虑软件优化
+#### 4. <span data-type="text" style="color: var(--b3-font-color11);">没有考虑软件优化</span>
 
 分布式系统可以通过：
 
@@ -1403,7 +1403,7 @@ RDMA
 
 ---
 
-#### 5. 没有考虑故障和运维
+#### 5. <span data-type="text" style="color: var(--b3-font-color11);">没有考虑故障和运维</span>
 
 scale-out 集群需要处理：
 
@@ -1459,7 +1459,7 @@ reduce-scatter
 
 这些通信非常频繁。
 
-如果跨普通以太网，通信延迟和带宽可能成为瓶颈。
+<span data-type="text" style="color: var(--b3-font-color11);">如果跨普通以太网，通信延迟和带宽可能成为瓶颈。</span>
 
 因此现代 AI 系统常在节点内或机架内使用高速互连：
 
@@ -1474,7 +1474,7 @@ InfiniBand
 定制网络
 ```
 
-这本质上是在尽量扩大“本地通信域”。
+<span data-type="text" style="color: var(--b3-font-color11);">这本质上是在尽量扩大“本地通信域”。</span>
 
 也就是把原本：
 
@@ -1492,7 +1492,7 @@ InfiniBand
 
 #### 3. 加速器系统重新引入 scale-up 需求
 
-对于 GPU/TPU 集群，单节点或单机架内的 scale-up 很重要。
+<span data-type="text" style="color: var(--b3-font-color11);">对于 GPU/TPU 集群，单节点或单机架内的 scale-up 很重要。</span>
 
 例如：
 

@@ -82,7 +82,7 @@ hyperscale workloads
 
 #### 2. 什么是 hyperscale workloads？
 
-Hyperscale workloads 通常指超大规模互联网服务负载，例如：
+<span data-type="text" style="color: var(--b3-font-color11);">Hyperscale workloads 通常指超大规模互联网服务负载</span>，例如：
 
 ```text
 搜索
@@ -595,7 +595,7 @@ AI Pod
 
 bulk-synchronous 指的是：
 
-> 计算过程分成若干阶段，每个阶段结束后需要同步。
+> <span data-type="text" style="color: var(--b3-font-color11);">计算过程分成若干阶段，每个阶段结束后需要同步。</span>
 
 例如典型的分布式训练：
 
@@ -625,7 +625,7 @@ GPU/TPU 利用率
 
 > have mechanisms for checkpoint-restarting and customer SLOs that allow them to be more tolerant to sporadic infrastructure downtime.
 
-ML 训练任务通常会定期保存 checkpoint。
+<span data-type="text" style="color: var(--b3-font-color11);">ML 训练任务通常会定期保存 checkpoint。</span>
 
 例如：
 
@@ -646,7 +646,7 @@ ML 训练任务通常会定期保存 checkpoint。
 
 ---
 
-#### 3. 这意味着 ML 训练可以接受更低 Tier？
+#### 3. 这<span data-type="text" style="color: var(--b3-font-color11);">意味着 ML 训练可以接受更低 Tier</span>？
 
 原文说：
 
@@ -733,7 +733,7 @@ ML 负载至少可以分成：
 图像识别 API
 ```
 
-这些服务通常需要高可用，不能随便停机。
+<span data-type="text" style="color: var(--b3-font-color11);">这些服务通常需要高可用，不能随便停机。</span>
 
 因此推理负载往往更接近云负载，需要：
 
@@ -805,7 +805,7 @@ failure detection
 automatic recovery
 ```
 
-如果软件能处理故障，那么设施等级可以适当降低。
+<span data-type="text" style="color: var(--b3-font-color11);">如果软件能处理故障，那么设施等级可以适当降低。</span>
 
 这就是：
 
@@ -1026,7 +1026,7 @@ zone 之间故障隔离
 部署数万张 GPU/TPU
 ```
 
-这类部署追求：
+<span data-type="text" style="color: var(--b3-font-color11);">这类部署追求：</span>
 
 ```text
 pure cost efficiency at scale
@@ -1049,14 +1049,14 @@ pure cost efficiency at scale
 竞争环境如何变化。
 ```
 
-因此云厂商更倾向于：
+<span data-type="text" style="color: var(--b3-font-color11);">因此云厂商更倾向于：</span>
 
 ```text
 incremental deployment
 增量部署
 ```
 
-也就是：
+<span data-type="text" style="color: var(--b3-font-color11);">也就是：</span>
 
 ```text
 先部署一小块容量；
@@ -1102,7 +1102,7 @@ incremental deployment
 
 > focus in on velocity of deployment over pure cost efficiency at scale.
 
-也就是说，云部署有时更看重：
+也就是说，<span data-type="text" style="color: var(--b3-font-color11);">云部署有时更看重：</span>
 
 ```text
 velocity of deployment
@@ -1124,7 +1124,7 @@ pure cost efficiency at scale
 
 如果某个地区有客户需求，但云厂商需要三年才能建好数据中心，客户可能选择其他云。
 
-因此云厂商需要快速进入新区域：
+<span data-type="text" style="color: var(--b3-font-color11);">因此云厂商需要快速进入新区域：</span>
 
 ```text
 更快拿地

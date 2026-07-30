@@ -231,8 +231,8 @@ hardware-software codesign
 
 它的意思是：
 
-> 硬件设计不能只看硬件指标，软件设计也不能只看软件逻辑。  
-> 两者必须一起设计、一起权衡。
+> <span data-type="text" style="color: var(--b3-font-color11);">硬件设计不能只看硬件指标，软件设计也不能只看软件逻辑。
+> 两者必须一起设计、一起权衡。</span>
 
 例如：
 
@@ -249,6 +249,15 @@ hardware-software codesign
 如果硬件功率密度很高，
 那么任务调度和冷却策略要协同考虑。
 ```
+
+如果硬件提供 RDMA 网络，  
+那么存储和通信协议可以重新设计。
+
+如果硬件使用大量加速器，  
+那么编译、调度、内存管理都要改变。
+
+如果硬件功率密度很高，  
+那么任务调度
 
 ---
 
@@ -299,7 +308,7 @@ SSD 相比 HDD 有更低延迟和更高 IOPS。
 更低延迟的元数据服务？
 ```
 
-硬件变化会改变软件架构。
+<span data-type="text" style="color: var(--b3-font-color11);">硬件变化会改变软件架构。</span>
 
 ---
 
@@ -319,7 +328,7 @@ SSD 相比 HDD 有更低延迟和更高 IOPS。
 更高吞吐
 ```
 
-这也是 codesign。
+<span data-type="text" style="color: var(--b3-font-color11);">这也是 codesign。</span>
 
 ---
 
@@ -338,6 +347,15 @@ AI 加速器需要：
 checkpoint
 ```
 
+<span data-type="text" style="color: var(--b3-font-color11);">高带宽互联
+大内存
+高功率</span>  
+液冷  
+<span data-type="text" style="color: var(--b3-font-color11);">集体通信优化
+模型并行
+流水线并行
+checkpoint</span>
+
 因此 AI 系统必须和硬件一起设计：
 
 ```text
@@ -348,6 +366,13 @@ checkpoint
 冷却系统
 故障恢复机制
 ```
+
+<span data-type="text" style="color: var(--b3-font-color11);">训练框架
+通信库
+调度器
+网络拓扑
+冷却系统
+故障恢复机制</span>
 
 ---
 
@@ -635,7 +660,7 @@ AI 训练集群
 
 #### 3. Scale-out 的缺点
 
-##### 软件复杂度高
+##### <span data-type="text" style="color: var(--b3-font-color11);">软件复杂度高</span>
 
 你必须自己处理：
 
@@ -652,9 +677,9 @@ AI 训练集群
 
 ---
 
-##### 通信开销大
+##### <span data-type="text" style="color: var(--b3-font-color11);">通信开销大</span>
 
-跨机器通信比本地内存通信慢得多。
+<span data-type="text" style="color: var(--b3-font-color11);">跨机器通信比本地内存通信慢得多。</span>
 
 例如：
 
@@ -663,7 +688,7 @@ AI 训练集群
 跨机器 RPC：微秒到毫秒级
 ```
 
-因此系统设计必须尽量减少不必要通信。
+<span data-type="text" style="color: var(--b3-font-color11);">因此系统设计必须尽量减少不必要通信。</span>
 
 ---
 
@@ -703,7 +728,7 @@ WSC 选择 scale-out 的原因很多，但最核心的是：
 
 > The primary motivation has been the underlying cost-efficiency of such servers relative to high-end shared-memory systems.
 
-普通服务器通常比高端共享内存系统更划算。
+<span data-type="text" style="color: var(--b3-font-color11);">普通服务器通常比高端共享内存系统更划算。</span>
 
 原因是：
 
@@ -899,7 +924,7 @@ Arm 服务器
 
 #### 2. Hyperscale 服务器成为主流
 
-超大规模服务器是专门为数据中心批量部署设计的：
+<span data-type="text" style="color: var(--b3-font-color11);">超大规模服务器是专门为数据中心批量部署设计的：</span>
 
 ```text
 标准化
@@ -1286,7 +1311,7 @@ scale-out
 
 #### 1. 为什么加速器系统需要更强的 scale-up？
 
-AI 训练，尤其是大模型训练，需要大量加速器之间高速通信。
+<span data-type="text" style="color: var(--b3-font-color11);">AI 训练，尤其是大模型训练，需要大量加速器之间高速通信。</span>
 
 例如：
 
@@ -1300,6 +1325,14 @@ all-reduce
 all-gather
 ```
 
+<span data-type="text" style="color: var(--b3-font-color11);">数据并行
+模型并行
+张量并行
+流水线并行
+专家并行
+all-reduce
+all-gather</span>
+
 这些操作需要：
 
 ```text
@@ -1307,6 +1340,10 @@ all-gather
 极高带宽
 稳定集体通信
 ```
+
+<span data-type="text" style="color: var(--b3-font-color11);">极低延迟
+极高带宽
+稳定集体通信</span>
 
 如果加速器之间通过网络 scale-out，通信可能成为瓶颈。
 
@@ -1437,6 +1474,12 @@ checkpoint
 运维复杂；
 一致性、调度、负载均衡困难。
 ```
+
+<span data-type="text" style="color: var(--b3-font-color11);">分布式系统复杂；
+通信开销大；
+需要容错机制；
+运维复杂；
+一致性、调度、负载均衡困难。</span>
 
 ---
 

@@ -1193,3 +1193,4 @@ Host-based Multipath Load Balancing
 
 - ← 上一篇：[7.3 Software-defined networks](/posts/7-3-software-defined-networks/)
 - 返回：[栏目总览](/posts/the-data-center-as-a-computer-ai-guide/)
+- 下一篇：[7.3.3 Bandwidth enforcer 和 7.3.4 B4 traffic engineering →](/posts/7-3-3-bandwidth-enforcer-7-3-4-b4-traffic-engineering/)

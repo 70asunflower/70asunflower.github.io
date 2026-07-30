@@ -89,7 +89,10 @@ VCU
 
 传统服务器通常使用通用 CPU、通用主板、通用以太网、通用操作系统。
 
-而加速器系统通常是为特定负载定制的：
+<span data-type="text" style="color: var(--b3-font-color11);">而加速器系统通常是为特定负载定制的：</span>
+
+> [!NOTE]
+> thor互联的问题优化就是通用的方案
 
 ```text
 芯片架构定制
@@ -113,7 +116,7 @@ VCU 为视频编解码定制
 
 ---
 
-#### 2. vertically-integrated：垂直整合
+#### 2. <span data-type="text" style="color: var(--b3-font-color11);">vertically-integrated：垂直整合</span>
 
 垂直整合意味着：
 
@@ -138,7 +141,7 @@ GPU + CUDA + NCCL + PyTorch + 集群调度
 VCU + 视频编码库 + 转码调度系统
 ```
 
-这种垂直整合让硬件和软件可以深度协同。
+<span data-type="text" style="color: var(--b3-font-color11);">这种垂直整合让硬件和软件可以深度协同。</span>
 
 ---
 
@@ -154,11 +157,11 @@ TPU：张量计算、ML 训练/推理
 VCU：视频编码/解码/转码
 ```
 
-因为目标负载明确，所以可以针对通信模式、内存访问模式、计算模式做专门优化。
+<span data-type="text" style="color: var(--b3-font-color11);">因为目标负载明确，所以可以针对通信模式、内存访问模式、计算模式做专门优化。</span>
 
 ---
 
-#### 4. lower volumes：产量较低
+#### <span data-type="text" style="color: var(--b3-font-color11);">4. lower volumes：产量较低</span>
 
 传统服务器 CPU 出货量巨大。
 
@@ -207,9 +210,9 @@ VCU：视频编码/解码/转码
 
 #### 1. 传统集群为什么远程访问慢？
 
-传统服务器集群通常使用 Ethernet。
+<span data-type="text" style="color: var(--b3-font-color11);">传统服务器集群通常使用 Ethernet。</span>
 
-一次远程访问要经过：
+<span data-type="text" style="color: var(--b3-font-color11);">一次远程访问要经过：</span>
 
 ```text
 CPU
@@ -224,11 +227,11 @@ PCIe
 软件开销
 ```
 
-所以延迟通常是微秒级。
+<span data-type="text" style="color: var(--b3-font-color11);">所以延迟通常是微秒级。</span>
 
 ---
 
-#### 2. 加速器系统可以定制互连
+#### 2. <span data-type="text" style="color: var(--b3-font-color11);">加速器系统可以定制互连</span>
 
 加速器系统可以设计专用互连，例如：
 
@@ -289,7 +292,7 @@ Inter-Chip Interconnect
 
 #### 1. ICI 的作用
 
-ICI 的目标是让很多 TPU 芯片之间可以高速通信。
+<span data-type="text" style="color: var(--b3-font-color11);">ICI 的目标是让很多 TPU 芯片之间可以高速通信。</span>
 
 它不是普通 Ethernet，而是专门为 TPU 集体通信设计的互连。
 
@@ -328,12 +331,10 @@ shared-memory abstractions
 
 例如：
 
-```text
-模型可以跨多个芯片切分
+<span data-type="text" style="color: var(--b3-font-color11);">模型可以跨多个芯片切分
 张量可以分布在多个芯片上
 集体通信可以被高效执行
-程序员不需要完全手动管理所有远程数据移动
-```
+程序员不需要完全手动管理所有远程数据移动</span>
 
 这使得大型模型训练更容易扩展。
 
@@ -367,13 +368,11 @@ TPU pod
 
 例如：
 
-```text
-数据并行需要梯度同步
+<span data-type="text" style="color: var(--b3-font-color11);">数据并行需要梯度同步
 张量并行需要激活值通信
 流水线并行需要阶段间传输
 专家并行需要 token 路由
-模型并行需要参数分片访问
-```
+模型并行需要参数分片访问</span>
 
 这些操作如果都走普通 Ethernet，可能成为瓶颈。
 

@@ -199,7 +199,7 @@ AWS ARM 服务器
 
 ---
 
-#### 5. FAWN：弱核 + Flash 构建高效存储系统
+#### 5. FAWN：<span data-type="text" style="color: var(--b3-font-color11);">弱核 + Flash 构建高效存储系统</span>
 
 原文说：
 
@@ -232,7 +232,7 @@ memory-bound
 存储服务器
 ```
 
-也就是说，对于某些存储负载，CPU 不需要特别强，关键是：
+也就是说，<span data-type="text" style="color: var(--b3-font-color11);">对于某些存储负载，CPU 不需要特别强，</span>关键是：
 
 ```text
 I/O 吞吐
@@ -248,7 +248,7 @@ I/O 吞吐
 
 ---
 
-#### 1. 低端 CPU 的价格性能更好
+#### 1. <span data-type="text" style="color: var(--b3-font-color11);">低端 CPU 的价格性能更好</span>
 
 原文说：
 
@@ -311,7 +311,7 @@ I/O 吞吐
 
 ---
 
-#### 2. 很多应用是内存或 I/O 瓶颈，不是 CPU 瓶颈
+#### 2<span data-type="text" style="color: var(--b3-font-color11);">. 很多应用是内存或 I/O 瓶颈，不是 CPU 瓶颈</span>
 
 原文说：
 
@@ -355,7 +355,7 @@ CPU 提升 2 倍
 
 ---
 
-#### 3. 慢 CPU 通常更省电
+#### 3. <span data-type="text" style="color: var(--b3-font-color11);">慢 CPU 通常更省电</span>
 
 原文说：
 
@@ -432,7 +432,7 @@ O(k²)
 
 ---
 
-### 五、风险一：Amdahl 定律仍然有效
+### 五、风险一：<span data-type="text" style="color: var(--b3-font-color11);">Amdahl 定律仍然有效</span>
 
 原文说：
 
@@ -458,7 +458,7 @@ Amdahl 定律说明：
 
 > 如果程序中有一部分必须串行执行，那么增加再多处理器也无法无限加速。
 
-假设程序中串行部分比例是：
+<span data-type="text" style="color: var(--b3-font-color11);">假设程序中串行部分比例是：</span>
 
 ```text
 s
@@ -498,7 +498,7 @@ s = 0.1
 1 / 0.1 = 10
 ```
 
-即使你有 1000 个核心，也只能快约 10 倍。
+<span data-type="text" style="color: var(--b3-font-color11);">即使你有 1000 个核心，也只能快约 10 倍。</span>
 
 ---
 
@@ -540,17 +540,17 @@ s = 0.1
 
 ---
 
-### 六、风险二：尾延迟问题会被放大
+### 六、风险二：<span data-type="text" style="color: var(--b3-font-color11);">尾延迟问题会被放大</span>
 
 原文说：
 
 > the more threads handle a parallelized request, the larger the variability in response times from all these parallel tasks will be, exacerbating the tail latency problem.
 
-如果一个请求被拆成很多并行任务，那么整体响应时间往往取决于最慢的那个子任务。
+<span data-type="text" style="color: var(--b3-font-color11);">如果一个请求被拆成很多并行任务，那么整体响应时间往往取决于最慢的那个子任务。</span>
 
 ---
 
-#### 1. 扇出越多，越容易被慢任务拖累
+#### <span data-type="text" style="color: var(--b3-font-color11);">1. 扇出越多，越容易被慢任务拖累</span>
 
 假设一个请求需要 100 个并行子任务：
 
@@ -571,7 +571,7 @@ max(subtask latencies)
 
 ---
 
-#### 2. 弱核可能增加延迟波动
+#### <span data-type="text" style="color: var(--b3-font-color11);">2. 弱核可能增加延迟波动</span>
 
 弱核通常：
 
@@ -595,7 +595,7 @@ P999 latency
 
 ---
 
-### 七、风险三：硬件成本下降，但软件开发成本上升
+### 七、风险三：<span data-type="text" style="color: var(--b3-font-color11);">硬件成本下降，但软件开发成本上升</span>
 
 原文说：
 
@@ -605,7 +605,7 @@ P999 latency
 
 ---
 
-#### 1. 强核的好处：单线程性能高
+#### <span data-type="text" style="color: var(--b3-font-color11);">1. 强核的好处：单线程性能高</span>
 
 如果核心很强，很多代码不需要深度并行化就能跑得不错。
 
@@ -622,7 +622,7 @@ P999 latency
 
 ---
 
-#### 2. 弱核的要求：必须充分并行
+#### <span data-type="text" style="color: var(--b3-font-color11);">2. 弱核的要求：必须充分并行</span>
 
 如果使用大量弱核，开发者必须：
 
@@ -640,7 +640,7 @@ P999 latency
 
 ---
 
-### 八、原文给出的延迟例子：慢 3 倍核心如何导致延迟翻倍？
+### 八、原文给出的延迟例子：<span data-type="text" style="color: var(--b3-font-color11);">慢 3 倍核心如何导致延迟翻倍？</span>
 
 原文举了一个很直观的例子。
 
@@ -661,7 +661,7 @@ CPU time = 0.5s
 non-CPU time = 0.5s
 ```
 
-non-CPU 时间可能包括：
+<span data-type="text" style="color: var(--b3-font-color11);">non-CPU 时间可能包括：</span>
 
 ```text
 网络
@@ -722,7 +722,7 @@ RPC
 
 ---
 
-### 九、风险四：小服务器可能降低资源利用率
+### 九、风险四：<span data-type="text" style="color: var(--b3-font-color11);">小服务器可能降低资源利用率</span>
 
 原文说：
 
@@ -817,7 +817,7 @@ NUMA 更复杂
 部署灵活
 ```
 
-小服务器缺点：
+<span data-type="text" style="color: var(--b3-font-color11);">小服务器缺点：</span>
 
 ```text
 装箱碎片多
@@ -827,7 +827,7 @@ NUMA 更复杂
 
 ---
 
-### 十、风险五：即使 embarrassingly parallel 算法也可能因细分而低效
+### 十、风险五：<span data-type="text" style="color: var(--b3-font-color11);">即使 embarrassingly parallel 算法也可能因细分而低效</span>
 
 原文说：
 
@@ -845,7 +845,7 @@ NUMA 更复杂
 
 > the stop criterion for a parallel computation is based on global information.
 
-很多并行算法需要知道全局信息才能停止。
+<span data-type="text" style="color: var(--b3-font-color11);">很多并行算法需要知道全局信息才能停止。</span>
 
 例如：
 
@@ -870,7 +870,7 @@ NUMA 更复杂
 
 #### 2. 本地启发式更保守
 
-为了避免昂贵全局通信，局部任务可能只看本地进度：
+<span data-type="text" style="color: var(--b3-font-color11);">为了避免昂贵全局通信，局部任务可能只看本地进度</span>：
 
 ```text
 local progress
@@ -888,7 +888,7 @@ local progress
 
 ---
 
-#### 3. 分区越小，开销越大
+#### 3. <span data-type="text" style="color: var(--b3-font-color11);">分区越小，开销越大</span>
 
 当计算被切成更多小块时：
 
@@ -903,7 +903,7 @@ local progress
 
 ---
 
-### 十一、Cloud 应用视角：多数客户偏好单 VM 性能
+### 十一、<span data-type="text" style="color: var(--b3-font-color11);">Cloud 应用视角：多数客户偏好单 VM 性能</span>
 
 原文说：
 
@@ -979,7 +979,7 @@ local progress
 
 ---
 
-#### 3. 大系统更容易切成小 VM，反之不然
+#### <span data-type="text" style="color: var(--b3-font-color11);">3. 大系统更容易切成小 VM，反之不然</span>
 
 原文说：
 
@@ -1010,7 +1010,7 @@ extra-large VM
 
 ---
 
-### 十二、吞吐导向负载偏好不同：数据分析喜欢高吞吐低成本核心
+### 十二、<span data-type="text" style="color: var(--b3-font-color11);">吞吐导向负载偏好不同：数据分析喜欢高吞吐低成本核心</span>
 
 原文说：
 
@@ -1195,7 +1195,7 @@ x86：
 
 ##### 直观理解
 
-假设一个物理核心有两个硬件线程。
+<span data-type="text" style="color: var(--b3-font-color11);">假设一个物理核心有两个硬件线程。</span>
 
 两个线程共享：
 
@@ -1313,7 +1313,7 @@ two-way hyperthreading
 
 > thus the ARM server contains only half the memory, saving 20-25% in cost per server.
 
-因为内存是服务器成本的重要组成部分，少一半内存可以显著降低成本。
+<span data-type="text" style="color: var(--b3-font-color11);">因为内存是服务器成本的重要组成部分，少一半内存可以显著降低成本。</span>
 
 ---
 
@@ -1345,6 +1345,13 @@ ARM 服务器提供的 vCPU 数量可能更少
 ```
 
 不能只看一个指标。
+
+<span data-type="text" style="color: var(--b3-font-color11);">每 vCPU 性能
+每 vCPU 价格
+每物理核心吞吐
+每服务器总吞吐
+每瓦性能
+应用实际表现</span>
 
 ---
 
@@ -1384,7 +1391,7 @@ ARM 服务器提供的 vCPU 数量可能更少
 
 #### 2. 更适合 wimpy / scale-out cores 的场景
 
-适合弱核或高吞吐核心的负载通常包括：
+<span data-type="text" style="color: var(--b3-font-color11);">适合弱核或高吞吐核心的负载通常包括：</span>
 
 ```text
 对象存储
@@ -1440,7 +1447,7 @@ SmartNIC/DPU
 
 ---
 
-### 二十、为什么“速度差越大”，弱核优势越难兑现？
+### 二十、<span data-type="text" style="color: var(--b3-font-color11);">为什么“速度差越大”，弱核优势越难兑现？</span>
 
 原文最后说：
 

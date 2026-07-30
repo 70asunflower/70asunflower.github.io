@@ -1,7 +1,16 @@
 import json, urllib.request, re, os
+from pathlib import Path
 
-URL = "http://127.0.0.1:61513"
-TOKEN = "i9am30nj67ei0zgh"
+# Load SiYuan kernel URL + token from the live conf (port changes on restart).
+_SIYUAN_CONF = Path(r"D:\MyData\Warehouse\siyuan-backup\conf\conf.json")
+_conf = json.loads(_SIYUAN_CONF.read_text(encoding="utf-8-sig"))
+TOKEN = (_conf.get("api") or {}).get("token") or ""
+URL = None
+for _v in _conf.get("serverAddrs") or []:
+    if isinstance(_v, str) and _v.startswith("http://127.0.0.1:"):
+        URL = _v.rstrip("/"); break
+if not URL:
+    URL = "http://127.0.0.1:6806"
 POSTS = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "_posts"))
 COL = "20260723212036-m7ty290"
 PARENT_SLUG = "the-data-center-as-a-computer-ai-guide"

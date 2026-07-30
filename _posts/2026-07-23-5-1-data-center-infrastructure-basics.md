@@ -101,7 +101,7 @@ security  安全
 
 但原文说的是经典物理意义上的 “work”。
 
-在物理学里，机械功通常意味着：
+<span data-type="text" style="color: var(--b3-font-color11);">在物理学里，机械功通常意味着：</span>
 
 ```text
 力使物体发生位移
@@ -219,7 +219,7 @@ CPU/GPU/内存/磁盘/网卡 消耗电力
 
 #### 1. 为什么成本与功率成正比？
 
-因为数据中心里大量基础设施都围绕功率规模配置。
+<span data-type="text" style="color: var(--b3-font-color11);">因为数据中心里大量基础设施都围绕功率规模配置。</span>
 
 如果你要提供：
 
@@ -336,7 +336,7 @@ $20/W
 
 #### 3. 为什么这个指标重要？
 
-因为它把数据中心从“IT 设备问题”变成了“基础设施经济问题”。
+<span data-type="text" style="color: var(--b3-font-color11);">因为它把数据中心从“IT 设备问题”变成了“基础设施经济问题”。</span>
 
 例如：
 
@@ -475,7 +475,7 @@ critical power
 
 critical power 指的是：
 
-> 可以持续供给 IT 设备的总功率。
+> <span data-type="text" style="color: var(--b3-font-color11);">可以持续供给 IT 设备的总功率。</span>
 
 注意，它不是：
 
