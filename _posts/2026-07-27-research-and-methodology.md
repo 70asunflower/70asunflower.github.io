@@ -18,3 +18,4 @@ excerpt: "把学术发表的机制说明与选刊选会的实操指南收进同�
 - [贡献是什么：写给研究生的科研创新判断指南](/posts/contribution-research-innovation-judgment-guide/) — 比投稿更靠前的问题：什么样的工作值得写成论文，怎么判断贡献与创新。
 - [把结果写成论证：一份面向研究生的论文写作指南](/posts/writing-results-as-argument-guide/) — 手上已有实验结果，怎么把它组织成可被同行检验的论证，而非工作记录。
 - [一条主线怎么长出来：学位论文的设计、检验与推进](/posts/thesis-mainline-design/) — 从更上游讲：几篇小论文怎么长成一条可被检验的学位论文主线，覆盖设计、开题、中期到答辩。
+- [怎么判断别人有没有做过：从检索到缺口判断的文献调研指南](/posts/how-to-judge-novelty-literature-survey-guide/) — 动手前最该先读的一篇：把「想法有没有人做过」拆成可检索的问题、检索词矩阵、雪球扩展与有边界的缺口判断，避免盲目开工或误判新颖性。
