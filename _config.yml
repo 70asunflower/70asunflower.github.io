@@ -51,7 +51,6 @@ webmaster_verifications:
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
-  baidu:    # TODO: 待作者填写 百度站长 验证码
   facebook: # fill in your Facebook verification code
 
 # ↑ --------------------------
