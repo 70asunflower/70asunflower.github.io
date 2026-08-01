@@ -4,488 +4,196 @@ layout: default
 
 {% include lang.html %}
 
-<!-- 首页 v3：三栏杂志布局（暖调极简 + 主题切换）。突破 Chirpy 默认窄列，全幅呈现。 -->
-<div class="home-v3">
-
-  <div class="wrap">
-
-    <!-- ===== 左栏：品牌 + 头像旋转环 + 主题切换 ===== -->
-    <aside class="side-left">
-      <div class="brand">
-        <div class="avatar-wrap">
-          <div class="avatar-ring" aria-hidden="true"></div>
-          <img class="avatar" src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="Fu Qilin 头像" />
-        </div>
-        <div class="brand-name">Fu Qilin</div>
-        <div class="tagline">AI · 芯片 · 系统 · 阅读 · 创造</div>
+<!-- About Me / Hero Section -->
+<section id="about-section" class="px-xl-1 mb-4">
+  <div class="card-wrapper card hero-card">
+    <div class="hero-inner">
+      <div class="hero-mascot">
+        <img src="{{ '/assets/img/xiaoxin-gaze.jpg' | relative_url }}" alt="蜡笔小新" />
+        <div class="hero-caption">动感光波 → 嗯？不对，是我在写博客 🖍️</div>
       </div>
-
-      <div class="theme-bar" role="group" aria-label="主题切换">
-        <button class="theme-btn" data-set="light" aria-label="浅色主题" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>Light
-        </button>
-        <button class="theme-btn" data-set="dark" aria-label="深色主题" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>Dark
-        </button>
-        <button class="theme-btn active" data-set="system" aria-label="跟随系统" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>System
-        </button>
-      </div>
-    </aside>
-
-    <!-- ===== 中栏：Hero + 最新文章 + 分类导览 ===== -->
-    <main class="main">
-
-      <!-- Hero：小新左 / 文字右 -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-mascot">
-          <img src="{{ '/assets/img/xiaoxin-gaze.jpg' | relative_url }}" alt="蜡笔小新吉祥物" />
-          <span class="mascot-cap">动感光波 → 嗯？不对，是我在写博客 <b>🖍️</b></span>
-        </div>
-        <div class="hero-text">
-          <h1 class="hero-title" id="hero-title">About Me</h1>
+      <div class="hero-text">
+        <h1 class="card-title my-2 mt-md-0 hero-title">About Me</h1>
+        <div class="card-text content hero-body">
           <p>Hi, I'm <strong>Fu Qilin</strong> — a tech enthusiast and creator based in Shenzhen. 🛫</p>
           <p>I write about programming, tools, and continuous growth.</p>
           <ul>
-            <li><span class="em">💻</span> Programming &amp; Technology</li>
-            <li><span class="em">📖</span> Reading &amp; Learning</li>
-            <li><span class="em">🌱</span> Continuous Growth</li>
+            <li>💻 Programming &amp; Technology</li>
+            <li>📖 Reading &amp; Learning</li>
+            <li>🌱 Continuous Growth</li>
           </ul>
         </div>
-      </section>
-
-      <!-- Recent Posts -->
-      {% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
-      {% assign recent_posts = all_normal | limit: 6 %}
-
-      <section class="block" aria-labelledby="recent-title">
-        <div class="section-head">
-          <h2 id="recent-title"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></span>Recent Posts</h2>
-          <a class="more" href="{{ '/archives/' | relative_url }}">View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        </div>
-        <div class="posts">
-          {% for post in recent_posts %}
-            {% assign cat = post.categories | first %}
-            {% if cat == '科研及方法论' %}{% assign accent = '#F4D03F' %}
-            {% elsif cat == '分布式计算' %}{% assign accent = '#E74C3C' %}
-            {% elsif cat == 'Memo' %}{% assign accent = '#2ECC71' %}
-            {% else %}{% assign accent = '#3498DB' %}{% endif %}
-            <a class="post-card" href="{{ post.url | relative_url }}" style="--cat: {{ accent }};">
-              <span class="cat-badge">{{ cat }}</span>
-              <h3 class="post-title">{{ post.title }}</h3>
-              {% capture desc %}{% if post.description and post.description != "" %}{{ post.description }}{% else %}{{ post.excerpt | strip_html }}{% endif %}{% endcapture %}
-              <p class="post-summary">{{ desc | truncate: 70 }}</p>
-              <div class="meta">
-                <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>{{ post.date | date: "%Y-%m-%d" }}</span>
-                <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>{{ cat }}</span>
-              </div>
-            </a>
-          {% endfor %}
-        </div>
-        <div class="btn-wrap">
-          <a class="btn" href="{{ '/archives/' | relative_url }}">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
-            View All Posts
-          </a>
-        </div>
-      </section>
-
-      <!-- 分类导览 -->
-      <section class="block" aria-labelledby="cat-title">
-        <div class="section-head">
-          <h2 id="cat-title"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>分类导览</h2>
-          <a class="more" href="{{ '/categories/' | relative_url }}">查看全部 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        </div>
-        <div class="cat-grid">
-          {% assign guide_list = "分布式计算§the-data-center-as-a-computer-ai-guide§#E74C3C§《The Data Center as a Computer》AI 辅助精读专栏。^^科研及方法论§research-and-methodology§#F4D03F§学术发表、贡献判断、选刊选会与文献调研指南。^^Memo§memo§#2ECC71§技术随想、读书笔记与碎片化记录。^^Books§books§#9B59B6§阅读笔记与书单整理。^^My_products§my-products§#1ABC9C§个人小工具与项目记录。^^Tutorial§tutorial§#3498DB§教程与操作指南。" | split: "^^" %}
-          {% for g in guide_list %}
-            {% assign parts = g | split: "§" %}
-            {% assign gname = parts[0] %}
-            {% assign gslug = parts[1] %}
-            {% assign gcolor = parts[2] %}
-            {% assign gdesc = parts[3] %}
-            {% assign gcount = site.categories[gname].size %}
-            <a class="cat-card" href="{{ '/posts/' | append: gslug | append: '/' | relative_url }}" style="--g-accent: {{ gcolor }};">
-              <div class="cat-top">
-                <span class="cat-icon">
-                  {% if gname == '分布式计算' %}
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-                  {% elsif gname == '科研及方法论' %}
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                  {% elsif gname == 'Memo' %}
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                  {% elsif gname == 'Books' %}
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                  {% elsif gname == 'My_products' %}
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                  {% else %}
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                  {% endif %}
-                </span>
-                <span class="cat-count">{{ gcount }} 篇</span>
-              </div>
-              <span class="cat-name">{{ gname }}</span>
-              <span class="cat-desc">{{ gdesc }}</span>
-            </a>
-          {% endfor %}
-        </div>
-      </section>
-    </main>
-
-    <!-- ===== 右栏：最近更新 + 热门标签 ===== -->
-    <aside class="side-right">
-      <div class="panel">
-        <h2>最近更新</h2>
-        {% for p in recent_posts %}
-          <a class="recent-item" href="{{ p.url | relative_url }}">
-            <span class="t">{{ p.title }}</span>
-            <span class="d">{{ p.date | date: "%Y-%m-%d" }}</span>
-          </a>
-        {% endfor %}
       </div>
-      <div class="panel">
-        <h2>热门标签</h2>
-        <div class="cloud">
-          {% assign sorted_tags = site.tags | sort %}
-          {% for tag in sorted_tags limit: 16 %}
-            {% assign tag_slug = tag[0] | downcase | replace: ' ', '-' %}
-            <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag[0] }}</a>
-          {% endfor %}
-        </div>
-      </div>
-    </aside>
-
+    </div>
   </div>
-</div>
+</section>
+
+<!-- Recent Posts Section -->
+{% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+{% assign recent_posts = all_normal | limit: 6 %}
+
+<section id="recent-posts" class="px-xl-1">
+  <h2 class="mb-3"><i class="fas fa-pen-fancy fa-fw me-1"></i>Recent Posts</h2>
+
+  <div id="post-list" class="flex-grow-1">
+    {% for post in recent_posts %}
+      {% assign cat = post.categories | first %}
+      {% if cat == '科研及方法论' %}{% assign accent = '#F4D03F' %}
+      {% elsif cat == '分布式计算' %}{% assign accent = '#E74C3C' %}
+      {% elsif cat == 'Memo' %}{% assign accent = '#2ECC71' %}
+      {% else %}{% assign accent = '#3498DB' %}{% endif %}
+      <article class="card-wrapper card post-card" style="--accent: {{ accent }};">
+        <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+          {% assign card_body_col = '12' %}
+          {% if post.image %}
+            {% assign src = post.image.path | default: post.image %}
+            {% if post.media_subpath %}
+              {% unless src contains '://' %}
+                {% assign src = post.media_subpath | append: '/' | append: src | replace: '///', '/' | replace: '//', '/' %}
+              {% endunless %}
+            {% endif %}
+            {% if post.image.lqip %}
+              {% assign lqip = post.image.lqip %}
+              {% if post.media_subpath %}
+                {% unless lqip contains 'data:' %}
+                  {% assign lqip = post.media_subpath | append: '/' | append: lqip | replace: '///', '/' | replace: '//', '/' %}
+                {% endunless %}
+              {% endif %}
+              {% assign lqip_attr = 'lqip="' | append: lqip | append: '"' %}
+            {% endif %}
+            {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+            <div class="col-md-5">
+              <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
+            </div>
+            {% assign card_body_col = '7' %}
+          {% endif %}
+
+          <div class="col-md-{{ card_body_col }}">
+            <div class="card-body d-flex flex-column">
+              <h2 class="card-title my-2 mt-md-0">{{ post.title }}</h2>
+              <div class="card-text content mt-0 mb-3">
+                <p>{% include post-summary.html %}</p>
+              </div>
+              <div class="post-meta flex-grow-1 d-flex align-items-end">
+                <div class="me-auto">
+                  <i class="far fa-calendar fa-fw me-1"></i>
+                  {% include datetime.html date=post.date lang=lang %}
+                  {% if post.categories.size > 0 %}
+                    <span class="post-cats">
+                      {% for category in post.categories %}
+                        <span class="cat-pill">{{ category }}</span>
+                      {% endfor %}
+                    </span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if site.posts.size > 6 %}
+    <div class="text-center mt-4">
+      <a href="{{ '/archives/' | relative_url }}" class="btn btn-outline-primary">
+        <i class="fas fa-archive fa-fw me-1"></i>View All Posts
+      </a>
+    </div>
+  {% endif %}
+</section>
+
+<!-- Category Guides Section -->
+<section id="category-guides" class="px-xl-1 mt-5">
+  <h2 class="mb-3"><i class="fas fa-layer-group fa-fw me-1"></i>分类导览</h2>
+  <div class="cat-guide-grid">
+    {% assign guides = "分布式计算,the-data-center-as-a-computer-ai-guide,#E74C3C|科研及方法论,research-and-methodology,#F4D03F|Memo,memo,#2ECC71|Books,books,#9B59B6|My_products,my-products,#1ABC9C|Tutorial,tutorial,#3498DB" | split: "|" %}
+    {% for g in guides %}
+      {% assign parts = g | split: "," %}
+      {% assign gname = parts[0] %}
+      {% assign gslug = parts[1] %}
+      {% assign gcolor = parts[2] %}
+      <a href="{{ '/posts/' | append: gslug | append: '/' | relative_url }}" class="cat-guide-card" style="--g-accent: {{ gcolor }};">
+        <span class="cat-guide-dot"></span>
+        <span class="cat-guide-name">{{ gname }}</span>
+        <i class="fas fa-chevron-right cat-guide-arrow"></i>
+      </a>
+    {% endfor %}
+  </div>
+</section>
 
 <style>
-  /* ===================== 设计令牌（暖调极简，与 v3 demo 一致） ===================== */
-  :root {
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+/* ===== Hero: 小新 on the left, About text on the right ===== */
+.hero-card { border: none; overflow: hidden; background: var(--card-bg, #1a1a1a); }
+.hero-inner { display: grid; grid-template-columns: 1fr 1.5fr; min-height: 420px; }
+.hero-mascot { position: relative; margin: 0; overflow: hidden; border-right: 4px solid var(--c-xiaoxin-yellow, #F4D03F); }
+.hero-mascot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-caption {
+  position: absolute; left: 0.9rem; bottom: 0.9rem; z-index: 2;
+  font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.45);
+  padding: 0.3rem 0.6rem; border-radius: 999px; max-width: 90%;
+  backdrop-filter: blur(4px);
+}
+.hero-text {
+  padding: 2rem 1.6rem; display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+}
+.hero-title { display: inline-block; color: inherit; border-bottom: 3px solid var(--c-xiaoxin-yellow, #F4D03F); padding-bottom: 0.2rem; }
+.hero-body { color: inherit; }
+.hero-body ul { padding-left: 1.1rem; }
 
-    --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-pill: 999px;
-    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
-    --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-12: 48px;
+/* ===== Recent post cards: accent bar + hover lift + category pills ===== */
+.post-card { border-left: 4px solid var(--accent, #F4D03F); transition: transform .25s ease, box-shadow .25s ease; }
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+.cat-pill {
+  display: inline-block; font-size: 0.72rem; line-height: 1; padding: 0.3rem 0.55rem;
+  margin: 0 0.35rem 0.2rem 0; border-radius: 999px;
+  color: #1a1a1a; background: var(--accent, #F4D03F); font-weight: 600;
+}
 
-    --accent: #E6B800;
-    --accent-soft: rgba(230, 184, 0, 0.12);
+@media (max-width: 767.98px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-mascot { min-height: 240px; border-right: none; border-bottom: 4px solid var(--c-xiaoxin-yellow, #F4D03F); }
+}
 
-    --cat-research: #F4D03F;
-    --cat-distributed: #E74C3C;
-    --cat-memo: #2ECC71;
-    --cat-books: #9B59B6;
-    --cat-products: #1ABC9C;
-    --cat-tutorial: #3498DB;
+@media (prefers-reduced-motion: reduce) {
+  .post-card { transition: none; }
+  .post-card:hover { transform: none; }
+}
 
-    --t-fast: 150ms ease;
-    --t: 300ms cubic-bezier(0.16, 1, 0.3, 1);
-    --maxw: 1320px;
-    --sidebar-w: 250px;
-    --rightbar-w: 290px;
-  }
+/* ===== Category guides: accent dot + hover lift, matches post-card language ===== */
+.cat-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.9rem;
+}
+.cat-guide-card {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 12px;
+  background: var(--card-bg, #1a1a1a);
+  border: 1px solid var(--border-color, #2a2a2a);
+  border-left: 4px solid var(--g-accent, #F4D03F);
+  text-decoration: none; color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cat-guide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+.cat-guide-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--g-accent); flex: 0 0 auto;
+}
+.cat-guide-name { font-weight: 600; font-size: 0.98rem; }
+.cat-guide-arrow {
+  margin-left: auto; color: var(--g-accent);
+  opacity: 0.65; transition: transform .2s ease, opacity .2s ease;
+}
+.cat-guide-card:hover .cat-guide-arrow { transform: translateX(3px); opacity: 1; }
 
-  /* Light 为默认（:root 先定义）；Chirpy 也用 data-theme，沿用同名属性自动同步。
-     顺序很关键：:root 浅色默认必须在 [data-theme="dark"] 之前，否则同特异性下浅色会覆盖深色。 */
-  :root {
-    --bg: #FAF9F5; --bg-elevated: #FFFFFF; --surface: #FFFFFF; --surface-2: #F5F4F0;
-    --border: #E8E6E0; --border-strong: #D9D6CE;
-    --text: #1C1B19; --text-muted: #5E5C56; --text-dim: #8F8C84;
-    --shadow-card: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
-    --shadow-hover: 0 1px 2px rgba(0,0,0,0.04), 0 16px 40px rgba(0,0,0,0.10);
-    --glow-hero: radial-gradient(620px 380px at 90% -8%, rgba(230,184,0,0.18), transparent 55%),
-                 radial-gradient(520px 380px at -4% 6%, rgba(196,91,74,0.08), transparent 50%);
-  }
-  [data-theme="dark"] {
-    --bg: #141312; --bg-elevated: #1A1918; --surface: #1F1E1D; --surface-2: #262523;
-    --border: #2E2D2B; --border-strong: #3A3936;
-    --text: #F2F0EA; --text-muted: #A7A49B; --text-dim: #6E6B63;
-    --shadow-card: 0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 24px rgba(0,0,0,0.35);
-    --shadow-hover: 0 1px 0 rgba(255,255,255,0.05) inset, 0 16px 40px rgba(0,0,0,0.45);
-    --glow-hero: radial-gradient(620px 380px at 90% -8%, rgba(230,184,0,0.10), transparent 55%),
-                 radial-gradient(520px 380px at -4% 6%, rgba(196,91,74,0.07), transparent 50%);
-  }
-  [data-theme="light"] {
-    --bg: #FAF9F5; --bg-elevated: #FFFFFF; --surface: #FFFFFF; --surface-2: #F5F4F0;
-    --border: #E8E6E0; --border-strong: #D9D6CE;
-    --text: #1C1B19; --text-muted: #5E5C56; --text-dim: #8F8C84;
-    --shadow-card: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
-    --shadow-hover: 0 1px 2px rgba(0,0,0,0.04), 0 16px 40px rgba(0,0,0,0.10);
-    --glow-hero: radial-gradient(620px 380px at 90% -8%, rgba(230,184,0,0.18), transparent 55%),
-                 radial-gradient(520px 380px at -4% 6%, rgba(196,91,74,0.08), transparent 50%);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #141312; --bg-elevated: #1A1918; --surface: #1F1E1D; --surface-2: #262523;
-      --border: #2E2D2B; --border-strong: #3A3936;
-      --text: #F2F0EA; --text-muted: #A7A49B; --text-dim: #6E6B63;
-      --shadow-card: 0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 24px rgba(0,0,0,0.35);
-      --shadow-hover: 0 1px 0 rgba(255,255,255,0.05) inset, 0 16px 40px rgba(0,0,0,0.45);
-      --glow-hero: radial-gradient(620px 380px at 90% -8%, rgba(230,184,0,0.10), transparent 55%),
-                   radial-gradient(520px 380px at -4% 6%, rgba(196,91,74,0.07), transparent 50%);
-    }
-  }
-
-  .home-v3 {
-    /* 突破 Chirpy 默认窄列（col-xl-9），全幅呈现三栏；scrollbar-safe 写法避免横向滚动 */
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    background: var(--glow-hero), var(--bg);
-    color: var(--text);
-    font-family: var(--font-sans);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    padding: var(--sp-8) 0 var(--sp-12);
-    transition: background-color var(--t), color var(--t);
-  }
-  .home-v3 * { box-sizing: border-box; }
-  .home-v3 a { color: inherit; text-decoration: none; }
-  .home-v3 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-
-  /* 隐藏 Chirpy 原生右侧栏（col-xl-3，含"最近更新/热门标签"），避免与下方 home-v3 的右栏重复/重叠。
-     此规则写在首页专属 <style> 内，仅首页生效，不影响文章页的 TOC 侧栏。 */
-  .col-xl-3.ps-2.text-muted { display: none !important; }
-
-  .home-v3 .wrap {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: 0 var(--sp-6);
-    display: grid;
-    grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--rightbar-w);
-    gap: var(--sp-8);
-    align-items: start;
-  }
-
-  /* ===================== 左栏 ===================== */
-  .home-v3 .side-left { position: sticky; top: var(--sp-8); display: flex; flex-direction: column; gap: var(--sp-6); }
-  .home-v3 .brand {
-    text-align: center; padding: var(--sp-6) var(--sp-4);
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--r-lg); box-shadow: var(--shadow-card);
-  }
-  .home-v3 .avatar-wrap { position: relative; width: 110px; height: 110px; margin: 0 auto var(--sp-4); }
-  .home-v3 .avatar-ring {
-    position: absolute; inset: -5px; border-radius: 50%;
-    background: conic-gradient(from 0deg, var(--accent), var(--cat-distributed), var(--cat-memo), var(--accent));
-    opacity: 0.8; animation: v3-spin 8s linear infinite;
-  }
-  .home-v3 .avatar {
-    position: relative; width: 100%; height: 100%; border-radius: 50%;
-    object-fit: cover; border: 3px solid var(--bg); display: block;
-  }
-  .home-v3 .brand-name { font-size: 1.3rem; font-weight: 750; letter-spacing: -0.02em; }
-  .home-v3 .tagline {
-    color: var(--text-muted); font-size: 0.8rem; margin-top: var(--sp-2);
-    letter-spacing: 0.3px;
-  }
-
-  .home-v3 .theme-bar {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--r-pill); padding: 4px; display: flex; box-shadow: var(--shadow-card);
-  }
-  .home-v3 .theme-btn {
-    flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px;
-    padding: 7px 0; border: none; border-radius: var(--r-pill);
-    background: transparent; color: var(--text-muted); font-size: 0.75rem; font-weight: 600;
-    cursor: pointer; transition: background var(--t-fast), color var(--t-fast);
-  }
-  .home-v3 .theme-btn svg { width: 14px; height: 14px; }
-  .home-v3 .theme-btn:hover { color: var(--text); }
-  .home-v3 .theme-btn.active { background: var(--surface-2); color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
-
-  /* ===================== 中栏 ===================== */
-  .home-v3 .main { display: flex; flex-direction: column; gap: var(--sp-8); min-width: 0; }
-
-  .home-v3 .hero {
-    display: grid; grid-template-columns: 1fr 1.5fr; gap: 0;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--r-lg); box-shadow: var(--shadow-card); overflow: hidden; position: relative;
-  }
-  .home-v3 .hero::before {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(135deg, transparent 58%, var(--accent-soft));
-  }
-  .home-v3 .hero-mascot {
-    position: relative; min-height: 100%;
-    border-right: 4px solid var(--cat-research);
-  }
-  .home-v3 .hero-mascot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .home-v3 .hero-mascot::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(270deg, rgba(0,0,0,0.28) 0%, transparent 38%);
-  }
-  .home-v3 .mascot-cap {
-    position: absolute; left: var(--sp-5); bottom: var(--sp-5); z-index: 1;
-    background: rgba(20,19,18,0.72); backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-pill);
-    padding: 6px 14px; font-size: 0.78rem; color: #F2F0EA;
-  }
-  .home-v3 .mascot-cap b { color: var(--accent); }
-
-  .home-v3 .hero-text {
-    padding: var(--sp-10) var(--sp-8);
-    display: flex; flex-direction: column; justify-content: center; gap: var(--sp-3);
-    position: relative; z-index: 1;
-  }
-  .home-v3 .hero-title {
-    font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; font-weight: 800; letter-spacing: -0.03em;
-    display: inline-block; border-bottom: 3px solid var(--cat-research); padding-bottom: 0.25rem; width: fit-content;
-  }
-  .home-v3 .hero-text p { color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; margin: 0; }
-  .home-v3 .hero-text ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-2); padding: 0; }
-  .home-v3 .hero-text ul li { color: var(--text); font-size: 0.92rem; display: flex; align-items: center; gap: var(--sp-2); }
-  .home-v3 .hero-text ul li .em { font-size: 1.05rem; }
-
-  /* 区块标题 */
-  .home-v3 .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: var(--sp-5); }
-  .home-v3 .section-head h2 {
-    font-size: 1.2rem; font-weight: 750; letter-spacing: -0.02em;
-    display: flex; align-items: center; gap: 10px; margin: 0;
-  }
-  .home-v3 .section-head h2 .ico { color: var(--accent); display: inline-flex; }
-  .home-v3 .section-head .more {
-    font-size: 0.84rem; color: var(--text-muted); font-weight: 500;
-    display: flex; align-items: center; gap: 4px; transition: color var(--t-fast), transform var(--t-fast);
-  }
-  .home-v3 .section-head .more:hover { color: var(--accent); transform: translateX(2px); }
-
-  /* 文章卡片 */
-  .home-v3 .posts { display: flex; flex-direction: column; gap: var(--sp-4); }
-  .home-v3 .post-card {
-    display: block;
-    background: var(--surface); border: 1px solid var(--border);
-    border-left: 4px solid var(--cat, var(--accent));
-    border-radius: var(--r-md); padding: var(--sp-5) var(--sp-6);
-    box-shadow: var(--shadow-card);
-    transition: transform var(--t), box-shadow var(--t), border-color var(--t);
-  }
-  .home-v3 .post-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--cat, var(--accent)); }
-  .home-v3 .post-card .cat-badge {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 0.72rem; font-weight: 650; letter-spacing: 0.3px;
-    color: var(--cat, var(--accent));
-    background: color-mix(in srgb, var(--cat, var(--accent)) 13%, transparent);
-    padding: 3px 10px; border-radius: var(--r-pill); margin-bottom: var(--sp-2);
-  }
-  .home-v3 .post-title { font-size: 1.05rem; font-weight: 700; line-height: 1.35; letter-spacing: -0.01em; margin: 0 0 var(--sp-1); }
-  .home-v3 .post-summary { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
-  .home-v3 .post-card .meta {
-    margin-top: var(--sp-3); padding-top: var(--sp-3); border-top: 1px solid var(--border);
-    font-size: 0.78rem; color: var(--text-dim);
-    display: flex; align-items: center; gap: var(--sp-4);
-  }
-  .home-v3 .post-card .meta .mi { display: inline-flex; align-items: center; gap: 5px; }
-  .home-v3 .post-card .meta .mi svg { width: 13px; height: 13px; opacity: 0.7; }
-
-  /* 分类导览 */
-  .home-v3 .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
-  .home-v3 .cat-card {
-    display: flex; flex-direction: column; gap: var(--sp-3);
-    padding: var(--sp-5); background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--r-md); box-shadow: var(--shadow-card);
-    transition: transform var(--t), box-shadow var(--t), border-color var(--t); position: relative; overflow: hidden;
-  }
-  .home-v3 .cat-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--g-accent, var(--accent)); }
-  .home-v3 .cat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--g-accent, var(--accent)); }
-  .home-v3 .cat-card .cat-top { display: flex; align-items: center; justify-content: space-between; }
-  .home-v3 .cat-card .cat-icon {
-    width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
-    background: color-mix(in srgb, var(--g-accent, var(--accent)) 14%, transparent); color: var(--g-accent, var(--accent));
-  }
-  .home-v3 .cat-card .cat-icon svg { width: 18px; height: 18px; }
-  .home-v3 .cat-card .cat-count { font-size: 0.72rem; color: var(--text-dim); font-weight: 600; }
-  .home-v3 .cat-card .cat-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
-  .home-v3 .cat-card .cat-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
-
-  /* 查看全部按钮 */
-  .home-v3 .btn-wrap { text-align: center; margin-top: var(--sp-4); }
-  .home-v3 .btn {
-    display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: var(--r-pill);
-    background: var(--surface); color: var(--text); border: 1px solid var(--border-strong);
-    font-size: 0.88rem; font-weight: 600; transition: all var(--t-fast); box-shadow: var(--shadow-card);
-  }
-  .home-v3 .btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-2px); }
-
-  /* ===================== 右栏 ===================== */
-  .home-v3 .side-right { position: sticky; top: var(--sp-8); display: flex; flex-direction: column; gap: var(--sp-5); }
-  .home-v3 .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--shadow-card); }
-  .home-v3 .panel h2 { font-size: 0.95rem; font-weight: 750; margin: 0 0 var(--sp-4); display: flex; align-items: center; gap: 8px; letter-spacing: -0.01em; }
-  .home-v3 .panel h2::before { content: ""; width: 4px; height: 14px; border-radius: 2px; background: var(--accent); }
-  .home-v3 .recent-item { display: block; padding: var(--sp-2) 0; border-bottom: 1px solid var(--border); transition: color var(--t-fast); }
-  .home-v3 .recent-item:last-child { border-bottom: none; }
-  .home-v3 .recent-item .t { font-size: 0.86rem; color: var(--text); display: block; line-height: 1.45; font-weight: 500; }
-  .home-v3 .recent-item .d { font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
-  .home-v3 .recent-item:hover .t { color: var(--accent); }
-  .home-v3 .cloud { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
-  .home-v3 .cloud a {
-    font-size: 0.8rem; padding: 5px 12px; border-radius: var(--r-pill);
-    background: var(--surface-2); color: var(--text-muted); border: 1px solid var(--border); font-weight: 500;
-    transition: all var(--t-fast);
-  }
-  .home-v3 .cloud a:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
-
-  @keyframes v3-spin { to { transform: rotate(360deg); } }
-
-  /* ===================== 响应式 ===================== */
-  @media (max-width: 1120px) {
-    .home-v3 .wrap { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
-    .home-v3 .side-right { display: none; }
-    .home-v3 .cat-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 780px) {
-    :root { --sidebar-w: 100%; }
-    .home-v3 .wrap { grid-template-columns: 1fr; padding: 0 var(--sp-4); gap: var(--sp-6); }
-    .home-v3 .side-left { position: static; }
-    .home-v3 .hero { grid-template-columns: 1fr; }
-    .home-v3 .hero-mascot { min-height: 220px; order: -1; border-right: none; border-bottom: 4px solid var(--cat-research); }
-    .home-v3 .hero-mascot::after { background: linear-gradient(180deg, rgba(0,0,0,0.45), transparent 40%); }
-    .home-v3 .hero-text { padding: var(--sp-6); }
-    .home-v3 .cat-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .home-v3 *, .home-v3 *::before, .home-v3 *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  }
+@media (prefers-reduced-motion: reduce) {
+  .cat-guide-card { transition: none; }
+  .cat-guide-card:hover { transform: none; }
+}
 </style>
-
-<script>
-  /* 主题切换：复用 Chirpy 的 data-theme + localStorage('theme')，与顶栏切换自动同步 */
-  (function () {
-    var root = document.documentElement;
-    var KEY = 'theme';
-    function syncButtons() {
-      var cur = root.getAttribute('data-theme');   // 'light' | 'dark' | null
-      var active = cur || 'system';
-      var btns = document.querySelectorAll('.home-v3 .theme-btn');
-      for (var i = 0; i < btns.length; i++) {
-        btns[i].classList.toggle('active', btns[i].getAttribute('data-set') === active);
-      }
-    }
-    // 初始化：跟随 Chirpy 已存储的偏好
-    var stored = null;
-    try { stored = localStorage.getItem(KEY); } catch (e) {}
-    if (stored === 'light' || stored === 'dark') {
-      root.setAttribute('data-theme', stored);
-    }
-    syncButtons();
-
-    var btns = document.querySelectorAll('.home-v3 .theme-btn');
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener('click', function () {
-        var mode = this.getAttribute('data-set');
-        try {
-          if (mode === 'system') {
-            localStorage.removeItem(KEY);
-            root.removeAttribute('data-theme');
-          } else {
-            localStorage.setItem(KEY, mode);
-            root.setAttribute('data-theme', mode);
-          }
-        } catch (e) {}
-        syncButtons();
-      });
-    }
-    // Chirpy 顶栏切换 data-theme 时，同步更新左栏按钮状态
-    if (typeof MutationObserver !== 'undefined') {
-      new MutationObserver(syncButtons).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-    }
-  })();
-</script>
