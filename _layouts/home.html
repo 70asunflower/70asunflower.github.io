@@ -148,7 +148,8 @@ layout: default
         <div class="cloud">
           {% assign sorted_tags = site.tags | sort %}
           {% for tag in sorted_tags limit: 16 %}
-            <a href="{{ '/tags/' | append: tag[0] | append: '/' | relative_url }}">{{ tag[0] }}</a>
+            {% assign tag_slug = tag[0] | downcase | replace: ' ', '-' %}
+            <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag[0] }}</a>
           {% endfor %}
         </div>
       </div>
@@ -239,6 +240,10 @@ layout: default
   .home-v3 * { box-sizing: border-box; }
   .home-v3 a { color: inherit; text-decoration: none; }
   .home-v3 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  /* 隐藏 Chirpy 原生右侧栏（col-xl-3，含"最近更新/热门标签"），避免与下方 home-v3 的右栏重复/重叠。
+     此规则写在首页专属 <style> 内，仅首页生效，不影响文章页的 TOC 侧栏。 */
+  .col-xl-3.ps-2.text-muted { display: none !important; }
 
   .home-v3 .wrap {
     max-width: var(--maxw);
