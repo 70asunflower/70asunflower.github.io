@@ -2,7 +2,7 @@
 title: 'AI推理时代的逻辑重构'
 author: Fu Qilin
 categories: [Memo]
-tags: [ai-inference, cloud, sram, dram, hbm, chip-design, industry-analysis]
+tags: [inference, cloud, sram, dram, hbm, chip-design, industry-analysis]
 date: 2026-05-02
 excerpt: "推理市场验证、云服务竞争格局、SRAM与DRAM的物理账、芯片设计三条战略路径、云服务涨价的历史性信号。"
 ---

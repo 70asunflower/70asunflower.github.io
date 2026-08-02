@@ -2,7 +2,7 @@
 title: "选刊与选会：从候选集到录用的完整实操指南"
 author: Fu Qilin
 categories: [科研及方法论]
-tags: [journal-selection, conference-selection, academic-publishing, paper-submission, peer-review]
+tags: [选刊, 选会, 学术写作, 投稿, 同行评审]
 date: 2026-07-27
 description: "这篇要解决的是一个很具体的问题：手上有（或即将有）一份工作，它应该去哪里，以及提交之后会发生什么。"
 excerpt: "这篇要解决的是一个很具体的问题：手上有（或即将有）一份工作，它应该去哪里，以及提交之后会发生什么。"

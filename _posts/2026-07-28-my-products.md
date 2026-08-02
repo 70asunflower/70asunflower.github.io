@@ -2,7 +2,7 @@
 title: "My_products"
 author: Fu Qilin
 categories: [My_products]
-tags: [product, project, 作品]
+tags: [product, project]
 date: 2026-07-28
 description: "我自己做的小产品与开源项目。这里记录它们的由来、设计取舍和用法。"
 excerpt: "我自己做的小产品与开源项目。这里记录它们的由来、设计取舍和用法。"

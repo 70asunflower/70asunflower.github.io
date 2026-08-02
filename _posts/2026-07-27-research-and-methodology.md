@@ -2,7 +2,7 @@
 title: "科研及方法论"
 author: Fu Qilin
 categories: [科研及方法论]
-tags: [research, methodology, academic-publishing, graduate-research]
+tags: [科研方法, 学术写作, 论文设计, 研究生]
 date: 2026-07-27
 description: "把学术发表的机制说明与选刊选会的实操指南收进同一个合集，方便按主题阅读。"
 excerpt: "把学术发表的机制说明与选刊选会的实操指南收进同一个合集，方便按主题阅读。"

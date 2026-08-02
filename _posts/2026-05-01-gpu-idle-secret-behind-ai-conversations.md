@@ -2,7 +2,7 @@
 title: '大厂不会告诉你的秘密：你的AI对话背后，一半的GPU算力都在"空转"'
 author: Fu Qilin
 categories: [Memo]
-tags: [llm-inference, gpu, kv-cache, goodput, prefill-decode]
+tags: [inference, gpu, kv-cache, goodput, prefill-decode]
 date: 2026-05-01
 excerpt: "LLM推理中GPU算力空转的真相：延迟约束、Prefill/Decode冲突、Batch同步机制，以及三代解决方案的演进。"
 ---

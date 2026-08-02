@@ -2,7 +2,7 @@
 title: "贡献是什么：写给研究生的科研创新判断指南"
 author: Fu Qilin
 categories: [科研及方法论]
-tags: [contribution,research-innovation,graduate-research,academic-publishing,novelty-check]
+tags: [贡献, 创新判断, 研究生, 科研方法, 新颖性核查]
 date: 2026-07-27
 description: "这份文档回答一个比投稿更靠前的问题：什么样的工作值得写成论文。它与《学术发表是什么：写给研究生的机制说明》和《选刊与选会：从候选集到录用的完整实操指南》配套，但也可以独立阅读。"
 excerpt: "这份文档回答一个比投稿更靠前的问题：什么样的工作值得写成论文。它与《学术发表是什么：写给研究生的机制说明》和《选刊与选会：从候选集到录用的完整实操指南》配套，但也可以独立阅读。"
