@@ -5,6 +5,7 @@ categories: [Memo]
 tags: [chip-design, hardware-strategy, nvidia, cuda, ecosystem, product-management]
 date: 2026-05-03
 excerpt: "芯片设计的核心困境与押注哲学、后发者竞争策略、大厂与初创分野、资本市场深层逻辑、NVIDIA生态壁垒——从硬件决策哲学到生态竞争壁垒的深度笔记。"
+math: true
 ---
 
 ## 芯片行业深度笔记：从硬件决策哲学到生态竞争壁垒

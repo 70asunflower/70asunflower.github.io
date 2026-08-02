@@ -5,6 +5,7 @@ categories: [Memo]
 tags: [llm, survey, pre-training, post-training, alignment, inference, agent, multimodal, embodied-ai]
 date: 2026-06-20
 mermaid: true
+math: true
 excerpt: "大模型领域认知地图——从预训练、后训练到推理部署，覆盖十一个核心方向的系统性综述。"
 ---
 ## 大模型研究方向综述_最优版
