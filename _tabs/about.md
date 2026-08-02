@@ -86,18 +86,6 @@ title: About
   </div>
 </div>
 
-<!-- Awards -->
-<div class="section" id="awards">
-  <h3 class="section-title">Awards</h3>
-  <div class="section-body">
-    <div class="awards-grid">
-      <div class="award-item">
-        <span class="award-icon">🏅</span>
-        <div class="award-text"><strong>Placeholder Award</strong></div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <style>
 /* ===== Luka-style About Me Page ===== */
