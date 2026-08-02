@@ -265,31 +265,6 @@ title: About
   border-top: 1px dashed rgba(var(--about-accent-rgb), 0.25);
 }
 
-/* Awards */
-.awards-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.award-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 4px 0;
-}
-
-.award-icon {
-  flex-shrink: 0;
-  font-size: 20px;
-}
-
-.award-text {
-  color: var(--text-color);
-  font-size: 14px;
-  margin: 0;
-}
-
 /* Links in about page */
 .section-body a {
   color: var(--about-accent);
