@@ -30,9 +30,18 @@
       {%- endfor -%}
       {%- assign num = idx0 | plus: 1 -%}
       {%- assign pct = num | times: 100 | divided_by: total -%}
-      {%- assign prev_ch = chapters[idx0 | plus: 1] -%}
+      {%- comment -%} 章节按日期升序：上一篇=更旧(idx0-1)，下一篇=更新(idx0+1)。
+        注意：Liquid 方括号内不能放过滤器表达式（会静默返回空串），必须先算好下标变量。{%- endcomment -%}
+      {%- assign prev_ch = nil -%}
       {%- assign next_ch = nil -%}
-      {%- if idx0 > 0 -%}{%- assign next_idx = idx0 | minus: 1 -%}{%- assign next_ch = chapters[next_idx] -%}{%- endif -%}
+      {%- if idx0 > 0 -%}
+        {%- assign p_idx = idx0 | minus: 1 -%}
+        {%- assign prev_ch = chapters[p_idx] -%}
+      {%- endif -%}
+      {%- assign n_idx = idx0 | plus: 1 -%}
+      {%- if n_idx < total -%}
+        {%- assign next_ch = chapters[n_idx] -%}
+      {%- endif -%}
       <div class="series-nav" data-toc-skip>
         <div class="series-progress-head">
           <span class="series-label"><i class="fas fa-book fa-fw me-1"></i>{{ cat }} · {{ cat_conf.series_label | default: '系列阅读' }}</span>
