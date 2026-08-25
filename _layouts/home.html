@@ -42,7 +42,10 @@ layout: default
       {% if f.count_from_category %}
         {% assign fcount = site.categories[f.count_from_category] | size %}
       {% endif %}
-      <a href="{{ f.link | relative_url }}" class="featured-card" style="--f-accent: {{ f.color }};" {% unless f.link starts with '/' %}target="_blank" rel="noopener"{% endunless %}>
+      {% comment %} Liquid 4 不支持 starts with，用 contains 判断外链 {% endcomment %}
+      {% assign f_external = false %}
+      {% if f.link contains '://' %}{% assign f_external = true %}{% endif %}
+      <a href="{{ f.link | relative_url }}" class="featured-card" style="--f-accent: {{ f.color }};" {% if f_external %}target="_blank" rel="noopener"{% endif %}>
         <div class="featured-icon"><i class="{{ f.icon }} fa-fw"></i></div>
         <div class="featured-body">
           <div class="featured-title">{{ f.title }}</div>
