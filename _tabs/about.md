@@ -260,14 +260,7 @@ title: About
   font-size: 16px;
 }
 
-.project-badge {
-  text-decoration: none;
-  margin-left: 8px;
-}
 
-.project-badge img {
-  vertical-align: middle;
-}
 
 .project-card + .project-card {
   padding-top: 8px;

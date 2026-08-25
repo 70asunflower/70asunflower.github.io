@@ -53,6 +53,11 @@ def main() -> None:
         except Exception as e:  # noqa: BLE001 - keep old data on per-repo failure
             print(f"err {repo}: {e}")
 
+    if not stats and os.path.exists(OUT_PATH):
+        # 全部拉取失败（如网络/API 故障）时保留旧数据，避免用空文件覆盖
+        print("all fetches failed; keeping existing", OUT_PATH)
+        return
+
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(stats, f, ensure_ascii=False, indent=2)
         f.write("\n")
