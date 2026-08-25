@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync repo stats (stars/pushed_at/language) into _data/projects.json.
+"""Sync repo stats (stars/pushed_at/language) into _data/projects_stats.json.
 
 Reads the repo list from _data/projects.yml (simple `repo:` entries) and
 queries the GitHub REST API with the workflow's GITHUB_TOKEN.
@@ -11,7 +11,7 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 LIST_PATH = os.path.join(ROOT, "_data", "projects.yml")
-OUT_PATH = os.path.join(ROOT, "_data", "projects.json")
+OUT_PATH = os.path.join(ROOT, "_data", "projects_stats.json")
 
 token = os.environ.get("GH_TOKEN", "")
 
