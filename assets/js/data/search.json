@@ -1,0 +1,20 @@
+---
+layout: compress
+swcache: true
+---
+
+[
+  {% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "categories": {{ post.categories | join: ', ' | jsonify }},
+    "tags": {{ post.tags | join: ', ' | jsonify }},
+    "date": {{ post.date | jsonify }},
+    {% comment %} 覆盖主题默认的 full_text=true：全文塞进搜索索引导致 2.4MB，
+       改为最多 500 字符摘要，搜索仍匹配 标题/分类/标签/正文开头。{% endcomment %}
+    {% capture content -%}{% include post-summary.html max_length=500 %}{%- endcapture -%}
+    "content": {{ content | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
