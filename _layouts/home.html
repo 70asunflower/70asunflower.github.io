@@ -33,9 +33,30 @@ layout: default
   </div>
 </section>
 
+<!-- Category Guides Section -->
+<section id="category-guides" class="px-xl-1 mb-4">
+  <h2 class="mb-3"><i class="fas fa-layer-group fa-fw me-1"></i>分类导览</h2>
+  <div class="cat-guide-grid">
+    {% for c in site.data.categories %}
+      {% assign ccount = site.categories[c.name] | size %}
+      <a href="{{ '/posts/' | append: c.landing | append: '/' | relative_url }}" class="cat-guide-card" style="--g-accent: {{ c.color }};">
+        <div class="cat-guide-main">
+          <div class="cat-guide-head">
+            <span class="cat-guide-dot"></span>
+            <span class="cat-guide-name">{{ c.name }}</span>
+            <span class="cat-guide-count">{{ ccount }} 篇</span>
+          </div>
+          <p class="cat-guide-desc">{{ c.description }}</p>
+        </div>
+        <i class="fas fa-chevron-right cat-guide-arrow"></i>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
 <!-- Recent Posts Section -->
 {% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
-{% assign recent_posts = all_normal | limit: 6 %}
+{% assign recent_posts = all_normal | limit: 5 %}
 
 <section id="recent-posts" class="px-xl-1">
   <h2 class="mb-3"><i class="fas fa-pen-fancy fa-fw me-1"></i>最新文章</h2>
@@ -99,34 +120,13 @@ layout: default
     {% endfor %}
   </div>
 
-  {% if site.posts.size > 6 %}
+  {% if site.posts.size > 5 %}
     <div class="text-center mt-4">
       <a href="{{ '/archives/' | relative_url }}" class="btn btn-outline-primary">
         <i class="fas fa-archive fa-fw me-1"></i>查看全部文章
       </a>
     </div>
   {% endif %}
-</section>
-
-<!-- Category Guides Section -->
-<section id="category-guides" class="px-xl-1 mt-5">
-  <h2 class="mb-3"><i class="fas fa-layer-group fa-fw me-1"></i>分类导览</h2>
-  <div class="cat-guide-grid">
-    {% for c in site.data.categories %}
-      {% assign ccount = site.categories[c.name] | size %}
-      <a href="{{ '/posts/' | append: c.landing | append: '/' | relative_url }}" class="cat-guide-card" style="--g-accent: {{ c.color }};">
-        <div class="cat-guide-main">
-          <div class="cat-guide-head">
-            <span class="cat-guide-dot"></span>
-            <span class="cat-guide-name">{{ c.name }}</span>
-            <span class="cat-guide-count">{{ ccount }} 篇</span>
-          </div>
-          <p class="cat-guide-desc">{{ c.description }}</p>
-        </div>
-        <i class="fas fa-chevron-right cat-guide-arrow"></i>
-      </a>
-    {% endfor %}
-  </div>
 </section>
 
 <style>
