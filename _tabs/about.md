@@ -267,7 +267,7 @@ title: About
   border-top: 1px dashed rgba(var(--about-accent-rgb), 0.25);
 }
 
-/* Repo stats pill (from _data/projects.json, synced by Actions) */
+/* Repo stats pill (from _data/projects_stats.json, synced by Actions) */
 .project-stats {
   display: inline-block;
   margin-left: 10px;
