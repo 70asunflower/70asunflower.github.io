@@ -13,15 +13,20 @@ layout: default
         <div class="hero-caption">动感光波 → 嗯？不对，是我在写博客 🖍️</div>
       </div>
       <div class="hero-text">
-        <h1 class="card-title my-2 mt-md-0 hero-title">About Me</h1>
+        <h1 class="card-title my-2 mt-md-0 hero-title">关于我</h1>
         <div class="card-text content hero-body">
-          <p>Hi, I'm <strong>Fu Qilin</strong> — a tech enthusiast and creator based in Shenzhen. 🛫</p>
-          <p>I write about programming, tools, and continuous growth.</p>
-          <ul>
-            <li>💻 Programming &amp; Technology</li>
-            <li>📖 Reading &amp; Learning</li>
-            <li>🌱 Continuous Growth</li>
-          </ul>
+          <p>你好，我是 <strong>付琦麟（Fu Qilin）</strong>，现居上海的工科研究生。</p>
+          <p>这里记录我的技术笔记、读书笔记与研究方法论——相信 learning by doing。</p>
+          <div class="hero-tags">
+            <span class="hero-tag">AI 推理系统</span>
+            <span class="hero-tag">CUDA · vLLM</span>
+            <span class="hero-tag">加速器架构</span>
+            <span class="hero-tag">数字 IC</span>
+          </div>
+          <div class="hero-links">
+            <a href="https://github.com/70asunflower" target="_blank" rel="noopener"><i class="fab fa-github fa-fw me-1"></i>GitHub</a>
+            <a href="mailto:1982043113@qq.com"><i class="fas fa-envelope fa-fw me-1"></i>邮箱</a>
+          </div>
         </div>
       </div>
     </div>
@@ -33,15 +38,15 @@ layout: default
 {% assign recent_posts = all_normal | limit: 6 %}
 
 <section id="recent-posts" class="px-xl-1">
-  <h2 class="mb-3"><i class="fas fa-pen-fancy fa-fw me-1"></i>Recent Posts</h2>
+  <h2 class="mb-3"><i class="fas fa-pen-fancy fa-fw me-1"></i>最新文章</h2>
 
   <div id="post-list" class="flex-grow-1">
     {% for post in recent_posts %}
       {% assign cat = post.categories | first %}
-      {% if cat == '科研及方法论' %}{% assign accent = '#F4D03F' %}
-      {% elsif cat == '分布式计算' %}{% assign accent = '#E74C3C' %}
-      {% elsif cat == 'Memo' %}{% assign accent = '#2ECC71' %}
-      {% else %}{% assign accent = '#3498DB' %}{% endif %}
+      {% assign accent = '#3498DB' %}
+      {% for c in site.data.categories %}
+        {% if c.name == cat %}{% assign accent = c.color %}{% endif %}
+      {% endfor %}
       <article class="card-wrapper card post-card" style="--accent: {{ accent }};">
         <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
           {% assign card_body_col = '12' %}
@@ -97,7 +102,7 @@ layout: default
   {% if site.posts.size > 6 %}
     <div class="text-center mt-4">
       <a href="{{ '/archives/' | relative_url }}" class="btn btn-outline-primary">
-        <i class="fas fa-archive fa-fw me-1"></i>View All Posts
+        <i class="fas fa-archive fa-fw me-1"></i>查看全部文章
       </a>
     </div>
   {% endif %}
@@ -107,15 +112,17 @@ layout: default
 <section id="category-guides" class="px-xl-1 mt-5">
   <h2 class="mb-3"><i class="fas fa-layer-group fa-fw me-1"></i>分类导览</h2>
   <div class="cat-guide-grid">
-    {% assign guides = "分布式计算,the-data-center-as-a-computer-ai-guide,#E74C3C|科研及方法论,research-and-methodology,#F4D03F|Memo,memo,#2ECC71|Books,books,#9B59B6|My_products,my-products,#1ABC9C|Tutorial,tutorial,#3498DB" | split: "|" %}
-    {% for g in guides %}
-      {% assign parts = g | split: "," %}
-      {% assign gname = parts[0] %}
-      {% assign gslug = parts[1] %}
-      {% assign gcolor = parts[2] %}
-      <a href="{{ '/posts/' | append: gslug | append: '/' | relative_url }}" class="cat-guide-card" style="--g-accent: {{ gcolor }};">
-        <span class="cat-guide-dot"></span>
-        <span class="cat-guide-name">{{ gname }}</span>
+    {% for c in site.data.categories %}
+      {% assign ccount = site.categories[c.name] | size %}
+      <a href="{{ '/posts/' | append: c.landing | append: '/' | relative_url }}" class="cat-guide-card" style="--g-accent: {{ c.color }};">
+        <div class="cat-guide-main">
+          <div class="cat-guide-head">
+            <span class="cat-guide-dot"></span>
+            <span class="cat-guide-name">{{ c.name }}</span>
+            <span class="cat-guide-count">{{ ccount }} 篇</span>
+          </div>
+          <p class="cat-guide-desc">{{ c.description }}</p>
+        </div>
         <i class="fas fa-chevron-right cat-guide-arrow"></i>
       </a>
     {% endfor %}
@@ -142,6 +149,20 @@ layout: default
 .hero-body { color: inherit; }
 .hero-body ul { padding-left: 1.1rem; }
 
+/* Hero: direction tags + contact links */
+.hero-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.5rem 0 1rem; }
+.hero-tag {
+  font-size: 0.78rem; padding: 0.28rem 0.7rem; border-radius: 999px;
+  border: 1px solid var(--c-xiaoxin-yellow, #F4D03F); color: inherit; opacity: 0.92;
+}
+.hero-links { display: flex; flex-wrap: wrap; gap: 1.1rem; font-size: 0.95rem; }
+.hero-links a {
+  color: inherit; text-decoration: none;
+  border-bottom: 2px solid var(--c-xiaoxin-yellow, #F4D03F); padding-bottom: 1px;
+  transition: opacity .2s ease;
+}
+.hero-links a:hover { opacity: 0.72; }
+
 /* ===== Recent post cards: accent bar + hover lift + category pills ===== */
 .post-card { border-left: 4px solid var(--accent, #F4D03F); transition: transform .25s ease, box-shadow .25s ease; }
 .post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
@@ -164,12 +185,12 @@ layout: default
 /* ===== Category guides: accent dot + hover lift, matches post-card language ===== */
 .cat-guide-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 0.9rem;
 }
 .cat-guide-card {
   display: flex; align-items: center; gap: 0.6rem;
-  padding: 0.95rem 1.1rem;
+  padding: 0.85rem 1rem;
   border-radius: 12px;
   background: var(--card-bg, #1a1a1a);
   border: 1px solid var(--border-color, #2a2a2a);
@@ -181,13 +202,24 @@ layout: default
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
 }
+.cat-guide-main { flex: 1 1 auto; min-width: 0; }
+.cat-guide-head { display: flex; align-items: center; gap: 0.5rem; }
 .cat-guide-dot {
   width: 10px; height: 10px; border-radius: 50%;
   background: var(--g-accent); flex: 0 0 auto;
 }
 .cat-guide-name { font-weight: 600; font-size: 0.98rem; }
+.cat-guide-count {
+  margin-left: auto; font-size: 0.75rem; white-space: nowrap;
+  color: var(--text-muted-color, #8a8a8a);
+}
+.cat-guide-desc {
+  margin: 0.3rem 0 0; font-size: 0.82rem; line-height: 1.45;
+  color: var(--text-muted-color, #8a8a8a);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
 .cat-guide-arrow {
-  margin-left: auto; color: var(--g-accent);
+  margin-left: auto; flex: 0 0 auto; color: var(--g-accent);
   opacity: 0.65; transition: transform .2s ease, opacity .2s ease;
 }
 .cat-guide-card:hover .cat-guide-arrow { transform: translateX(3px); opacity: 1; }

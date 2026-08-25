@@ -1,12 +1,24 @@
-- name: Books
-  description: Reading notes and book reviews
-- name: My_products
-  description: Projects I built and shipped
-- name: Memo
-  description: Technical notes and learning archives
-- name: Tutorial
-  description: Step-by-step guides and how-tos
 - name: 分布式计算
   description: "《The Data Center as a Computer》读书笔记与分布式计算学习专栏"
+  color: "#E74C3C"
+  landing: the-data-center-as-a-computer-ai-guide
 - name: 科研及方法论
   description: "学术写作与方法论：贡献判断、选题选刊、把结果写成论证、实验可信度等研究配套文"
+  color: "#F4D03F"
+  landing: research-and-methodology
+- name: Memo
+  description: Technical notes and learning archives
+  color: "#2ECC71"
+  landing: memo
+- name: Books
+  description: Reading notes and book reviews
+  color: "#9B59B6"
+  landing: books
+- name: My_products
+  description: Projects I built and shipped
+  color: "#1ABC9C"
+  landing: my-products
+- name: Tutorial
+  description: Step-by-step guides and how-tos
+  color: "#3498DB"
+  landing: tutorial

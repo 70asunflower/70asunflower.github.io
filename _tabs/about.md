@@ -14,7 +14,7 @@ title: About
 <div class="section" id="about-me">
   <h3 class="section-title">About Me</h3>
   <div class="section-body">
-    <p>Hi, my name is <strong>Fu Qilin</strong>. I am a tech enthusiast and creator based in Shenzhen, China. My interests focus on programming, tools, and continuous growth.</p>
+    <p>Hi, my name is <strong>Fu Qilin</strong>. I am a master's student in Electronic Information, currently based in Shanghai, China. My interests focus on AI inference systems, accelerator architectures, and digital IC design.</p>
     <p>I enjoy building projects, automating workflows, and sharing what I learn. I believe in learning by doing — every project is a chance to level up.</p>
     <p><strong><a href="https://github.com/70asunflower" target="_blank" rel="noopener">View my GitHub →</a></strong></p>
   </div>
