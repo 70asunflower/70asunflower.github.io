@@ -1,0 +1,81 @@
+{%- comment -%}
+  系列导航：同分类（series 标记）内上一章/下一章 + 阅读进度。
+  仅对 _data/categories.yml 中 series: true 的分类生效；分类落地页自身不显示。
+  章节顺序 = 发布日期升序（site.posts 默认倒序，此处反转）。
+{%- endcomment -%}
+{%- assign cat = page.categories | first -%}
+{%- assign cat_conf = site.data.categories | where: 'name', cat | first -%}
+{%- if cat_conf and cat_conf.series == true -%}
+  {%- assign is_landing = false -%}
+  {%- for c in site.data.categories -%}
+    {%- if c.landing == page.slug -%}{%- assign is_landing = true -%}{%- endif -%}
+  {%- endfor -%}
+  {%- unless is_landing -%}
+    {%- assign chapters = '' | split: '' -%}
+    {%- for s in site.posts -%}
+      {%- if s.categories.first == cat -%}
+        {%- assign s_is_landing = false -%}
+        {%- for c in site.data.categories -%}
+          {%- if c.landing == s.slug -%}{%- assign s_is_landing = true -%}{%- endif -%}
+        {%- endfor -%}
+        {%- unless s_is_landing -%}{%- assign chapters = chapters | push: s -%}{%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- assign chapters = chapters | reverse -%}
+    {%- assign total = chapters | size -%}
+    {%- if total > 1 -%}
+      {%- assign idx0 = 0 -%}
+      {%- for ch in chapters -%}
+        {%- if ch.url == page.url -%}{%- assign idx0 = forloop.index0 -%}{%- endif -%}
+      {%- endfor -%}
+      {%- assign num = idx0 | plus: 1 -%}
+      {%- assign pct = num | times: 100 | divided_by: total -%}
+      {%- assign prev_ch = chapters[idx0 | plus: 1] -%}
+      {%- assign next_ch = nil -%}
+      {%- if idx0 > 0 -%}{%- assign next_idx = idx0 | minus: 1 -%}{%- assign next_ch = chapters[next_idx] -%}{%- endif -%}
+      <div class="series-nav" data-toc-skip>
+        <div class="series-progress-head">
+          <span class="series-label"><i class="fas fa-book fa-fw me-1"></i>{{ cat }} · {{ cat_conf.series_label | default: '系列阅读' }}</span>
+          <span class="series-count">第 {{ num }} / {{ total }} 章</span>
+        </div>
+        <div class="series-progress-bar"><div class="series-progress-fill" style="width: {{ pct }}%; background: {{ cat_conf.color }};"></div></div>
+        <div class="series-links">
+          {%- if prev_ch -%}
+            <a href="{{ prev_ch.url | relative_url }}" class="series-link prev"><i class="fas fa-angle-left fa-fw"></i><span><small>上一篇</small>{{ prev_ch.title }}</span></a>
+          {%- else -%}<span class="series-link placeholder"></span>{%- endif -%}
+          <a href="{{ cat_conf.landing | prepend: '/posts/' | append: '/' | relative_url }}" class="series-toc-btn" title="返回目录"><i class="fas fa-list-ul fa-fw"></i>目录</a>
+          {%- if next_ch -%}
+            <a href="{{ next_ch.url | relative_url }}" class="series-link next"><span><small>下一篇</small>{{ next_ch.title }}</span><i class="fas fa-angle-right fa-fw"></i></a>
+          {%- else -%}<span class="series-link placeholder"></span>{%- endif -%}
+        </div>
+      </div>
+      <style>
+        .series-nav { margin: 2.5rem 0 1rem; padding: 1rem 1.1rem; border-radius: 12px;
+          background: var(--card-bg, #1a1a1a); border: 1px solid var(--border-color, #2a2a2a); }
+        .series-progress-head { display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
+        .series-label { color: var(--text-muted-color, #8a8a8a); }
+        .series-count { color: var(--text-muted-color, #8a8a8a); white-space: nowrap; }
+        .series-progress-bar { height: 5px; border-radius: 999px; background: var(--border-color, #2a2a2a); margin: .6rem 0 1rem; overflow: hidden; }
+        .series-progress-fill { height: 100%; border-radius: 999px; background: #E74C3C; transition: width .3s ease; }
+        .series-links { display: flex; align-items: stretch; gap: .6rem; }
+        .series-link { flex: 1 1 0; display: flex; align-items: center; gap: .4rem; min-width: 0;
+          text-decoration: none; color: inherit; padding: .55rem .7rem; border-radius: 10px;
+          background: var(--border-color, #2a2a2a); transition: transform .15s ease, opacity .15s ease; }
+        .series-link:hover { transform: translateY(-2px); }
+        .series-link span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .88rem; }
+        .series-link small { display: block; font-size: .7rem; color: var(--text-muted-color, #8a8a8a); }
+        .series-link.prev { justify-content: flex-start; } .series-link.next { justify-content: flex-end; text-align: right; }
+        .series-link.next span { text-align: right; } .series-link.next small { text-align: right; }
+        .series-link.placeholder { visibility: hidden; }
+        .series-toc-btn { flex: 0 0 auto; display: flex; align-items: center; gap: .35rem; align-self: center;
+          font-size: .85rem; text-decoration: none; color: inherit; padding: .55rem .8rem; border-radius: 999px;
+          border: 1px solid var(--border-color, #2a2a2a); white-space: nowrap; }
+        @media (max-width: 575.98px) {
+          .series-links { flex-wrap: wrap; } .series-link { flex: 1 1 100%; }
+          .series-link.placeholder { display: none; }
+          .series-toc-btn { order: 3; align-self: center; }
+        }
+      </style>
+    {%- endif -%}
+  {%- endunless -%}
+{%- endif -%}

@@ -33,6 +33,28 @@ layout: default
   </div>
 </section>
 
+<!-- Featured Works Section -->
+<section id="featured" class="px-xl-1 mb-4">
+  <h2 class="mb-3"><i class="fas fa-star fa-fw me-1"></i>代表作</h2>
+  <div class="featured-grid">
+    {% for f in site.data.featured %}
+      {% assign fcount = nil %}
+      {% if f.count_from_category %}
+        {% assign fcount = site.categories[f.count_from_category] | size %}
+      {% endif %}
+      <a href="{{ f.link | relative_url }}" class="featured-card" style="--f-accent: {{ f.color }};" {% unless f.link starts with '/' %}target="_blank" rel="noopener"{% endunless %}>
+        <div class="featured-icon"><i class="{{ f.icon }} fa-fw"></i></div>
+        <div class="featured-body">
+          <div class="featured-title">{{ f.title }}</div>
+          <p class="featured-desc">{{ f.desc }}</p>
+          {% if fcount %}<span class="featured-count"><i class="fas fa-file-lines fa-fw"></i> {{ fcount }} 篇</span>{% endif %}
+        </div>
+        <i class="fas fa-chevron-right featured-arrow"></i>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
 <!-- Category Guides Section -->
 <section id="category-guides" class="px-xl-1 mb-4">
   <h2 class="mb-3"><i class="fas fa-layer-group fa-fw me-1"></i>分类导览</h2>
@@ -181,6 +203,40 @@ layout: default
   .post-card { transition: none; }
   .post-card:hover { transform: none; }
 }
+
+/* ===== Featured works: big entry cards ===== */
+.featured-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.featured-card {
+  display: flex; align-items: center; gap: .9rem;
+  padding: 1.1rem 1.2rem; border-radius: 14px;
+  background: var(--card-bg, #1a1a1a);
+  border: 1px solid var(--border-color, #2a2a2a);
+  border-top: 4px solid var(--f-accent, #F4D03F);
+  text-decoration: none; color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.featured-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.28); }
+.featured-icon {
+  flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem; color: var(--f-accent);
+  background: color-mix(in srgb, var(--f-accent) 14%, transparent);
+}
+.featured-body { flex: 1 1 auto; min-width: 0; }
+.featured-title { font-weight: 600; font-size: 1rem; }
+.featured-desc {
+  margin: .25rem 0 0; font-size: .82rem; line-height: 1.5;
+  color: var(--text-muted-color, #8a8a8a);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.featured-count {
+  display: inline-block; margin-top: .45rem; font-size: .72rem;
+  padding: .15rem .55rem; border-radius: 999px;
+  border: 1px solid var(--f-accent); opacity: .85;
+}
+.featured-arrow { margin-left: auto; flex: 0 0 auto; color: var(--f-accent); opacity: .65; transition: transform .2s ease, opacity .2s ease; }
+.featured-card:hover .featured-arrow { transform: translateX(3px); opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .featured-card { transition: none; } .featured-card:hover { transform: none; } }
 
 /* ===== Category guides: accent dot + hover lift, matches post-card language ===== */
 .cat-guide-grid {

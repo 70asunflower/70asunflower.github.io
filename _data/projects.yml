@@ -1,0 +1,14 @@
+# 首页代表作 / About 页项目展示的仓库清单（增删仓库只改这里）
+# stats 由 .github/workflows/projects-sync.yml 每日写入 _data/projects.json
+- repo: 70asunflower/ai-learning-journey
+  name: AI Learning Journey
+  desc: "AI/LLM 学习知识库：微调(LoRA/SFT/DPO)、量化、推理与部署的结构化资源与笔记"
+- repo: 70asunflower/ic-chip-design-learning
+  name: IC Chip Design Learning
+  desc: "数字 IC 设计学习路线：从 RTL 设计与验证到物理设计与 tapeout"
+- repo: 70asunflower/ChatShot
+  name: ChatShot
+  desc: "浏览器扩展（Chrome MV3）：把 AI 对话一键截成精美长图"
+- repo: 70asunflower/my-dashboards
+  name: My Dashboards
+  desc: "个人数据看板：科研与投资数据的零依赖单文件可视化"

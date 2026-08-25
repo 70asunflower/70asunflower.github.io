@@ -23,37 +23,18 @@ excerpt: "记录用 AI 辅助阅读《The Data Center as a Computer》的方式�
 
 ## 本栏目正文
 
-- [4.3.2.3 Tracing tools](/posts/4-3-2-3-tracing-tools/)
-- [4.3.2.4 Performance tools](/posts/4-3-2-4-performance-tools/)
-- [4.4 Server-level software](/posts/4-4-server-level-software/)
-- [5.1 Data center infrastructure basics](/posts/5-1-data-center-infrastructure-basics/)
-- [5.1.3 Data center taxonomy: Tiers](/posts/5-1-3-data-center-taxonomy-tiers/)
-- [5.1.4 Cloud and AI implications for data center design](/posts/5-1-4-cloud-and-ai-implications-for-data-center-design/)
-- [6.1 WSC building blocks and design considerations](/posts/6-1-wsc-building-blocks-and-design-considerations/)
-- [6.1.2.1 A model to reason about scale-up versus scale-out](/posts/6-1-2-1-a-model-to-reason-about-scale-up-versus-scale-out/)
-- [6.1.2.2 Granularity of scale-out: Brawny versus wimpy cores](/posts/6-1-2-2-granularity-of-scale-out-brawny-versus-wimpy-cores/)
-- [6.1.2.3 Scale-up vs scale-out for accelerators](/posts/6-1-2-3-scale-up-vs-scale-out-for-accelerators/)
-- [6.2.1 Server hardware](/posts/6-2-1-server-hardware/)
-- [6.2.2 Hardware racks](/posts/6-2-2-hardware-racks/)
-- [6.2.3 Individual servers as distributed systems](/posts/6-2-3-individual-servers-as-distributed-systems/)
-- [6.3 Accelerators and custom silicon](/posts/6-3-accelerators-and-custom-silicon/)
-- [6.3.2.1 TPUs](/posts/6-3-2-1-tpus/)
-- [6.3.2.2 GPUs](/posts/6-3-2-2-gpus/)
-- [6.4 Networking](/posts/6-4-networking/)
-- [6.4.3 Cluster networking](/posts/6-4-3-cluster-networking/)
-- [6.4.4 Spine-less networking](/posts/6-4-4-spine-less-networking/)
-- [6.4.5 Optics in warehouse-scale data centers](/posts/6-4-5-optics-in-warehouse-scale-data-centers/)
-- [6.4.6 Special-purpose networks 和 6.4.7 WANs](/posts/6-4-6-special-purpose-networks-6-4-7-wans/)
-- [7.1 Software-defined servers](/posts/7-1-software-defined-servers/)
-- [7.1.2 Case study: Library optimizations](/posts/7-1-2-case-study-library-optimizations/)
-- [7.1.3 Case study: Platform-aware scheduling](/posts/7-1-3-case-study-platform-aware-scheduling/)
-- [7.2 Software-defined accelerators](/posts/7-2-software-defined-accelerators/)
-- [7.3 Software-defined networks](/posts/7-3-software-defined-networks/)
-- [7.3.1 Jupiter topology and traffic engineering 和 7.3.2 Network aware scheduling](/posts/7-3-1-jupiter-topology-and-traffic-engineering-7-3-2-network-aware-scheduling/)
-- [7.3.3 Bandwidth enforcer 和 7.3.4 B4 traffic engineering](/posts/7-3-3-bandwidth-enforcer-7-3-4-b4-traffic-engineering/)
-- [7.3.5 DDoS attack mitigation 和 7.3.6 What’s next for SDN](/posts/7-3-5-ddos-attack-mitigation-7-3-6-what-s-next-for-sdn/)
-- [7.4 Software-defined storage 和 7.4.1 Storage workload diversity](/posts/7-4-software-defined-storage-7-4-1-storage-workload-diversity/)
-- [7.4.2 Transparent SSD caching、7.4.3 Trading data center space between compute and storage、7.4.4 Other software-managed hardware optimizations](/posts/7-4-2-transparent-ssd-caching-7-4-3-trading-data-center-space-between-compute-and-storage-7-4-4-other-software-managed-hardware-optimizations/)
-- [7.5 Software-defined data center 中的 7.5.1 Software-defined power](/posts/7-5-software-defined-data-center-7-5-1-software-defined-power/)
-- [7.5.2 Software-defined fleet](/posts/7-5-2-software-defined-fleet/)
-- [7.6 Self-driving systems](/posts/7-6-self-driving-systems/)
+{% assign chapters = site.posts | where_exp: 'item', 'item.categories.first == "分布式计算"' %}
+共 {{ chapters | size }} 篇正文，按书中章节顺序排列（新章节发布后自动更新）：
+
+<style>
+.chapter-toc { columns: 2; column-gap: 2rem; padding-left: 1.2rem; font-size: .95rem; }
+.chapter-toc li { break-inside: avoid; margin-bottom: .45rem; }
+@media (max-width: 767.98px) { .chapter-toc { columns: 1; } }
+</style>
+<ol class="chapter-toc">
+{%- for c in chapters reversed -%}
+  {%- if c.url != page.url -%}
+  <li><a href="{{ c.url | relative_url }}">{{ c.title }}</a></li>
+  {%- endif -%}
+{%- endfor -%}
+</ol>

@@ -1,0 +1,18 @@
+# 首页代表作（Hero 下方大卡）。count_from_category 可选：自动带出分类文章数。
+- title: "《The Data Center as a Computer》精读专栏"
+  desc: "逐章精读 Google 数据中心设计经典：网络拓扑、加速器、软件定义硬件与 WSC 架构"
+  icon: "fas fa-server"
+  color: "#E74C3C"
+  link: /posts/the-data-center-as-a-computer-ai-guide/
+  count_from_category: 分布式计算
+- title: "科研及方法论系列"
+  desc: "贡献判断、选题选刊、把结果写成论证、实验可信度——研究生科研配套写作"
+  icon: "fas fa-flask"
+  color: "#F4D03F"
+  link: /posts/research-and-methodology/
+  count_from_category: 科研及方法论
+- title: "ChatShot"
+  desc: "浏览器扩展（Chrome MV3）：把 AI 对话一键截成精美长图"
+  icon: "fab fa-chrome"
+  color: "#3498DB"
+  link: https://github.com/70asunflower/ChatShot

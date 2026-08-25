@@ -1,0 +1,80 @@
+{%- comment -%}
+  Pagefind 搜索加载器（覆盖主题 gem 的同名 include，provider 仍为 jekyll 以复用 Chirpy 搜索弹层）。
+  索引由 CI 在部署前用 `pagefind --site _site` 生成到 /pagefind/。
+  若索引不存在（如本地 dev），输入时静默提示，不影响页面其它功能。
+{%- endcomment -%}
+<script>
+  (function () {
+    var NO_RESULTS = {{ site.data.locales[site.lang].search.no_results | jsonify }};
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    var RESULT_TPL =
+      '<article class="px-1 px-sm-2 px-lg-4 px-xl-0">' +
+        '<header><h2><a href="{url}">{title}</a></h2></header>' +
+        '<p>{excerpt}</p>' +
+      '</article>';
+
+    var pfReady = null;
+    function loadPagefind() {
+      if (pfReady) return pfReady;
+      pfReady = new Promise(function (resolve, reject) {
+        if (window.pagefind) return resolve(window.pagefind);
+        var s = document.createElement('script');
+        s.src = '{{ "/pagefind/pagefind.js" | relative_url }}';
+        s.onload = function () { window.pagefind ? resolve(window.pagefind) : reject(new Error('pagefind missing')); };
+        s.onerror = function () { reject(new Error('pagefind index not available')); };
+        document.head.appendChild(s);
+      });
+      return pfReady;
+    }
+
+    var seq = 0;
+    function runSearch(query) {
+      var mySeq = ++seq;
+      loadPagefind().then(function (pf) {
+        return pf.search(query);
+      }).then(function (res) {
+        if (mySeq !== seq) return; // 过期响应丢弃
+        var results = res.results.slice(0, 15);
+        if (!results.length) { render(NO_RESULTS); return; }
+        return Promise.all(results.map(function (r) { return r.data(); })).then(function (datas) {
+          if (mySeq !== seq) return;
+          var html = datas.map(function (d) {
+            var title = (d.meta && (d.meta.title || d.meta.url)) || d.url;
+            return RESULT_TPL
+              .replace('{url}', esc(d.url))
+              .replace('{title}', esc(title))
+              .replace('{excerpt}', d.excerpt || ''); // excerpt 自带 <mark>
+          }).join('');
+          render(html);
+        });
+      }).catch(function () {
+        if (mySeq === seq) render('<p class="mt-5 text-muted">搜索索引不可用（仅线上环境可用）</p>');
+      });
+
+      function render(html) { container.innerHTML = html; }
+    }
+
+    var input, container;
+    document.addEventListener('DOMContentLoaded', function () {
+      input = document.getElementById('search-input');
+      container = document.getElementById('search-results');
+      if (!input || !container) return;
+      var timer = null;
+      container.innerHTML = '';
+      input.addEventListener('input', function () {
+        clearTimeout(timer);
+        var q = input.value.trim();
+        timer = setTimeout(function () {
+          if (!q) { container.innerHTML = ''; return; }
+          runSearch(q);
+        }, 180);
+      });
+    });
+  })();
+</script>

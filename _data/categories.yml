@@ -2,10 +2,14 @@
   description: "《The Data Center as a Computer》读书笔记与分布式计算学习专栏"
   color: "#E74C3C"
   landing: the-data-center-as-a-computer-ai-guide
+  series: true
+  series_label: "专栏阅读"
 - name: 科研及方法论
   description: "学术写作与方法论：贡献判断、选题选刊、把结果写成论证、实验可信度等研究配套文"
   color: "#F4D03F"
   landing: research-and-methodology
+  series: true
+  series_label: "系列阅读"
 - name: Memo
   description: Technical notes and learning archives
   color: "#2ECC71"

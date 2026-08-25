@@ -52,6 +52,10 @@ jobs:
         env:
           JEKYLL_ENV: "production"
 
+      # 必须在 HTML-Proofer 之前：否则 _site 里还没有 /pagefind/*，内链检查会挂
+      - name: Build search index (Pagefind)
+        run: npx -y pagefind@latest --site "_site${{ steps.pages.outputs.base_path }}"
+
       - name: Test site
         run: |
           bundle exec htmlproofer _site \

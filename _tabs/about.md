@@ -81,8 +81,17 @@ title: About
 <div class="section" id="projects">
   <h3 class="section-title">Projects</h3>
   <div class="section-body">
-    <div class="project-card"><a href="https://github.com/70asunflower/ai-learning-journey" class="project-name">AI Learning Journey</a> <a href="https://github.com/70asunflower/ai-learning-journey" target="_blank" class="project-badge"><img src="https://img.shields.io/github/stars/70asunflower/ai-learning-journey?style=social&amp;logo=github" alt="GitHub stars"></a>: A curated knowledge base for AI/LLM learning, covering fine-tuning (LoRA/QLoRA/SFT/DPO), quantization, inference, and deployment with structured resources and notes.</div>
-    <div class="project-card"><a href="https://github.com/70asunflower/ic-chip-design-learning" class="project-name">IC Chip Design Learning</a> <a href="https://github.com/70asunflower/ic-chip-design-learning" target="_blank" class="project-badge"><img src="https://img.shields.io/github/stars/70asunflower/ic-chip-design-learning?style=social&amp;logo=github" alt="GitHub stars"></a>: A structured learning path for IC chip design, from RTL design and verification to physical design and tapeout, covering digital/analog design, UVM, and EDA flows.</div>
+    {% for p in site.data.projects %}
+      {% assign stats = site.data.projects_stats[p.repo] %}
+      <div class="project-card">
+        <a href="https://github.com/{{ p.repo }}" class="project-name">{{ p.name }}</a>
+        {% if stats %}
+          <span class="project-stats"><i class="fas fa-star fa-fw"></i> {{ stats.stars }} · 更新于 {{ stats.pushed_at }}</span>
+        {% endif %}
+        <br>
+        {{ p.desc }}
+      </div>
+    {% endfor %}
   </div>
 </div>
 
@@ -263,6 +272,17 @@ title: About
 .project-card + .project-card {
   padding-top: 8px;
   border-top: 1px dashed rgba(var(--about-accent-rgb), 0.25);
+}
+
+/* Repo stats pill (from _data/projects.json, synced by Actions) */
+.project-stats {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--about-secondary);
+  border: 1px solid rgba(var(--about-accent-rgb), 0.3);
 }
 
 /* Links in about page */
