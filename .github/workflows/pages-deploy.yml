@@ -79,3 +79,24 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # 部署成功后把全站 URL 推送给 IndexNow（Bing/Seznam/Yandex）
+      # 失败不影响部署结果
+      - name: Submit URLs to IndexNow
+        if: success()
+        continue-on-error: true
+        env:
+          KEY: db9ebaa23086dac0d0c982bab08d06bb
+        run: |
+          SITE="70asunflower.github.io"
+          # 带随机参数绕过 CDN 边缘缓存，拿刚部署的最新 sitemap
+          curl -sf --retry 3 "https://${SITE}/sitemap.xml?v=${GITHUB_RUN_ID}" -o sitemap.xml || { echo "sitemap fetch failed"; exit 0; }
+          grep -oE '<loc>[^<]+</loc>' sitemap.xml | sed -E 's|</?loc>||g' | sed '/^$/d' > urls.txt
+          COUNT=$(wc -l < urls.txt)
+          echo "submitting ${COUNT} urls"
+          jq -R -s 'split("\n") | map(select(length > 0)) | {host:"'"${SITE}"'", key:"'"${KEY}"'", keyLocation:"https://'"${SITE}"'/'"${KEY}"'.txt", urlList:.}' urls.txt > payload.json
+          CODE=$(curl -s -o resp.txt -w "%{http_code}" -X POST \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --retry 3 -d @payload.json "https://api.indexnow.org/indexnow")
+          echo "IndexNow response: ${CODE}"
+          cat resp.txt || true
