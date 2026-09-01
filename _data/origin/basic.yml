@@ -11,6 +11,9 @@ toc:
 fontawesome:
   css: /assets/lib/fontawesome-free/css/all.min.css
 
+search:
+  js: ""
+
 mermaid:
   js: /assets/lib/mermaid/mermaid.min.js
 
@@ -34,4 +37,3 @@ clipboard:
 
 mathjax:
   js: /assets/lib/mathjax/tex-chtml.js
-
