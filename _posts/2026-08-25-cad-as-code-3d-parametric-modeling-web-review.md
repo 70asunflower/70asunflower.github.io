@@ -3,7 +3,7 @@ title: "AI Agent 驱动的 3D 参数化建模与 Web 交互审查全流程开发
 author: Fu Qilin
 categories: [工程实践]
 tags: [python, cad, build123d, threejs, 3d-printing, web-preview]
-date: 2026-08-25
+date: 2026-09-14
 description: "面向工业研发与增材制造的 CAD as Code 工程手册：人类定义工程意图 + AI Agent 自动化几何构建与仿真验证 + 浏览器单文件 3D 交互审查。"
 excerpt: "CAD as Code 全流程开发指南：build123d 参数化建模、STEP/STL 稳健导出、Three.js 单文件 3D 交互审查。"
 math: true
