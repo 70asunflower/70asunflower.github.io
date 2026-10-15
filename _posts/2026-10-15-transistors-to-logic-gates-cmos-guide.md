@@ -2,7 +2,7 @@
 title: '从晶体管到逻辑门：CMOS 设计的“万能公式”完全指南'
 author: Fu Qilin
 categories: [数字IC]
-tags: [cmos, digital-ic, transistor, logic-gate, nand, aoi]
+tags: [cmos, transistor, logic-gate, nand, aoi]
 date: 2026-10-15
 description: "从 CMOS 对偶原则出发的晶体管级逻辑门推导完全指南：天然反相、三步万能公式、NAND 为何胜过 NOR，以及 AOI21 与 12 管 XOR 实战。"
 excerpt: "掌握 CMOS 对偶原则这张“万能公式”，不背任何电路图，现场推导所有逻辑门。"
