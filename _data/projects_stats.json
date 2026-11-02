@@ -1,25 +1,25 @@
 {
   "70asunflower/ai-learning-journey": {
     "name": "ai-learning-journey",
-    "description": null,
-    "language": "HTML",
-    "stars": 5,
-    "pushed_at": "2026-10-30",
+    "description": "📚 AI 学习路径 — 精选 LLM / AI Infra / Agent 资源与笔记，每条带中文摘要。配技术栈树 + 在线索引（标签筛选 / 页内阅读）",
+    "language": "Python",
+    "stars": 6,
+    "pushed_at": "2026-11-01",
     "url": "https://github.com/70asunflower/ai-learning-journey"
   },
   "70asunflower/ic-chip-design-learning": {
     "name": "ic-chip-design-learning",
-    "description": null,
-    "language": "HTML",
-    "stars": 0,
-    "pushed_at": "2026-10-31",
+    "description": "🔬 芯片设计学习路径 — 从 RTL 到流片，精选教材 / 课程 / 开源项目 / 工艺资料。配技术栈树 + 在线索引，标出还没覆盖的技能",
+    "language": "Python",
+    "stars": 1,
+    "pushed_at": "2026-11-01",
     "url": "https://github.com/70asunflower/ic-chip-design-learning"
   },
   "70asunflower/ChatShot": {
     "name": "ChatShot",
     "description": "📸 Chrome extension to capture AI chat responses as beautiful screenshots — select, merge, stitch blocks. Supports DeepSeek, ChatGPT, Gemini & 6 more.",
     "language": "JavaScript",
-    "stars": 0,
+    "stars": 1,
     "pushed_at": "2026-10-19",
     "url": "https://github.com/70asunflower/ChatShot"
   },
